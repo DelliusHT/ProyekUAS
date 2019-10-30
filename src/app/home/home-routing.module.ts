@@ -13,6 +13,10 @@ const routes: Routes = [
                     {
                         path: '',
                         loadChildren: './timeline/timeline.module#TimelinePageModule'
+                    },
+                    {
+                        path: 'add-timeline',
+                        loadChildren: './timeline/add-timeline/add-timeline.module#AddTimelinePageModule'
                     }
                 ]
             },
@@ -36,8 +40,7 @@ const routes: Routes = [
         path: '',
         redirectTo: '/home/tabs/timeline',
         pathMatch: 'full'
-    },  { path: 'add-timeline', loadChildren: './timeline/add-timeline/add-timeline.module#AddTimelinePageModule' },
-  { path: 'edit-profile', loadChildren: './profile/edit-profile/edit-profile.module#EditProfilePageModule' }
+    },
 
 ];
 
