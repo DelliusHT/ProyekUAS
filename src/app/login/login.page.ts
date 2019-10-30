@@ -30,8 +30,6 @@ export class LoginPage implements OnInit {
                 this.router.navigateByUrl('/timeline'); 
             }, 1500);
         })
-    //this.authService.login();
-    
 }
 
 }
