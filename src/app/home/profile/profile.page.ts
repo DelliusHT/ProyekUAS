@@ -26,8 +26,8 @@ export class ProfilePage implements OnInit {
             setTimeout(() => {
                 this.isLoading = false;
                 loadingEl.dismiss();
-                this.router.navigateByUrl('/edit-profile'); 
-            }, 1500);
+                this.router.navigateByUrl('/home/tabs/profile/edit-profile"'); 
+            }, 1000);
         })
 }
 

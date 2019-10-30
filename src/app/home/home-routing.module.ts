@@ -27,6 +27,11 @@ const routes: Routes = [
                         path: '',
                         loadChildren: './profile/profile.module#ProfilePageModule'
                     },
+                    
+                    {
+                        path: 'edit-profile',
+                        loadChildren: './timeline/add-timeline/add-timeline.module#AddTimelinePageModule'
+                    }
                 ]
             },
             {
