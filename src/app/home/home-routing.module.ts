@@ -13,6 +13,10 @@ const routes: Routes = [
                     {
                         path: '',
                         loadChildren: './timeline/timeline.module#TimelinePageModule'
+                    },
+                    {
+                        path: 'add-timeline',
+                        loadChildren: './timeline/add-timeline/add-timeline.module#AddTimelinePageModule'
                     }
                 ]
             },
@@ -23,6 +27,11 @@ const routes: Routes = [
                         path: '',
                         loadChildren: './profile/profile.module#ProfilePageModule'
                     },
+                    
+                    {
+                        path: 'edit-profile',
+                        loadChildren: './timeline/add-timeline/add-timeline.module#AddTimelinePageModule'
+                    }
                 ]
             },
             {
@@ -36,7 +45,8 @@ const routes: Routes = [
         path: '',
         redirectTo: '/home/tabs/timeline',
         pathMatch: 'full'
-    }
+    },
+
 ];
 
 @NgModule({
