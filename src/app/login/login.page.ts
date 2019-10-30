@@ -27,7 +27,7 @@ export class LoginPage implements OnInit {
             setTimeout(() => {
                 this.isLoading = false;
                 loadingEl.dismiss();
-                this.router.navigateByUrl('/timeline'); 
+                this.router.navigateByUrl('/home'); 
             }, 1500);
         })
 }
