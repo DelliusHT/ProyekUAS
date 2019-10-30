@@ -30,7 +30,7 @@ const routes: Routes = [
                     
                     {
                         path: 'edit-profile',
-                        loadChildren: './timeline/add-timeline/add-timeline.module#AddTimelinePageModule'
+                        loadChildren: './profile/edit-profile/edit-profile.module#EditProfilePageModule'
                     }
                 ]
             },
