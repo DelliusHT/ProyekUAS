@@ -35,6 +35,15 @@ const routes: Routes = [
                 ]
             },
             {
+                path: 'meeting',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: './meeting/meeting.module#MeetingPageModule'
+                    }
+                ]
+            },
+            {
                 path: '',
                 redirectTo: '/home/tabs/timeline',
                 pathMatch: 'full'
