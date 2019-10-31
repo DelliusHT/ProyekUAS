@@ -1,45 +1,47 @@
-<ion-header>
-  <ion-toolbar>
-      <ion-buttons slot="start">
-          <ion-menu-button menu="m1">
-          </ion-menu-button>
-          </ion-buttons>
-          <ion-title style="text-align: center">Profile</ion-title> 
+<ion-header translucent no-border>
+  <ion-toolbar>    
+    <ion-buttons slot="start">
+      <ion-back-button color="primary" defaultHref="/home"></ion-back-button>
+  </ion-buttons>
   </ion-toolbar>
- 
 </ion-header>
- 
-<ion-content>
-    <ion-row class="ion-text-center">
-        <ion-col size-md="6" offset-md="3">
-          <img src="https://i0.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100&ssl=1">
-          <h2>
-            Raynaldi Ginantara 
-          </h2>
-          <p>
-            00000013221
-          </p>
-          <br>
-            </ion-col>
-            </ion-row>
-            <ion-list>
-              <ion-item-sliding>
-                <ion-item>
-                  <ion-label>Item</ion-label>
-                </ion-item>
-                <ion-item-options side="end">
-                  <ion-item-option routerLink="/home/tabs/profile/edit-profile">Edit</ion-item-option>
-                </ion-item-options>
-              </ion-item-sliding>
-            
-              <ion-item-sliding>
-                <ion-item>
-                  <ion-label>Item</ion-label>
-                </ion-item>
-                <ion-item-options side="end">
-                  <ion-item-option routerLink="/home/tabs/profile/edit-profile">Edit</ion-item-option>
-                  <!-- <ion-item-option (click)="onLoading()">Edit</ion-item-option> -->
-                </ion-item-options>
-              </ion-item-sliding>
-            </ion-list>
+
+<ion-content fullscreen="true" slot="fixed" >
+    <div class="card">
+        <div class="header">
+          <div class="avatar">
+            <img src="https://i0.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100&ssl=1" alt="">
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+          <div class="user-meta ion-text-center">
+              <ion-icon name="female"></ion-icon>
+            <h3 class="playername">Nama
+                <ion-icon name="md-create"></ion-icon></h3>
+            <h5 class="country">Nomor Hp
+                <ion-icon name="md-create"></ion-icon></h5>
+            <h6 class="ranking">Alamat
+                <ion-icon name="md-create"></ion-icon>
+            </h6>
+          </div>
+          <ion-list>
+            <ion-item-sliding>
+              <ion-item>
+                <ion-label>Item</ion-label>
+              </ion-item>
+              <ion-item-options side="end">
+                <ion-item-option routerLink="/home/tabs/profile/edit-profile">Edit</ion-item-option>
+              </ion-item-options>
+            </ion-item-sliding>
+            <ion-item-sliding>
+              <ion-item>
+                <ion-label>Item</ion-label>
+              </ion-item>
+              <ion-item-options side="end">
+                <ion-item-option routerLink="/home/tabs/profile/edit-profile">Edit</ion-item-option> 
+              </ion-item-options>
+            </ion-item-sliding>
+          </ion-list>
+      </div>
 </ion-content>

@@ -1,9 +1,88 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>edit</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
-</ion-content>
+    <ion-toolbar>
+      <ion-title>Edit masakan</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-slides>
+      <ion-slide>
+      <ion-grid>
+          <ion-row>
+              <ion-col size="12" size-sm="8" offset-sm="2" text-center>
+                  <ion-card >
+                      <ion-img src="https://cdn1.iconfinder.com/data/icons/iconmart-web-icons-2/64/camera-512.png"></ion-img>
+                  </ion-card>
+              </ion-col>
+          </ion-row>
+    <ion-list>
+        <ion-item>
+            <ion-label position="fix">Title</ion-label>
+            <ion-input inputMode="text">asasaasa</ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="fix">Description</ion-label>
+            <ion-textarea>asdadadasd</ion-textarea>
+        </ion-item>
+    </ion-list>
+    <ion-buttons>
+        <ion-button color="primary">Swipe >></ion-button>
+      </ion-buttons>
+  </ion-grid>
+  </ion-slide>
+    <ion-slide>
+      <ion-grid>   
+        <ion-text >Jenis Bahan</ion-text>
+    <ion-card> 
+        <ion-item>
+            <ion-label>
+              <h3 style="font-size:15Px;text-align: center;">Daun Jeruk
+                  <ion-icon name="md-create"></ion-icon></h3>
+              <p style="font-size:15Px;text-align: center;">2 Helai
+                  <ion-icon name="md-create"></ion-icon></p>
+            </ion-label>   
+          </ion-item>
+          <ion-item>
+            <ion-label>
+              <h3 style="font-size:15Px;text-align: center;">Minyak Goreng<ion-icon name="md-create"></ion-icon></h3>
+              <p style="font-size:15Px;text-align: center;">1 Liter<ion-icon name="md-create"></ion-icon></p>
+            </ion-label>   
+          </ion-item>
+        </ion-card>
+        <ion-item>
+            <ion-label position="floating">Nama Bahan</ion-label>
+            <ion-input inputMode="text" 
+            placeholder="Name ingredients"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Takaran</ion-label>
+            <ion-input inputMode="text"
+            placeholder="Scope"></ion-input>
+        </ion-item>
+            <ion-button color="primary">Tambah Bahan</ion-button>
+          <ion-buttons>
+              <ion-button color="primary">Swipe>></ion-button>
+            </ion-buttons>
+      </ion-grid>
+    </ion-slide>
+    <ion-slide>
+        <ion-grid>   
+            <ion-text>Langkah-Langkah Masak</ion-text>
+            <ion-item>
+                <ion-label position="fix">Takaran Saji</ion-label>
+                <ion-input inputMode="text">asasasa</ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="fix">Waktu Persiapan</ion-label>
+                <ion-input inputMode="text">asasa</ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="fix">Total Waktu Untuk Memasak</ion-label>
+                <ion-input inputMode="text">asas</ion-input>
+            </ion-item>
+                <ion-button color="primary" routerLink="/home/tabs/profile">Save</ion-button>
+          </ion-grid>
+      </ion-slide>
+  </ion-slides>
+  </ion-content>
+  

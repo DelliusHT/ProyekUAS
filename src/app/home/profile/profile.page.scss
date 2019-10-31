@@ -1,0 +1,58 @@
+ion-content {
+    --background: url('https://cdn.pixabay.com/photo/2017/02/18/09/04/sky-2076868_960_720.jpg') no-repeat top center/cover fixed, #fff;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+ion-toolbar {
+    --background: transparent;
+}
+
+.card {
+    margin: 0 auto;
+
+    .header {
+        height: 200px;
+
+        .avatar {
+            width: 160px;
+            height: 160px;
+            position: relative;
+            margin: 0 auto;
+
+            img {
+                display: block;
+                border-radius: 50%;
+                position: absolute;
+                bottom: calc(-1*(80px + 4px));
+                border: 8px solid #9Dc912;
+                background-color: #fff;
+            }
+        }
+    }
+}
+
+.card-body {
+    background-color: #ffffff;
+    padding: 30px;
+    height: calc(100vh - (200px + 56px));
+    overflow: hidden;
+
+    .user-meta {
+        padding-top: 40px;
+
+        .playername {
+            font-size: 24px;
+            font-weight: 600;
+            color: #303940;
+        }
+
+        .country {
+            font-size: 90%;
+            color: #949ea6;
+            text-transform: uppercase;
+            margin: 0 auto;
+        }
+    }
+}
