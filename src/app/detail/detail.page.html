@@ -7,15 +7,84 @@
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
-    <ion-row>
-        <ion-col size="12" size-sm="8" offset-sm="2" text-center>
-                <ion-img src="https://selerasa.com/wp-content/uploads/2015/12/images_daging_ayam-goreng.jpg"></ion-img>
-                <ion-title>Ayam Goreng</ion-title>
-                <!-- <ion-content> -->
-                    <p> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                <!-- </ion-content> -->
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-sm="8" offset-sm="2" class="text-center">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title style="text-align: center;font-size: 23px;">Ayam Goreng</ion-card-title>
+            </ion-card-header>
+            <ion-img src="https://selerasa.com/wp-content/uploads/2015/12/images_daging_ayam-goreng.jpg"></ion-img>
+            <ion-card-content>
+              <p style="font-size: 15px;text-align: right;">Nama Pembuat</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!-- 1bagian -->
+    <ion-grid style="font-size:15Px;text-align: center;">
+        <ion-row style="background-color:cornflowerblue;color: white;">
+          <ion-col style=" border: solid darkgray">
+            <div>
+              Takaran Saji
+            </div>
+          </ion-col>
+          <ion-col style=" border: solid darkgray">
+            <div>
+              Waktu Persiapan
+            </div>
+          </ion-col>
+          <ion-col style=" border: solid darkgray">
+            <div>
+              Total Waktu untuk Memasak
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col style="border: solid darkgray;">
+            <div>
+              8 Porsi
+            </div>
+          </ion-col>
+          <ion-col style="border: solid darkgray;">
+            <div>
+              10 Menit
+            </div>
+          </ion-col>
+          <ion-col style="border: solid darkgray;">
+            <div>
+              1 Jam
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <!-- 1bagian -->
+    <ion-row style="text-align: center;">
+        <ion-col size="12" size-sm="8" offset-sm="2" class="ion-text-center">
+          <h2 style="text-align: center;">Langkah - Langkah</h2>
+            <!-- Angular disini -->
+          <ion-list>
+            <ion-item>
+              <p style="font-size:15Px;text-align: justify;"><strong>1.</strong> Setelah ayam dibersihkan, selanjutnya silahkan siapkan rebusan air dalam panci atau wajan dengan bentuk yang cekung yang kira-kira bisa menampung ayam untuk diungkep.</p>
+            </ion-item>
+            <ion-item>
+              <p style="font-size:15Px;text-align: justify;"><strong>2.</strong> Masukkan ayam kedalamnya bersama dengan daun salam, serai dan juga bumbu yang telah dihaluskan dan berikan sedikit garam. Aduk-aduk secara merata dan ungkep secara merata sampai ayam menjadi setengah matang.</p>
+            </ion-item>
+            <ion-item>
+              <p style="font-size:15Px;text-align: justify;"><strong>3.</strong> Berikan pula gula, penyedap dan aduk-aduk lalu masak kembali hingga ayam matah dan kuah menyusut secara merata.</p>
+            </ion-item>
+            <ion-item>
+              <p style="font-size:15Px;text-align: justify;"><strong>4.</strong> Selanjutnya angkat ayam, dan sisihkan sementara untuk selanjutnya akan kita goreng.</p>
+            </ion-item>
+            <ion-item>
+              <p style="font-size:15Px;text-align: justify;"><strong>5.</strong> Siapkan wajan diatas kompor dan berikan minyak goreng kedalamnya. Gunakan api sedang dan goreng ayam kedalamnya hingga matang dan berwarna kecoklatan.</p>
+            </ion-item>
+          </ion-list>
         </ion-col>
     </ion-row>
-    <ion-button color="primary" [routerLink]="['/','ingredient']">ingredients</ion-button>
+  <ion-button style="margin: 0 auto;display:grid" color="primary" [routerLink]="['/','ingredient']">Bahan</ion-button>
+  <br>
 </ion-content>
