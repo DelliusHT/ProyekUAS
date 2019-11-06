@@ -10,6 +10,7 @@ export class TimelinePage implements OnInit {
   
   todos : Todo[];
   todoId = null;
+  
   todo: Todo= {
     nmbahan: null,
     createdAt: new Date().getTime(),
