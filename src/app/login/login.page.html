@@ -8,14 +8,14 @@
   <ion-list>
       <ion-item>
           <ion-label position="floating">E-mail</ion-label>
-          <ion-input inputMode="email" type="email"></ion-input>
+          <ion-input inputMode="email" type="email" [(ngModel)]="username"></ion-input>
       </ion-item>
       <ion-item>
           <ion-label position="floating">Password</ion-label>
-          <ion-input inputMode="password"></ion-input>
+          <ion-input inputMode="password"[(ngModel)]="password"a></ion-input>
       </ion-item>
   </ion-list>
   <!-- <ion-spinner color="primary" *ngIf="isLoading">Login</ion-spinner> -->
   <ion-button color="primary" (click)="onLogin()">Login</ion-button>
-  <ion-button color="primary" (click)="register()">Register</ion-button>
+  <ion-button color="primary" (click)="register1()">Register</ion-button>
 </ion-content>

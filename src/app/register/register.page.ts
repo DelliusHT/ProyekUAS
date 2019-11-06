@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ToastController } from '@ionic/angular';
+import { Register, RegisterService } from './register.service';
 
 @Component({
   selector: 'app-register',
@@ -9,12 +10,39 @@ import { ToastController } from '@ionic/angular';
 })
 export class RegisterPage implements OnInit {
 
-  constructor(private router: Router, private toastController: ToastController) { }
+  register: Register={
+    nama: '',
+    jenisKelamin: '',
+    alamat: '',
+    noHp: '',
+    email: '',
+    password: ''
+
+  }
+  registerId= null;
+
+  constructor(private router: Router, private route: ActivatedRoute,private toastController: ToastController, private registerService: RegisterService) { }
 
   ngOnInit() {
+    this.registerId = this.route.snapshot.params['id'];
+    if(this.registerId){
+      this.loadRegister();
+    }
   }
 
-  async register(){
+  loadRegister(){
+    this.registerService.getRegister(this.registerId).subscribe(res => {
+      this.register = res;
+    });
+  }
+
+  async register1(){
+    if(this.registerId){
+      this.registerService.updateRegister(this.register, this.registerId);
+    }
+    else{
+      this.registerService.addRegister(this.register);
+    }
     const toast = await this.toastController.create({
       message: 'Your account is registered',
       duration: 1000,

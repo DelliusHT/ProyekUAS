@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
+import { RegisterService, Register } from '../register/register.service';
 
 @Component({
   selector: 'app-login',
@@ -8,11 +9,15 @@ import { LoadingController } from '@ionic/angular';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
+
+  username: string;
+  password: string;
   isLoading = false;
+  register: Register[];
+ 
   constructor(
-    
     private router: Router,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
   ) { }
 
   ngOnInit() {
@@ -32,7 +37,7 @@ export class LoginPage implements OnInit {
         })
 }
 
-  register(){
+  register1(){
     this.router.navigateByUrl('/register');
   }
 
