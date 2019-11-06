@@ -5,13 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { AddTimelinePage } from './add-timeline.page';
-
+import { AddLangkahPage } from './add-langkah.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: AddTimelinePage
+    component: AddLangkahPage
   }
 ];
 
@@ -22,6 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [AddTimelinePage]
+  declarations: [AddLangkahPage]
 })
-export class AddTimelinePageModule {}
+export class AddLangkahPageModule {}

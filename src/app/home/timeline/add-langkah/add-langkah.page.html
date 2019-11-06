@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>add-langkah</ion-title>
+    <ion-buttons slot="start">
+        <ion-back-button color="primary" [routerLink]="[
+        '/',
+        'home',
+        'tabs',
+        'timeline',
+        'add-bahan'
+    ]"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid>   
+        <ion-card> 
+            <ion-item *ngFor="let item of todos">
+                <ion-label>
+                <p style="font-size:15Px;text-align: justify;"> {{ item.nmbahan }}</p>
+                </ion-label>
+                <ion-buttons>
+                    <ion-button color="primary" (click)="remove(item)">
+                        <ion-icon  name="close">
+                          </ion-icon>
+                    </ion-button>   
+                    </ion-buttons>
+              </ion-item>
+            </ion-card>
+            <ion-item>
+                <ion-label position="floating">Langkah-Langkah</ion-label>
+                <ion-textarea [(ngModel)]="todo.nmbahan" ></ion-textarea>
+            </ion-item>
+            <ion-button color="primary" (click)="saveTodo()">Tambah Langkah-Langkah</ion-button>
+        <ion-item>
+            <ion-label position="floating">Takaran Saji</ion-label>
+            <ion-input inputMode="text"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Waktu Persiapan</ion-label>
+            <ion-input inputMode="text"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Total Waktu Untuk Memasak</ion-label>
+            <ion-input inputMode="text"></ion-input>
+        </ion-item>
+            <ion-button color="primary">Upload</ion-button>
+      </ion-grid>
+</ion-content>

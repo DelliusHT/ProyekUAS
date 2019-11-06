@@ -17,7 +17,13 @@ const routes: Routes = [
                     {
                         path: 'add-timeline',
                         loadChildren: './timeline/add-timeline/add-timeline.module#AddTimelinePageModule'
-                    }
+                    },
+                    { path: 'add-langkah',
+                     loadChildren: './timeline/add-langkah/add-langkah.module#AddLangkahPageModule' 
+                    },
+                    { path: 'add-bahan', 
+                    loadChildren: './timeline/add-bahan/add-bahan.module#AddBahanPageModule' 
+                },
                 ]
             },
             {
@@ -55,6 +61,9 @@ const routes: Routes = [
         redirectTo: '/home/tabs/timeline',
         pathMatch: 'full'
     },
+//   { path: 'add-langkah', loadChildren: './timeline/add-langkah/add-langkah.module#AddLangkahPageModule' },
+//   { path: 'add-bahan', loadChildren: './timeline/add-bahan/add-bahan.module#AddBahanPageModule' },
+
 
 ];
 

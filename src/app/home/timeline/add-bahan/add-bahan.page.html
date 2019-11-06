@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>add-bahan</ion-title>
+    <ion-buttons slot="start">
+        <ion-back-button color="primary" [routerLink]="[
+        '/',
+        'home',
+        'tabs',
+        'timeline',
+        'add-timeline'
+    ]"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-grid>   
+    <ion-card> 
+        <ion-item *ngFor="let item of todos">
+            <ion-label>
+              <h3 style="font-size:15Px;text-align: center;">{{ item.nmbahan }}</h3>
+              <p style="font-size:15Px;text-align: center;">{{ item.takaran}}</p>
+            </ion-label>
+            <ion-buttons>
+            <ion-button color="primary" (click)="remove(item)">
+                <ion-icon  name="close">
+                  </ion-icon>
+            </ion-button>   
+            </ion-buttons>
+          </ion-item>
+        </ion-card>
+        <ion-item>
+            <ion-label position="floating">Nama Bahan</ion-label>
+            <ion-input required inputMode="text" [(ngModel)]="todo.nmbahan"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Takaran</ion-label>
+            <ion-input inputMode="text" [(ngModel)]="todo.takaran"></ion-input>
+        </ion-item>
+            <ion-button color="primary" (click)="saveTodo()">Tambah Bahan</ion-button>
+          <ion-buttons>
+              <ion-button color="primary" [routerLink]="[
+              '/',
+              'home',
+              'tabs',
+              'timeline',
+              'add-langkah'
+          ]">Next>></ion-button>
+            </ion-buttons>
+      </ion-grid>
+</ion-content>
