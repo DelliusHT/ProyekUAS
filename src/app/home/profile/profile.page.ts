@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';  
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
+import { HomeService, Todo } from '../home.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,12 +11,17 @@ import { LoadingController } from '@ionic/angular';
 export class ProfilePage implements OnInit {
   isLoading = false;
 
-  constructor(
+  todos : Todo[]; 
+
+  constructor(private dataSvc : HomeService,
     private router: Router,
     private loadingCtrl: LoadingController) { }
-
-  ngOnInit() {
-  }
+    
+    ngOnInit() {
+      this.dataSvc.getTodos().subscribe(res => {
+        this.todos = res;
+      });
+    }
 
   onLoading() {
     this.isLoading = true;

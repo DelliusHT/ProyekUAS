@@ -3,9 +3,14 @@
     <ion-buttons slot="start">
       <ion-back-button color="primary" defaultHref="/home"></ion-back-button>
   </ion-buttons>
+  <ion-buttons slot="end" large>
+    <ion-icon name="exit" 
+    [routerLink]="[
+        '/',
+        'login']"></ion-icon>
+</ion-buttons>
   </ion-toolbar>
 </ion-header>
-
 <ion-content fullscreen="true" slot="fixed" >
     <div class="card">
         <div class="header">
@@ -26,27 +31,21 @@
             </h6>
           </div>
           <ion-list>
-            <ion-item-sliding>
-              <ion-item>
-                <ion-label>Item</ion-label>
-              </ion-item>
+            <ion-item-sliding *ngFor="let item of todos">
               <ion-item-options side="end">
-                <ion-item-option routerLink="/home/tabs/profile/edit-profile">Edit</ion-item-option>
-              </ion-item-options>
-            </ion-item-sliding>
-            <ion-item-sliding>
-              <ion-item>
-                <ion-label>Item</ion-label>
+                <ion-item-option (click)="gebetanNyaLoading(d)">
+                  <ion-icon color="danger" name="trash" slot="icon-only"></ion-icon>
+                </ion-item-option>
+              </ion-item-options> 
+              <ion-item routerLink="/home/tabs/profile/edit-profile">
+                <ion-thumbnail slot="start">
+                  <ion-img src="https://selerasa.com/wp-content/uploads/2015/12/images_daging_ayam-goreng.jpg"></ion-img>
+                </ion-thumbnail>
+                <ion-label>
+                  <h2>{{ item.title}}</h2> 
+                </ion-label>
               </ion-item>
-              <ion-item-options side="end">
-                <ion-item-option routerLink="/home/tabs/profile/edit-profile">Edit</ion-item-option> 
-              </ion-item-options>
             </ion-item-sliding>
-            <ion-buttons slot="start">
-                <button color="primary" [routerLink]="[
-                '/',
-                'login']">LOGOUT</button>
-            </ion-buttons>
           </ion-list>
       </div>
 </ion-content>
