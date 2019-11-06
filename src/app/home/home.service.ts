@@ -5,8 +5,14 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 export interface Todo {
+  title: string;
+  deskripsi: string;
   nmbahan: string;
   takaran: number;
+  langkah: string;
+  takasaji: string;
+  waktusiap: string;
+  totalmasak: string;
   createdAt: number;
 }
 

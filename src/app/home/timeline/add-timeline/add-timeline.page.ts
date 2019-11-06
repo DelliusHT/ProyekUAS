@@ -16,9 +16,16 @@ export class AddTimelinePage implements OnInit {
   todoId = null;
 
   todo: Todo= {
+    title: null,
+    deskripsi: null,
     nmbahan: null,
+    takaran: null,
+    langkah: null,
+    takasaji: null,
+    waktusiap: null,
+    totalmasak: null,
     createdAt: new Date().getTime(),
-    takaran: null
+  
   }
 
 
@@ -52,7 +59,7 @@ export class AddTimelinePage implements OnInit {
     else{
       this.dataSvc.addTodo(this.todo).then(()=>{
         loading.dismiss();
-        this.router.navigateByUrl('/home/tabs/timeline/add-bahan');
+        this.router.navigateByUrl('/home');
       })
       //this.dataSvc.addTodo(this.todo);
     }

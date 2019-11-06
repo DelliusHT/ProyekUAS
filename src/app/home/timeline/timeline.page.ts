@@ -10,11 +10,17 @@ export class TimelinePage implements OnInit {
   
   todos : Todo[];
   todoId = null;
-  
+
   todo: Todo= {
+    title: null,
+    deskripsi: null,
     nmbahan: null,
+    takaran: null,
+    langkah: null,
+    takasaji: null,
+    waktusiap: null,
+    totalmasak: null,
     createdAt: new Date().getTime(),
-    takaran: null
   }
 
   constructor(private dataSvc : HomeService) { }
