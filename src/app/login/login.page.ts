@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { RegisterService, Register } from '../register/register.service';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-login',
@@ -10,20 +11,44 @@ import { RegisterService, Register } from '../register/register.service';
 })
 export class LoginPage implements OnInit {
 
-  username: string;
-  password: string;
+  username: string = "";
+  password: string = "";
+  msg: string = "";
   isLoading = false;
-  register: Register[];
+
  
   constructor(
     private router: Router,
     private loadingCtrl: LoadingController,
+    private afAuth: AngularFireAuth
   ) { }
 
   ngOnInit() {
   }
 
-  onLogin() {
+  async onLogin() {
+    const { username, password } = this
+    try{
+      const res = await this.afAuth.auth.signInWithEmailAndPassword(username + '@gmail.com', password)
+      console.log(res.user.uid)
+    } catch(err){
+      console.dir(err)
+      if(err.code ==="auth/user-not-found"){
+        this.msg = err.code
+      }
+    }
+    if(this.msg === "auth/user-not-found"){
+      alert("Email atau password yang ada masukkan tidak tepat")
+      this.username = ""
+      this.password = ""
+      this.msg = ""
+    }
+    else{
+      this.loading();
+    }
+}
+
+  loading(){
     this.isLoading = true;
     this.loadingCtrl.create({keyboardClose: true, message: 'Logging in...'})
         .then(loadingEl => {
@@ -35,7 +60,7 @@ export class LoginPage implements OnInit {
                 this.router.navigateByUrl('/home'); 
             }, 1500);
         })
-}
+  }
 
   register1(){
     this.router.navigateByUrl('/register');
