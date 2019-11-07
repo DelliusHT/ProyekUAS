@@ -20,6 +20,7 @@ export interface Todo {
 @Injectable({
   providedIn: 'root'
 })
+
 export class HomeService {
   
   private todosCollection: AngularFirestoreCollection<Todo>;

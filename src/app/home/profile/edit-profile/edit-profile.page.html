@@ -1,5 +1,8 @@
 <ion-header>
     <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button color="primary" defaultHref="/home/tabs/profile"></ion-back-button>
+      </ion-buttons>
       <ion-title>Edit masakan</ion-title>
     </ion-toolbar>
   </ion-header>
@@ -18,11 +21,11 @@
     <ion-list>
         <ion-item>
             <ion-label position="fix">Title</ion-label>
-            <ion-input inputMode="text">asasaasa</ion-input>
+            <ion-input type="text" placeholder="Title" [(ngModel)]="todo.title"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label position="fix">Description</ion-label>
-            <ion-textarea>asdadadasd</ion-textarea>
+            <ion-textarea placeholder="Deskripsi" [(ngModel)]="todo.deskripsi"></ion-textarea>
         </ion-item>
     </ion-list>
     <ion-buttons>
@@ -52,12 +55,12 @@
         <ion-item>
             <ion-label position="floating">Nama Bahan</ion-label>
             <ion-input inputMode="text" 
-            placeholder="Name ingredients"></ion-input>
+            placeholder="Name ingredients" [(ngModel)]="todo.nmbahan"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label position="floating">Takaran</ion-label>
             <ion-input inputMode="text"
-            placeholder="Scope"></ion-input>
+            placeholder="Scope" [(ngModel)]="todo.takaran"></ion-input>
         </ion-item>
             <ion-button color="primary">Tambah Bahan</ion-button>
           <ion-buttons>
@@ -70,15 +73,15 @@
             <ion-text>Langkah-Langkah Masak</ion-text>
             <ion-item>
                 <ion-label position="fix">Takaran Saji</ion-label>
-                <ion-input inputMode="text">asasasa</ion-input>
+                <ion-input type="text" placeholder="Scope" [(ngModel)]="todo.takasaji"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label position="fix">Waktu Persiapan</ion-label>
-                <ion-input inputMode="text">asasa</ion-input>
+                <ion-input type="text" placeholder="Scope" [(ngModel)]="todo.waktusiap"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label position="fix">Total Waktu Untuk Memasak</ion-label>
-                <ion-input inputMode="text">asas</ion-input>
+                <ion-input type="text" placeholder="Scope" [(ngModel)]="todo.totalmasak"></ion-input>
             </ion-item>
                 <ion-button color="primary" routerLink="/home/tabs/profile">Save</ion-button>
           </ion-grid>

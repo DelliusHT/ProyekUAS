@@ -12,6 +12,7 @@ export class ProfilePage implements OnInit {
   isLoading = false;
 
   todos : Todo[]; 
+  todoId = null;
 
   constructor(private dataSvc : HomeService,
     private router: Router,
@@ -35,6 +36,10 @@ export class ProfilePage implements OnInit {
                 this.router.navigateByUrl('/home/tabs/profile/edit-profile"'); 
             }, 1000);
         })
-}
+  }
+
+  remove(item){
+    this.dataSvc.removeTodo(item.id);
+  }
 
 }

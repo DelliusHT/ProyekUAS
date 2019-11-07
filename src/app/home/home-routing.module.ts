@@ -36,7 +36,7 @@ const routes: Routes = [
                     },
                     
                     {
-                        path: 'edit-profile',
+                        path: 'edit-profile/:id',
                         loadChildren: './profile/edit-profile/edit-profile.module#EditProfilePageModule'
                     }
                 ]
