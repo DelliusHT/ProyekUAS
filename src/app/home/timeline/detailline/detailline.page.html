@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title text-center>detail {{todo.title}}</ion-title>
+    <ion-title text-center>detail</ion-title>
     <ion-buttons slot="start">
         <ion-back-button color="primary" defaultHref="/home"></ion-back-button>
     </ion-buttons>
@@ -14,7 +14,7 @@
         <ion-col size="12" size-sm="8" offset-sm="2" class="text-center">
           <ion-card>
             <ion-card-header>
-              <ion-card-title style="text-align: center;font-size: 23px;">Ayam Goreng</ion-card-title>
+              <ion-card-title style="text-align: center;font-size: 23px;">{{todo.title}}</ion-card-title>
             </ion-card-header>
             <ion-img src="https://selerasa.com/wp-content/uploads/2015/12/images_daging_ayam-goreng.jpg"></ion-img>
             <ion-card-content>
@@ -46,17 +46,17 @@
         <ion-row>
           <ion-col style="border: solid darkgray;">
             <div> 
-              8 Porsi
+              {{todo.takasaji}}
             </div>
           </ion-col>
           <ion-col style="border: solid darkgray;">
             <div>
-              10 Menit
+              {{todo.waktusiap}}
             </div>
           </ion-col>
           <ion-col style="border: solid darkgray;">
             <div>
-              1 Jam
+              {{todo.totalmasak}}
             </div>
           </ion-col>
         </ion-row>
@@ -68,9 +68,9 @@
             <!-- Angular disini -->
           <ion-list>
             <ion-item>
-              <p style="font-size:15Px;text-align: justify;"><strong>1.</strong> Setelah ayam dibersihkan, selanjutnya silahkan siapkan rebusan air dalam panci atau wajan dengan bentuk yang cekung yang kira-kira bisa menampung ayam untuk diungkep.</p>
+              <p style="font-size:15Px;text-align: justify;">{{todo.langkah}}</p>
             </ion-item>
-            <ion-item>
+            <!-- <ion-item>
               <p style="font-size:15Px;text-align: justify;"><strong>2.</strong> Masukkan ayam kedalamnya bersama dengan daun salam, serai dan juga bumbu yang telah dihaluskan dan berikan sedikit garam. Aduk-aduk secara merata dan ungkep secara merata sampai ayam menjadi setengah matang.</p>
             </ion-item>
             <ion-item>
@@ -81,7 +81,7 @@
             </ion-item>
             <ion-item>
               <p style="font-size:15Px;text-align: justify;"><strong>5.</strong> Siapkan wajan diatas kompor dan berikan minyak goreng kedalamnya. Gunakan api sedang dan goreng ayam kedalamnya hingga matang dan berwarna kecoklatan.</p>
-            </ion-item>
+            </ion-item> -->
           </ion-list>
         </ion-col>
     </ion-row>

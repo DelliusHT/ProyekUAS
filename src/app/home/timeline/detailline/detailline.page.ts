@@ -33,8 +33,6 @@ export class DetaillinePage implements OnInit {
       this.loadTodo();
     }
 
-
-    
    }
    async loadTodo(){
     const loading = await this.loading.create({
