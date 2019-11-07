@@ -55,5 +55,5 @@ export class EditProfilePage implements OnInit {
     }
     this.router.navigateByUrl('/home/tabs/profile"'); 
   }
-
+  
 }

@@ -83,7 +83,7 @@
                 <ion-label position="fix">Total Waktu Untuk Memasak</ion-label>
                 <ion-input type="text" placeholder="Scope" [(ngModel)]="todo.totalmasak"></ion-input>
             </ion-item>
-                <ion-button color="primary" routerLink="/home/tabs/profile">Save</ion-button>
+                <ion-button color="primary" (click)="saveTodo()">Save</ion-button>
           </ion-grid>
       </ion-slide>
   </ion-slides>
