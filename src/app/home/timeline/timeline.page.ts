@@ -29,6 +29,7 @@ export class TimelinePage implements OnInit {
     this.dataSvc.getTodos().subscribe(res => {
       this.todos = res;
     });
+  
   }
 
 }

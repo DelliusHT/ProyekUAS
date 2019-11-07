@@ -24,6 +24,7 @@ const routes: Routes = [
                     { path: 'add-bahan', 
                     loadChildren: './timeline/add-bahan/add-bahan.module#AddBahanPageModule' 
                 },
+                { path: ':id', loadChildren: './timeline/detailline/detailline.module#DetaillinePageModule' },
                 ]
             },
             {
@@ -61,6 +62,8 @@ const routes: Routes = [
         redirectTo: '/home/tabs/timeline',
         pathMatch: 'full'
     },
+//   { path: 'detailline', loadChildren: './timeline/detailline/detailline.module#DetaillinePageModule' },
+
 //   { path: 'add-langkah', loadChildren: './timeline/add-langkah/add-langkah.module#AddLangkahPageModule' },
 //   { path: 'add-bahan', loadChildren: './timeline/add-bahan/add-bahan.module#AddBahanPageModule' },
 
