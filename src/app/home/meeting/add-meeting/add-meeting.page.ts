@@ -16,6 +16,7 @@ export class AddMeetingPage implements OnInit {
   todoId = null;
 
   todo: Todo= {
+    id:null,
     title: null,
     deskripsi: null,
     nmbahan: null,

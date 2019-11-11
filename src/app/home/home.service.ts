@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 export interface Todo {
+  id:null,
   title: string;
   deskripsi: string;
   nmbahan: string;
