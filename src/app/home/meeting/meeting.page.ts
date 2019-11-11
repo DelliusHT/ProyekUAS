@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HomeService, Todo } from '../home.service';
 
 @Component({
   selector: 'app-meeting',
@@ -6,10 +7,33 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./meeting.page.scss'],
 })
 export class MeetingPage implements OnInit {
+  todos : Todo[];
+  todoId = null;
 
-  constructor() { }
+  todo: Todo= {
+    title: null,
+    deskripsi: null,
+    nmbahan: null,
+    takaran: null,
+    langkah: null,
+    takasaji: null,
+    waktusiap: null,
+    totalmasak: null,
+    createdAt: new Date().getTime(),
+    name: null,
+    date: null,
+    alamat: null,
+    phone: null,
+    time: null,
+  }
+
+  constructor(private dataSvc : HomeService) { }
 
   ngOnInit() {
+    this.dataSvc.getTodos().subscribe(res => {
+      this.todos = res;
+    });
+  
   }
 
 }

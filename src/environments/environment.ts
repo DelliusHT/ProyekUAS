@@ -27,13 +27,23 @@ export const environment = {
     // measurementId: "G-ZETWP2YS01"
 
     //gs
-    apiKey: "AIzaSyB6WkozZBuIFZcVJXPrKpFI1bvFE-lGwLs",
-    authDomain: "proyekuas-3fb74.firebaseapp.com",
-    databaseURL: "https://proyekuas-3fb74.firebaseio.com",
-    projectId: "proyekuas-3fb74",
-    storageBucket: "proyekuas-3fb74.appspot.com",
-    messagingSenderId: "467545500271",
-    appId: "1:467545500271:web:e2264b798e9209a3903b9a"
+    // apiKey: "AIzaSyB6WkozZBuIFZcVJXPrKpFI1bvFE-lGwLs",
+    // authDomain: "proyekuas-3fb74.firebaseapp.com",
+    // databaseURL: "https://proyekuas-3fb74.firebaseio.com",
+    // projectId: "proyekuas-3fb74",
+    // storageBucket: "proyekuas-3fb74.appspot.com",
+    // messagingSenderId: "467545500271",
+    // appId: "1:467545500271:web:e2264b798e9209a3903b9a"
+
+    //yo
+    apiKey: "AIzaSyBt5t_wRR5ScLsnvZ8cQkpdxEJUyIFwYvY",
+    authDomain: "dapurayam-e457c.firebaseapp.com",
+    databaseURL: "https://dapurayam-e457c.firebaseio.com/",
+    projectId: "dapurayam-e457c",
+    storageBucket: "dapurayam-e457c.appspot.com",
+    messagingSenderId: "1028138858531",
+    appId: "1:1028138858531:web:4681ac81d5d82ae7935996",
+    measurementId: "G-V45T919RJ5"
   }
 };
 
