@@ -11,7 +11,7 @@ export class MeetingPage implements OnInit {
   todoId = null;
 
   todo: Todo= {
-    id:null,
+    idd:null,
     title: null,
     deskripsi: null,
     nmbahan: null,
