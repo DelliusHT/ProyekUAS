@@ -61,7 +61,8 @@ const routes: Routes = [
         path: '',
         redirectTo: '/home/tabs/timeline',
         pathMatch: 'full'
-    },
+    },  { path: 'edit', loadChildren: './profile/edit/edit.module#EditPageModule' },
+
 //   { path: 'detailline', loadChildren: './timeline/detailline/detailline.module#DetaillinePageModule' },
 
 //   { path: 'add-langkah', loadChildren: './timeline/add-langkah/add-langkah.module#AddLangkahPageModule' },
