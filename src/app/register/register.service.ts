@@ -4,12 +4,11 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 export interface Register {
+    id: string
     nama: string
     jenisKelamin: string;
     alamat: string;
     noHp: string;
-    email: string;
-    password: string;
 }
 
 @Injectable({

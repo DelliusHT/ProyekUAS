@@ -11,6 +11,14 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class RegisterPage implements OnInit {
 
+  register: Register = {
+    id: "",
+    nama: "",
+    jenisKelamin: "", 
+    alamat: "",
+    noHp: ""
+  }
+
   username: string = "";
   password: string = "";
 
@@ -28,10 +36,14 @@ export class RegisterPage implements OnInit {
     const { username,password } = this
     try{
       const res = await this.afAuth.auth.createUserWithEmailAndPassword(username + '@gmail.com', password)
+      this.register.id = res.user.uid;
+      console.log(this.register.id);
       console.log(res)
     } catch(error){
       console.dir(error)
     }
+    this.registerService.addRegister(this.register);
+    console.log(this.register);
     const toast = await this.toastController.create({
       message: 'Your account is registered',
       duration: 1000,

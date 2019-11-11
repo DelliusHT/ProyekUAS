@@ -31,13 +31,20 @@ export class LoginPage implements OnInit {
     try{
       const res = await this.afAuth.auth.signInWithEmailAndPassword(username + '@gmail.com', password)
       console.log(res.user.uid)
+      console.log(res.user.email)
     } catch(err){
       console.dir(err)
-      if(err.code ==="auth/user-not-found"){
+      if(err.code){
         this.msg = err.code
       }
     }
-    if(this.msg === "auth/user-not-found"){
+    if(this.msg != ""){
+      alert("Email atau password yang ada masukkan tidak tepat")
+      this.username = ""
+      this.password = ""
+      this.msg = ""
+    }
+    else if(password=="" || username==""){
       alert("Email atau password yang ada masukkan tidak tepat")
       this.username = ""
       this.password = ""
