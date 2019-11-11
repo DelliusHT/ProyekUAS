@@ -1,9 +1,76 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>add-meeting</ion-title>
-  </ion-toolbar>
-</ion-header>
-
+    <ion-toolbar>
+      <ion-title>Tambah Meeting</ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button color="primary" [routerLink]="[
+        '/',
+        'home'
+    ]"></ion-back-button>
+    </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
 <ion-content>
+    <ion-slides><ion-slide>
+        <ion-grid>   
+            <ion-text>Wih mau ada kumpul kumpul nih dirumah kamu</ion-text>
+                <ion-item>
+                    <ion-label position="floating">Nama Acara</ion-label>
+                    <ion-input inputMode="text"  [(ngModel)]="todo.name"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-label  position="floating">Penyelenggara</ion-label>
+                    <ion-textarea  [(ngModel)]="todo.deskripsi"></ion-textarea>
+                </ion-item>
+                <ion-item>
+                    <ion-label  position="floating">Tanggal</ion-label>
+                    <ion-textarea  [(ngModel)]="todo.date"></ion-textarea>
+                </ion-item>
+                <ion-item>
+                    <ion-label  position="floating">Jam Acara</ion-label>
+                    <ion-textarea  [(ngModel)]="todo.time"></ion-textarea>
+                </ion-item>
+                <ion-item>
+                    <ion-label  position="floating">Nomor yang dapat dihubungi</ion-label>
+                    <ion-textarea  [(ngModel)]="todo.phone"></ion-textarea>
+                </ion-item>
+                <ion-button color="primary" (click)="saveTodo()">Upload</ion-button>
+          </ion-grid>
+      </ion-slide>
+  </ion-slides>
+  </ion-content>
+    <!-- <ion-grid>
+        <ion-row>
+            <ion-col size="12" size-sm="8" offset-sm="2" text-center>
+                <ion-card >
+                    <ion-img style="display: block;margin-left: auto; margin-right: auto; width: 50%;" src="https://cdn1.iconfinder.com/data/icons/iconmart-web-icons-2/64/camera-512.png"></ion-img>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+  <ion-list>
+      <ion-item>
+          <ion-label position="floating">Nama Acara</ion-label>
+          <ion-input inputMode="text"  [(ngModel)]="todo.name"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label  position="floating"  >Penyelenggara</ion-label>
+          <ion-textarea  [(ngModel)]="todo.deskripsi"></ion-textarea>
+      </ion-item>
+      <ion-item>
+          <ion-label  position="floating"  >Tanggal</ion-label>
+          <ion-textarea  [(ngModel)]="todo.date"></ion-textarea>
+      </ion-item>
+      <ion-item>
+          <ion-label  position="floating"  >Jam Acara</ion-label>
+          <ion-textarea  [(ngModel)]="todo.time"></ion-textarea>
+      </ion-item>
+      <ion-item>
+          <ion-label  position="floating"  >Nomor yang dapat dihubungi</ion-label>
+          <ion-textarea  [(ngModel)]="todo.phone"></ion-textarea>
+      </ion-item>
+      
+  </ion-list>
+</ion-grid>
 
-</ion-content>
+          </ion-slide>
+      </ion-slides>
+</ion-content> -->
