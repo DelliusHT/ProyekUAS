@@ -14,15 +14,11 @@ export interface Todo {
   waktusiap: string;
   totalmasak: string;
   createdAt: number;
-}
-
-export interface meeting{
   name: string;
   date: Date;
   alamat: string;
   phone: number;
   time: number;
-  guest: number;
 }
 
 @Injectable({

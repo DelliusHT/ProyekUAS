@@ -23,14 +23,15 @@ export const environment = {
     // appId: "1:556586525425:web:4ca943364bc37d96a0ff50",
     // measurementId: "G-ZETWP2YS01"
 
-    apiKey: "AIzaSyAIAka1wLaOY-JuPLQ6V4yFoSVkZ5UBPAQ",
-    authDomain: "proyekcrossplatform-dcc79.firebaseapp.com",
-    databaseURL: "https://proyekcrossplatform-dcc79.firebaseio.com",
-    projectId: "proyekcrossplatform-dcc79",
-    storageBucket: "proyekcrossplatform-dcc79.appspot.com",
-    messagingSenderId: "556586525425",
-    appId: "1:556586525425:web:4ca943364bc37d96a0ff50",
-    measurementId: "G-ZETWP2YS01"
+    apiKey: "AIzaSyBt5t_wRR5ScLsnvZ8cQkpdxEJUyIFwYvY",
+    authDomain: "dapurayam-e457c.firebaseapp.com",
+    databaseURL: "https://dapurayam-e457c.firebaseio.com",
+    projectId: "dapurayam-e457c",
+    storageBucket: "dapurayam-e457c.appspot.com",
+    messagingSenderId: "1028138858531",
+    appId: "1:1028138858531:web:4681ac81d5d82ae7935996",
+    measurementId: "G-V45T919RJ5"
+
   }
 };
 

@@ -9,6 +9,7 @@ const routes: Routes = [
   { path: 'timeline', loadChildren: './home/timeline/timeline.module#TimelinePageModule' },
   { path: 'profile', loadChildren: './home/profile/profile.module#ProfilePageModule' },
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },  { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
+  { path: 'add-meeting', loadChildren: './meeting/add-meeting/add-meeting.module#AddMeetingPageModule' },
 
 
 ];

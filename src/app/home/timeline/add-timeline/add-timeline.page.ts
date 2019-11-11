@@ -25,7 +25,11 @@ export class AddTimelinePage implements OnInit {
     waktusiap: null,
     totalmasak: null,
     createdAt: new Date().getTime(),
-  
+    name: null,
+    date: null,
+    alamat: null,
+    phone: null,
+    time: null,
   }
 
 

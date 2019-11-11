@@ -61,7 +61,8 @@ const routes: Routes = [
         path: '',
         redirectTo: '/home/tabs/timeline',
         pathMatch: 'full'
-    },
+    },  { path: 'add-meeting', loadChildren: './meeting/add-meeting/add-meeting.module#AddMeetingPageModule' },
+
 //   { path: 'detailline', loadChildren: './timeline/detailline/detailline.module#DetaillinePageModule' },
 
 //   { path: 'add-langkah', loadChildren: './timeline/add-langkah/add-langkah.module#AddLangkahPageModule' },
