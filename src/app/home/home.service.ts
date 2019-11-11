@@ -16,6 +16,14 @@ export interface Todo {
   createdAt: number;
 }
 
+export interface meeting{
+  name: string;
+  date: Date;
+  alamat: string;
+  phone: number;
+  time: number;
+  guest: number;
+}
 
 @Injectable({
   providedIn: 'root'
