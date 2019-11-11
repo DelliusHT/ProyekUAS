@@ -35,7 +35,7 @@ export class RegisterPage implements OnInit {
   async register1(){
     const { username,password } = this
     try{
-      const res = await this.afAuth.auth.createUserWithEmailAndPassword(username + '@gmail.com', password)
+      const res = await this.afAuth.auth.createUserWithEmailAndPassword(username , password)
       this.register.id = res.user.uid;
       console.log(this.register.id);
       console.log(res)
