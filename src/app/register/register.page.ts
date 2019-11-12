@@ -3,6 +3,9 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { Register, RegisterService } from './register.service';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Plugins} from '@capacitor/core';
+
+const{Storage} = Plugins;
 
 @Component({
   selector: 'app-register',
@@ -39,6 +42,10 @@ export class RegisterPage implements OnInit {
       this.register.id = res.user.uid;
       console.log(this.register.id);
       console.log(res)
+      // await Storage.set({
+      //   key: 'IdUser',
+      //   value: res.user.uid
+      // });
     } catch(error){
       console.dir(error)
     }
