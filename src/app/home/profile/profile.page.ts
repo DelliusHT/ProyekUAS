@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';  
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { HomeService, Todo } from '../home.service';
+import { Plugins} from '@capacitor/core';
+const{Storage} = Plugins;
 
 @Component({
   selector: 'app-profile',
@@ -13,15 +15,33 @@ export class ProfilePage implements OnInit {
 
   todos : Todo[]; 
   todoId = null;
+  
+  todo: Todo= {
+    idd:null,
+    title: null,
+    deskripsi: null,
+    nmbahan: null,
+    takaran: null,
+    langkah: null,
+    takasaji: null,
+    waktusiap: null,
+    totalmasak: null,
+    createdAt: new Date().getTime(),
+    name: null,
+    date: null,
+    alamat: null,
+    phone: null,
+    time: null,
+  }
+
+
 
   constructor(private dataSvc : HomeService,
     private router: Router,
-    private loadingCtrl: LoadingController) { }
+    private loadingCtrl: LoadingController, private route: ActivatedRoute) { }
     
     ngOnInit() {
-      this.dataSvc.getTodos().subscribe(res => {
-        this.todos = res;
-      });
+      this.loadTodo();
     }
 
   onLoading() {
@@ -41,5 +61,15 @@ export class ProfilePage implements OnInit {
   remove(item){
     this.dataSvc.removeTodo(item.id);
   }
+
+  async loadTodo(){
+    const Iduser = await Storage.get({ key : 'IdUser'});
+    this.todo.idd = Iduser.value;
+    this.dataSvc.getTodo(this.todo.idd).subscribe(res => { 
+      this.todo = res;
+    });
+
+  console.log(this.todo.idd);
+   }
 
 }
