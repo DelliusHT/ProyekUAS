@@ -4,6 +4,9 @@ import { loadingController } from '@ionic/core';
 import { LoadingController, NavController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Route } from '@angular/compiler/src/core';
+import { Plugins} from '@capacitor/core';
+
+const{Storage} = Plugins;
 
 @Component({
   selector: 'app-add-timeline',
@@ -62,6 +65,8 @@ export class AddTimelinePage implements OnInit {
       //this.dataSvc.updateTodo(this.todo, this.todoId);
     }
     else{
+      const Iduser = await Storage.get({ key : 'IdUser'});
+      this.todo.idd = Iduser.value;
       this.dataSvc.addTodo(this.todo).then(()=>{
         loading.dismiss();
         this.router.navigateByUrl('/home');
