@@ -16,6 +16,10 @@ export class ProfilePage implements OnInit {
   todos : Todo[]; 
   todoId = null;
   
+  test2 = [];
+  testdata = "";
+  testid = "";
+
   todo: Todo= {
     idd:null,
     title: null,
@@ -40,9 +44,23 @@ export class ProfilePage implements OnInit {
     private router: Router,
     private loadingCtrl: LoadingController, private route: ActivatedRoute) { }
     
-    ngOnInit() {
-      this.loadTodo();
+   async ngOnInit() {
+    const Iduser = await Storage.get({ key : 'IdUser'});
+    this.testid = Iduser.value;
+    console.log(this.testid)
+      this.dataSvc.getTodos().subscribe(res => {
+        this.todos = res;
+
+        for(let data of this.todos){
+          if(data.idd == this.testid ){
+           this.test2.push(data);
+          }
+        }
+      });
+
+    
     }
+
 
   onLoading() {
     this.isLoading = true;
@@ -62,14 +80,5 @@ export class ProfilePage implements OnInit {
     this.dataSvc.removeTodo(item.id);
   }
 
-  async loadTodo(){
-    const Iduser = await Storage.get({ key : 'IdUser'});
-    this.todo.idd = Iduser.value;
-    this.dataSvc.getTodo(this.todo.idd).subscribe(res => { 
-      this.todo = res;
-    });
-
-  console.log(this.todo.idd);
-   }
 
 }
