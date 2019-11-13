@@ -16,7 +16,7 @@ export class EditPage implements OnInit {
   profile : Register[]; 
 
   regis: Register= {
-    id: null,
+    iddd: null,
     nama: null,
     jenisKelamin: null,
     alamat: null,
@@ -39,6 +39,7 @@ export class EditPage implements OnInit {
       const loading = await this.loading.create({
         message: 'Loading...'
       });
+
       await loading.present();
       this.resSvc.getRegister(this.regisId).subscribe(res => {
         loading.dismiss();
@@ -47,4 +48,10 @@ export class EditPage implements OnInit {
     console.log(this.regis);
      }
 
+     saveTodo(){
+      if(this.regisId){
+        this.resSvc.updateRegister(this.regis, this.regisId);
+      } 
+      this.router.navigateByUrl('/home/tabs/profile'); 
+    }
 }
