@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 export interface Register {
-    id: string
+    iddd: string
     nama: string
     jenisKelamin: string;
     alamat: string;

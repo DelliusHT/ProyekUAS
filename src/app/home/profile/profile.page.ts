@@ -46,7 +46,7 @@ export class ProfilePage implements OnInit {
   }
 
   regis: Register= {
-    id: null,
+    iddd: null,
     nama: null,
     jenisKelamin: null,
     alamat: null,
@@ -80,7 +80,7 @@ export class ProfilePage implements OnInit {
         
     
         for(let data3 of this.profile){
-          if(data3.id == this.testid3){
+          if(data3.iddd == this.testid3){
            this.test3.push(data3);
           }
           

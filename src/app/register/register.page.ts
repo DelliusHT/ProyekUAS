@@ -15,7 +15,7 @@ const{Storage} = Plugins;
 export class RegisterPage implements OnInit {
 
   register: Register = {
-    id: "",
+    iddd: "",
     nama: "",
     jenisKelamin: "", 
     alamat: "",
@@ -39,8 +39,8 @@ export class RegisterPage implements OnInit {
     const { username,password } = this
     try{
       const res = await this.afAuth.auth.createUserWithEmailAndPassword(username , password)
-      this.register.id = res.user.uid;
-      console.log(this.register.id);
+      this.register.iddd = res.user.uid;
+      //console.log(this.register.id);
       console.log(res)
       // await Storage.set({
       //   key: 'IdUser',
