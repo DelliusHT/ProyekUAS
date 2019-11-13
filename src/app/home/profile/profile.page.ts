@@ -100,7 +100,7 @@ export class ProfilePage implements OnInit {
             setTimeout(() => {
                 this.isLoading = false;
                 loadingEl.dismiss();
-                this.router.navigateByUrl('/home/tabs/profile/edit-profile"'); 
+                this.router.navigateByUrl('/home/tabs/profile/edit-profile'); 
             }, 1000);
         })
   }
@@ -109,5 +109,9 @@ export class ProfilePage implements OnInit {
     this.dataSvc.removeTodo(item.id);
   }
 
+  async exit(){
+    await Storage.clear();
+    this.router.navigateByUrl('/login'); 
+  }
 
 }

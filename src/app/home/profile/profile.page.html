@@ -4,10 +4,7 @@
       <ion-back-button color="primary" defaultHref="/home"></ion-back-button>
   </ion-buttons>
   <ion-buttons slot="end" large>
-    <ion-icon name="exit" 
-    [routerLink]="[
-        '/',
-        'login']"></ion-icon>
+      <ion-button color="primary" (click)="exit()">Register</ion-button>
 </ion-buttons>
   </ion-toolbar>
 </ion-header>

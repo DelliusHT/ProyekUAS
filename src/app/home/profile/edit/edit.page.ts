@@ -29,8 +29,7 @@ export class EditPage implements OnInit {
 
 
     async ngOnInit() {
-      const Iduser = await Storage.get({ key : 'IdUser'});
-      this.regisId = Iduser.value;
+      this.regisId = this.route.snapshot.params['id'];
       if (this.regisId){
         this.loadTodo();
       } 
@@ -47,4 +46,5 @@ export class EditPage implements OnInit {
       });
     console.log(this.regis);
      }
+
 }
