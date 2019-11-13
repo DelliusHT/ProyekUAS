@@ -31,6 +31,7 @@ ion-toolbar {
             }
         }
     }
+    height: 350px;
 }
 
 .card-body {
@@ -40,7 +41,7 @@ ion-toolbar {
     overflow: hidden;
 
     .user-meta {
-        padding-top: 40px;
+        padding-top: 200px;
 
         .playername {
             font-size: 24px;
@@ -55,4 +56,7 @@ ion-toolbar {
             margin: 0 auto;
         }
     }
+}
+.tahu{ 
+    margin-top: 30px;
 }

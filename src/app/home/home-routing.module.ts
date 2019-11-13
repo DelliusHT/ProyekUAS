@@ -38,7 +38,8 @@ const routes: Routes = [
                     {
                         path: 'edit-profile/:id',
                         loadChildren: './profile/edit-profile/edit-profile.module#EditProfilePageModule'
-                    }
+                    },
+                    { path: 'edit/:id', loadChildren: './profile/edit/edit.module#EditPageModule'}
                 ]
             },
             {
@@ -67,7 +68,6 @@ const routes: Routes = [
         pathMatch: 'full'
     },
 
-  { path: 'edit', loadChildren: './profile/edit/edit.module#EditPageModule' },
 
 //   { path: 'detailline', loadChildren: './timeline/detailline/detailline.module#DetaillinePageModule' },
 

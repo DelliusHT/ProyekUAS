@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';  
 import { Router, ActivatedRoute } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
-import { HomeService, Todo } from '../home.service';
+import { HomeService, Todo } from '../home.service'; 
 import { Plugins} from '@capacitor/core';
+import { RegisterService, Register } from 'src/app/register/register.service';
 const{Storage} = Plugins;
 
 @Component({
@@ -15,10 +16,16 @@ export class ProfilePage implements OnInit {
 
   todos : Todo[]; 
   todoId = null;
+  profile : Register[]; 
   
   test2 = [];
   testdata = "";
   testid = "";
+
+  test3 = [];
+  testdata3 = "";
+  testid3 = "";
+
 
   todo: Todo= {
     idd:null,
@@ -38,16 +45,26 @@ export class ProfilePage implements OnInit {
     time: null,
   }
 
+  regis: Register= {
+    id: null,
+    nama: null,
+    jenisKelamin: null,
+    alamat: null,
+    noHp: null,
+}
 
 
   constructor(private dataSvc : HomeService,
+    private resSvc : RegisterService,
     private router: Router,
     private loadingCtrl: LoadingController, private route: ActivatedRoute) { }
     
    async ngOnInit() {
     const Iduser = await Storage.get({ key : 'IdUser'});
     this.testid = Iduser.value;
+    this.testid3 = Iduser.value;
     console.log(this.testid)
+
       this.dataSvc.getTodos().subscribe(res => {
         this.todos = res;
 
@@ -57,7 +74,19 @@ export class ProfilePage implements OnInit {
           }
         }
       });
-
+      
+      this.resSvc.getRegisters().subscribe(res => {
+        this.profile = res;
+        
+    
+        for(let data3 of this.profile){
+          if(data3.id == this.testid3){
+           this.test3.push(data3);
+          }
+          
+         console.log(this.test3)
+        }
+      });
     
     }
 

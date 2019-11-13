@@ -1,9 +1,40 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>edit</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-
-</ion-content>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button color="primary" defaultHref="/home/tabs/profile"></ion-back-button>
+      </ion-buttons>
+      <ion-title>Edit Profile</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-list> 
+      <ion-item>
+          <ion-label position="floating">Nama</ion-label>
+          <ion-input type="text" [(ngModel)]="regis.nama"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label position="floating">Jenis Kelamin</ion-label>
+          <ion-input type="text" [(ngModel)]="regis.jenisKelamin"></ion-input>
+      </ion-item> 
+      <ion-item>
+          <ion-label position="floating">Alamat</ion-label>
+          <ion-input type="text" [(ngModel)]="regis.alamat"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label position="floating">No Hp</ion-label>
+          <ion-input type="number" [(ngModel)]="regis.noHp"></ion-input>
+      </ion-item>
+        <ion-item>
+            <ion-label position="floating">E-mail</ion-label>
+            <ion-input type="email" type="email" [(ngModel)]="username"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Password</ion-label>
+            <ion-input type="password" [(ngModel)]="password"></ion-input>
+        </ion-item> 
+    </ion-list>
+    <ion-button color="primary" (click)="register1()">Register</ion-button>
+    <ion-button color="danger" (click)="cancel()">Cancel</ion-button>
+  </ion-content>
+  
