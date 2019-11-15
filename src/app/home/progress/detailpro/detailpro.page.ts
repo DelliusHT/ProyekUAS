@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Todo, HomeService } from '../../home.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingController, NavController } from '@ionic/angular';
+import { Plugins} from '@capacitor/core';
+const{Storage} = Plugins;
 
 @Component({
   selector: 'app-detailpro',
@@ -36,12 +38,15 @@ export class DetailproPage implements OnInit {
     private nav: NavController, 
     private router : Router) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.todoId = this.route.snapshot.params['id'];
     if (this.todoId){
       this.loadTodo();
     }
-
+    await Storage.set({
+      key: 'IdUser',
+      value: this.todoId
+    });
    }
    async loadTodo(){
     const loading = await this.loading.create({

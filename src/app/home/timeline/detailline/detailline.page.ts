@@ -42,7 +42,7 @@ export class DetaillinePage implements OnInit {
     if (this.todoId){
       this.loadTodo();
     }
-
+    
    }
    async loadTodo(){
     const loading = await this.loading.create({

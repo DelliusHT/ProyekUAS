@@ -28,17 +28,18 @@ const routes: Routes = [
                         path: '',
                         loadChildren: './progress/progress.module#ProgressPageModule'
                     },
+
                     { 
-                        path: ':id', 
-                        loadChildren: './progress/detailpro/detailpro.module#DetailproPageModule' 
-                    },
+                        path: 'addbahan',
+                         loadChildren: './progress/addbahan/addbahan.module#AddbahanPageModule' 
+                        },
                     { 
-                        path: 'add-langkah',
-                     loadChildren: './progress/add-langkah/add-langkah.module#AddLangkahPageModule' 
-                    },
-                    { 
-                        path: 'add-bahan', 
-                    loadChildren: './progress/add-bahan/add-bahan.module#AddBahanPageModule' 
+                        path: 'addlangkah', 
+                    loadChildren: './progress/addlangkah/addlangkah.module#AddlangkahPageModule' 
+                },
+                { 
+                    path: ':id', 
+                    loadChildren: './progress/detailpro/detailpro.module#DetailproPageModule' 
                 },
                 ]
             },
@@ -84,7 +85,10 @@ const routes: Routes = [
     },
  
 
+ 
 
+    // { path: 'addbahan', loadChildren: './progress/addbahan/addbahan.module#AddbahanPageModule' },
+    // { path: 'addlangkah', loadChildren: './progress/addlangkah/addlangkah.module#AddlangkahPageModule' },
 // { path: 'detailpro', loadChildren: './progress/detailpro/detailpro.module#DetailproPageModule' },
 //   { path: 'progress', loadChildren: './progress/progress.module#ProgressPageModule' },
 //   { path: 'detailline', loadChildren: './timeline/detailline/detailline.module#DetaillinePageModule' },

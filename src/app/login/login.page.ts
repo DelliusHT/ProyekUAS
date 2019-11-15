@@ -4,7 +4,6 @@ import { LoadingController } from '@ionic/angular';
 import { RegisterService, Register } from '../register/register.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Plugins} from '@capacitor/core';
-
 const{Storage} = Plugins;
 
 @Component({

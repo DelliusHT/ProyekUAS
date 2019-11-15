@@ -29,6 +29,7 @@ export interface Langkah {
   takaransaji: string,
   waktupersiapan: string,
   totalwaktu:string,
+  val:string,
   date: Date;
 }
 
@@ -36,6 +37,7 @@ export interface Bahan {
   idb:string,
   nmbahan: string,
   takaran: string,
+  val:string,
   date: Date;
 }
 
