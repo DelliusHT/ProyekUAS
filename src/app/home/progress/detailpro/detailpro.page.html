@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>detailpro</ion-title>
+    <ion-buttons slot="start">
+        <ion-back-button color="primary" defaultHref="home/tabs/progress" ></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-sm="8" offset-sm="2" class="text-center">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title style="text-align: center;font-size: 23px;">{{todo.title}}</ion-card-title>
+          </ion-card-header>
+          <ion-img src="https://selerasa.com/wp-content/uploads/2015/12/images_daging_ayam-goreng.jpg"></ion-img>
+          <ion-card-content>
+            <p style="font-size: 15px;text-align: right;">Nama Pembuat</p>
+          </ion-card-content>
+          <ion-card-content>
+              <p style="font-size: 15px;text-align: justify;"><br>{{todo.deskripsi}}</p>
+            </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-buttons>
+        <ion-button [routerLink]="[
+        '/',
+        'home',
+        'tabs',
+        'progress',
+        'add-langkah']">
+          ADD Step
+          <ion-icon name="add-circle" slot="end">
+          </ion-icon>
+        </ion-button>
+        </ion-buttons>
+      </ion-col>
+      <ion-col>
+          <ion-buttons>
+          <ion-button [routerLink]="[
+          '/',
+          'home',
+          'tabs',
+          'progress',
+          'add-bahan']">
+            ADD Ingredients
+            <ion-icon name="add-circle" slot="end">
+            </ion-icon>
+          </ion-button>
+          </ion-buttons>
+        </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

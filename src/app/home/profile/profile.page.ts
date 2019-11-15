@@ -43,6 +43,7 @@ export class ProfilePage implements OnInit {
     alamat: null,
     phone: null,
     time: null,
+    random: null,
   }
 
   regis: Register= {
@@ -57,7 +58,8 @@ export class ProfilePage implements OnInit {
   constructor(private dataSvc : HomeService,
     private resSvc : RegisterService,
     private router: Router,
-    private loadingCtrl: LoadingController, private route: ActivatedRoute) { }
+    private loadingCtrl: LoadingController, 
+    private route: ActivatedRoute) { }
     
    async ngOnInit() {
     const Iduser = await Storage.get({ key : 'IdUser'});

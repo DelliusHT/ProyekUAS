@@ -1,15 +1,14 @@
-import { Component, OnInit } from '@angular/core'; 
-import { ActivatedRoute, Router } from '@angular/router';
-import { NavController, LoadingController } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
 import { Todo, HomeService } from '../../home.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { LoadingController, NavController } from '@ionic/angular';
 
 @Component({
-  selector: 'app-edit-profile',
-  templateUrl: './edit-profile.page.html',
-  styleUrls: ['./edit-profile.page.scss'],
+  selector: 'app-detailpro',
+  templateUrl: './detailpro.page.html',
+  styleUrls: ['./detailpro.page.scss'],
 })
-export class EditProfilePage implements OnInit {
-
+export class DetailproPage implements OnInit {
   todoId = null;
 
   todo: Todo= {
@@ -28,18 +27,21 @@ export class EditProfilePage implements OnInit {
     alamat: null,
     phone: null,
     time: null,
-    random: null,
+    random:null
   }
-
-  constructor(private dataSvc: HomeService, private route: ActivatedRoute,private loading:LoadingController, 
-    private nav: NavController, private router : Router) { }
+  
+  constructor(private dataSvc: HomeService, 
+    private route: ActivatedRoute,
+    private loading:LoadingController, 
+    private nav: NavController, 
+    private router : Router) { }
 
   ngOnInit() {
     this.todoId = this.route.snapshot.params['id'];
     if (this.todoId){
       this.loadTodo();
     }
-    
+
    }
    async loadTodo(){
     const loading = await this.loading.create({
@@ -52,15 +54,6 @@ export class EditProfilePage implements OnInit {
     });
   console.log(this.todoId);
    }
-   
-   saveTodo(){
-    if(this.todoId){
-      this.dataSvc.updateTodo(this.todo, this.todoId);
-    }
-    else{
-      this.dataSvc.addTodo(this.todo);
-    }
-    this.router.navigateByUrl('/home/tabs/profile'); 
-  }
-  
+
+
 }

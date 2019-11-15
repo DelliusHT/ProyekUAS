@@ -28,10 +28,14 @@ export class DetaillinePage implements OnInit {
     alamat: null,
     phone: null,
     time: null,
+    random:null
   }
   
-  constructor(private dataSvc: HomeService, private route: ActivatedRoute,private loading:LoadingController, 
-    private nav: NavController, private router : Router) { }
+  constructor(private dataSvc: HomeService, 
+    private route: ActivatedRoute,
+    private loading:LoadingController, 
+    private nav: NavController, 
+    private router : Router) { }
 
   ngOnInit() {
     this.todoId = this.route.snapshot.params['id'];

@@ -27,6 +27,7 @@ export class TimelinePage implements OnInit {
     alamat: null,
     phone: null,
     time: null,
+    random:null
   }
 
   constructor(private dataSvc : HomeService) { }

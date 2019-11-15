@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService, Todo } from '../../home.service';
+import { Plugins} from '@capacitor/core';
 
+const{Storage} = Plugins;
 @Component({
   selector: 'app-add-bahan',
   templateUrl: './add-bahan.page.html',

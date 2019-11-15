@@ -18,13 +18,28 @@ const routes: Routes = [
                         path: 'add-timeline',
                         loadChildren: './timeline/add-timeline/add-timeline.module#AddTimelinePageModule'
                     },
-                    { path: 'add-langkah',
-                     loadChildren: './timeline/add-langkah/add-langkah.module#AddLangkahPageModule' 
-                    },
-                    { path: 'add-bahan', 
-                    loadChildren: './timeline/add-bahan/add-bahan.module#AddBahanPageModule' 
-                },
                 { path: ':id', loadChildren: './timeline/detailline/detailline.module#DetaillinePageModule' },
+                ]
+            },
+            {
+                path: 'progress',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: './progress/progress.module#ProgressPageModule'
+                    },
+                    { 
+                        path: ':id', 
+                        loadChildren: './progress/detailpro/detailpro.module#DetailproPageModule' 
+                    },
+                    { 
+                        path: 'add-langkah',
+                     loadChildren: './progress/add-langkah/add-langkah.module#AddLangkahPageModule' 
+                    },
+                    { 
+                        path: 'add-bahan', 
+                    loadChildren: './progress/add-bahan/add-bahan.module#AddBahanPageModule' 
+                },
                 ]
             },
             {
@@ -67,10 +82,12 @@ const routes: Routes = [
         redirectTo: '/home/tabs/timeline',
         pathMatch: 'full'
     },
+ 
 
 
+// { path: 'detailpro', loadChildren: './progress/detailpro/detailpro.module#DetailproPageModule' },
+//   { path: 'progress', loadChildren: './progress/progress.module#ProgressPageModule' },
 //   { path: 'detailline', loadChildren: './timeline/detailline/detailline.module#DetaillinePageModule' },
-
 //   { path: 'add-langkah', loadChildren: './timeline/add-langkah/add-langkah.module#AddLangkahPageModule' },
 //   { path: 'add-bahan', loadChildren: './timeline/add-bahan/add-bahan.module#AddBahanPageModule' },
 
