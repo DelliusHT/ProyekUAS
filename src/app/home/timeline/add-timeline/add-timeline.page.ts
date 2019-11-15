@@ -65,7 +65,7 @@ export class AddTimelinePage implements OnInit {
 
       this.dataSvc.updateTodo(this.todo, this.todoId).then(()=>{
         loading.dismiss();
-        this.router.navigateByUrl('/home/tabs/timeline/add-bahan');
+        this.router.navigateByUrl('/home/tabs/progress');
       });
       //this.dataSvc.updateTodo(this.todo, this.todoId);
     }
