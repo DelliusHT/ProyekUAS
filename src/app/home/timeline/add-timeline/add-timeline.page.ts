@@ -5,6 +5,9 @@ import { LoadingController, NavController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Route } from '@angular/compiler/src/core';
 import { Plugins} from '@capacitor/core';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { File } from '@ionic-native/file/ngx';
+
 
 const{Storage} = Plugins;
 
@@ -14,7 +17,7 @@ const{Storage} = Plugins;
   styleUrls: ['./add-timeline.page.scss'],
 })
 export class AddTimelinePage implements OnInit {
-
+  photos: any[];
   todos : Todo[];
   todoId = null;
 
@@ -38,7 +41,8 @@ export class AddTimelinePage implements OnInit {
 
 
   constructor(private dataSvc : HomeService, private loading:LoadingController, 
-    private nav: NavController, private route: ActivatedRoute, private router : Router) { }
+    private nav: NavController, private route: ActivatedRoute, private router : Router,
+    public camera: Camera, public file: File) { }
 
   ngOnInit() {
     this.dataSvc.getTodos().subscribe(res => {
@@ -73,6 +77,22 @@ export class AddTimelinePage implements OnInit {
       })
       //this.dataSvc.addTodo(this.todo);
     }
+  }
+
+  TakePhotos(){
+    var option: CameraOptions={
+      quality: 100,
+      mediaType:this.camera.MediaType.PICTURE,
+      destinationType: this.camera.DestinationType.FILE_URI,
+      encodingType: this.camera.EncodingType.JPEG
+    }
+    this.camera.getPicture().then((ImageData)=>{
+      let filename = ImageData.substring(ImageData.lastIndexOf('/')+1);
+      let path = ImageData.substring(0,ImageData.lastIndexOf('/')+1);
+      this.file.readAsDataURL(path,filename).then((base64data)=>{
+        this.photos.push(base64data)
+      })
+    })
   }
 
 }

@@ -1,5 +1,7 @@
 {
   "name": "ProyekUASTerbaru",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

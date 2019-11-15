@@ -1,7 +1,7 @@
 <ion-header>
         <ion-toolbar>
           <ion-title>Tambah Masakan</ion-title>
-          <ion-buttons slot="start">
+          <ion-buttons slot="start">y
             <ion-back-button color="primary" [routerLink]="[
             '/',
             'home'
@@ -18,6 +18,10 @@
                       <ion-card >
                           <ion-img style="display: block;margin-left: auto; margin-right: auto; width: 50%;" src="https://cdn1.iconfinder.com/data/icons/iconmart-web-icons-2/64/camera-512.png"></ion-img>
                       </ion-card>
+                      <ion-button (click)="TakePhotos()" expand="full" color="dark">TakePhotos</ion-button>
+                      <ion-list *ngFor="let photo of photos">
+                            <img src={{photo}} style="widows: 200px;height: 150px;"/>
+                      </ion-list>
                   </ion-col>
               </ion-row>
         <ion-list>
