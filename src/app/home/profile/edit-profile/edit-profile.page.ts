@@ -59,7 +59,7 @@ export class EditProfilePage implements OnInit {
     else{
       this.dataSvc.addTodo(this.todo);
     }
-    this.router.navigateByUrl('/home/tabs/profile"'); 
+    this.router.navigateByUrl('/home/tabs/profile'); 
   }
   
 }
