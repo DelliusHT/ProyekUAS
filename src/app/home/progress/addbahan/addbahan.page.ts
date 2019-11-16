@@ -10,10 +10,10 @@ const{Storage} = Plugins;
   styleUrls: ['./addbahan.page.scss'],
 })
 export class AddbahanPage implements OnInit {
-
+  index:string;
   todos : Todo[];
   todoId = null;
-
+  term = [];
   todo: Todo= {
     idd:null,
     title: null,
@@ -49,9 +49,21 @@ export class AddbahanPage implements OnInit {
     private route: ActivatedRoute, 
     private router : Router ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    const IdTl = await Storage.get({ key : 'IdTl'});
+    this.index = IdTl.value;
+    
     this.dataSvc.getBahans().subscribe(res => {
       this.bahans = res;
+
+      this.term = [];
+      
+      for(let data of this.bahans){
+        if(data.idb == this.index ){
+         this.term.push(data);
+        }
+      }
+
     });
 
   }

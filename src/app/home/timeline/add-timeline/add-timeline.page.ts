@@ -74,7 +74,7 @@ export class AddTimelinePage implements OnInit {
       this.todo.idd = Iduser.value;
       this.dataSvc.addTodo(this.todo).then(()=>{
         loading.dismiss();
-        this.router.navigateByUrl('/home');
+        this.router.navigateByUrl('/home/tabs/progress/');
       })
       //this.dataSvc.addTodo(this.todo);
     }

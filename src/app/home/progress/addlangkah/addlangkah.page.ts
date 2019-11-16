@@ -12,7 +12,8 @@ const{Storage} = Plugins;
 })
 export class AddlangkahPage implements OnInit {
   todoId:null;
-
+  index:string;
+  term = [];
   langkahs:Langkah[];
   langkah: Langkah= {
     idl:null,
@@ -40,10 +41,21 @@ export class AddlangkahPage implements OnInit {
     private route: ActivatedRoute, 
     private router : Router ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
+    const IdTl = await Storage.get({ key : 'IdTl'});
+    this.index = IdTl.value;
+
     this.dataSvc.getLangkahs().subscribe(res => {
       this.langkahs = res;
+      this.term = [];
+      
+      for(let data of this.langkahs){
+        if(data.idl == this.index ){
+         this.term.push(data);
+        }
+      }
     });
+
   }
 
   async savelangkah(){
