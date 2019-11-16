@@ -1,9 +1,44 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>addbahan</ion-title>
+    <ion-title>Masukan Bahan</ion-title>
+    <ion-buttons slot="start">
+        <ion-back-button color="primary"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <ion-grid>   
+    <ion-text >Jenis Bahan</ion-text>
+<ion-card> 
+    <ion-item>
+        <ion-label>
+          <h3 style="font-size:15Px;text-align: center;">Daun Jeruk
+              <ion-icon name="md-create"></ion-icon></h3>
+          <p style="font-size:15Px;text-align: center;">2 Helai
+              <ion-icon name="md-create"></ion-icon></p>
+        </ion-label>   
+      </ion-item>
+      <ion-item *ngFor="let item of bahans">
+        
+        <ion-label>
+          <ion-icon name="trash" (click)="remove(item)" slot="end"></ion-icon>
+          <h3 style="font-size:15Px;text-align: center;">{{item.nmbahan}}<ion-icon name="md-create"></ion-icon></h3>
+          <p style="font-size:15Px;text-align: center;">{{item.takaran}}<ion-icon name="md-create"></ion-icon></p>
+        </ion-label>   
+      </ion-item>
+    </ion-card>
+    <ion-item>
+        <ion-label position="floating">Nama Bahan</ion-label>
+        <ion-input inputMode="text" 
+        placeholder="Name ingredients"  [(ngModel)]="bahan.nmbahan" ></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label position="floating">Takaran</ion-label>
+        <ion-input inputMode="text"
+        placeholder="Scope"  [(ngModel)]="bahan.takaran"></ion-input>
+    </ion-item>
+        <ion-button color="primary" (click)="savebahan()" >Tambah Bahan</ion-button>
+        <ion-button color="primary" (click)="upload()" >Upload</ion-button>
+  </ion-grid>
 </ion-content>

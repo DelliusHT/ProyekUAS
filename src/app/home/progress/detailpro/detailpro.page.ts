@@ -44,7 +44,7 @@ export class DetailproPage implements OnInit {
       this.loadTodo();
     }
     await Storage.set({
-      key: 'IdUser',
+      key: 'IdTl',
       value: this.todoId
     });
    }
@@ -58,6 +58,30 @@ export class DetailproPage implements OnInit {
       this.todo = res;
     });
   console.log(this.todoId);
+   }
+
+   async upload(){
+    const loading = await this.loading.create({
+      message: 'Add timeline'
+    });
+    await loading.present();
+ 
+     if(this.todoId){
+ 
+       this.dataSvc.updateTodo(this.todo, this.todoId).then(()=>{
+         loading.dismiss();
+         this.router.navigateByUrl('/home/tabs/progress');
+       });
+       //this.dataSvc.updateTodo(this.todo, this.todoId);
+     }
+     else{
+       const Iduser = await Storage.get({ key : 'IdUser'});
+       this.todo.idd = Iduser.value;
+       this.dataSvc.addTodo(this.todo).then(()=>{
+         loading.dismiss();
+         this.router.navigateByUrl('/home');
+       })
+     }
    }
 
 

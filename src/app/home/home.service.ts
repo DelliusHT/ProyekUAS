@@ -26,11 +26,17 @@ export interface Todo {
 export interface Langkah {
   idl:string,
   langkah: string,
+  val:string,
+  date: number;
+}
+
+export interface Waktu {
+  idw:string,
   takaransaji: string,
   waktupersiapan: string,
   totalwaktu:string,
   val:string,
-  date: Date;
+  date: number;
 }
 
 export interface Bahan {
@@ -38,7 +44,7 @@ export interface Bahan {
   nmbahan: string,
   takaran: string,
   val:string,
-  date: Date;
+  date: number;
 }
 
 @Injectable({
@@ -56,6 +62,10 @@ export class HomeService {
   //--------------------
   private bahanCollection: AngularFirestoreCollection<Bahan>;
   private bahans: Observable<Bahan[]>;
+  //--------------------
+  private waktuCollection: AngularFirestoreCollection<Waktu>;
+  private waktus: Observable<Waktu[]>;
+  //--------------------
 
 
   constructor(db : AngularFirestore ) { 
@@ -98,6 +108,18 @@ export class HomeService {
     })
   );
 
+//Waktu
+
+this.waktuCollection = db.collection<Waktu>('Waktu');
+this.waktus = this.waktuCollection.snapshotChanges().pipe(
+  map(actions => {
+      return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return {id, ...data};
+      });
+  })
+);
 
 
   }
@@ -179,6 +201,31 @@ addBahan(bahan: Bahan){
 removeBahan(id){
   return this.bahanCollection.doc(id).delete();
 }
+
+//waktu
+
+
+getWaktus(){
+  return this.waktus;
+}
+
+getWaktu(id){
+  return this.waktuCollection.doc<Waktu>(id).valueChanges();
+}
+
+
+updateWaktu(waktu: Waktu, id: string){
+  return this.waktuCollection.doc(id).update(waktu);
+}
+
+addWaktu(waktu: Waktu){
+  return this.waktuCollection.add(waktu);
+}
+
+removeWaktu(id){
+  return this.waktuCollection.doc(id).delete();
+}
+
 
 
 }
