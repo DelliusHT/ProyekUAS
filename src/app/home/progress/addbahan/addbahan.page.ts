@@ -14,6 +14,7 @@ export class AddbahanPage implements OnInit {
   todos : Todo[];
   todoId = null;
   term = [];
+  term2 = [];
   todo: Todo= {
     idd:null,
     title: null,
@@ -84,15 +85,46 @@ export class AddbahanPage implements OnInit {
 
 
    async upload(){
+    const Iduser = await Storage.get({ key : 'IdTl'});
+    this.todoId = Iduser.value;
+
+
     const loading = await this.loading.create({
       message: 'Add Bahan..'
     });
     await loading.present();
-    const Iduser = await Storage.get({ key : 'IdTl'});
-    this.todoId = Iduser.value;
-     
-         loading.dismiss();
-         this.router.navigateByUrl('/home/tabs/progress/'+this.todoId);
+
+
+    // this.dataSvc.getTodos().subscribe(res => {
+    //   this.todos = res;
+
+    //   this.term2 = [];
+      
+    //   for(let data2 of this.todos){
+    //     if(data2.idd == this.index ){
+    //      this.term2.push(data2);
+    //     }
+    //   }
+
+
+    //   for(let item of this.term2){
+    //     this.todo.title = item.title
+    //     this.todo.deskripsi = item.deskripsi
+    //     this.todo.nmbahan = "done"
+    //     this.todo.langkah = item.langkah
+    //     this.todo.createdAt = item.createdAt
+    //     console.log(item.title)
+    //     this.dataSvc.updateTodo(this.todo, this.todoId)
+    //     }
+        
+    //     this.dataSvc.updateTodo(this.todo, this.todoId)
+    // });
+
+    
+
+
+    loading.dismiss();
+    this.router.navigateByUrl('/home/tabs/progress/'+this.todoId);
   }
 
 

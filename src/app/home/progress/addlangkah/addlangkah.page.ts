@@ -84,7 +84,7 @@ export class AddlangkahPage implements OnInit {
       //    loading.dismiss();
       //    this.router.navigateByUrl('/home/tabs/progress');
       //  });
-      //  //this.dataSvc.updateTodo(this.todo, this.todoId);
+      
      }
      else{
        const Iduser = await Storage.get({ key : 'IdUser'});

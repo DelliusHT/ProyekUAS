@@ -57,7 +57,7 @@ export class AddTimelinePage implements OnInit {
 
  async saveTodo(){
    const loading = await this.loading.create({
-     message: 'Add timeline'
+     message: 'Add timeline..'
    });
    await loading.present();
 
@@ -74,7 +74,7 @@ export class AddTimelinePage implements OnInit {
       this.todo.idd = Iduser.value;
       this.dataSvc.addTodo(this.todo).then(()=>{
         loading.dismiss();
-        this.router.navigateByUrl('/home/tabs/progress/');
+        this.router.navigateByUrl('/home/tabs/progress');
       })
       //this.dataSvc.addTodo(this.todo);
     }
