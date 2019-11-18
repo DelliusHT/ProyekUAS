@@ -98,6 +98,45 @@ export class ProfilePage implements OnInit {
     }
 
 
+    async ionViewWillEnter(){
+
+      const Iduser = await Storage.get({ key : 'IdUser'});
+      console.log(Iduser);
+      this.testid = Iduser.value;
+      this.testid3 = Iduser.value;
+      console.log(this.testid)
+  
+        this.dataSvc.getTodos().subscribe(res => {
+          this.todos = res;
+          this.test2 = [];
+  
+          for(let data of this.todos){
+            if(data.idd == this.testid ){
+             this.test2.push(data);
+            }
+          }
+  
+          // console.log(this.test2);
+        });
+        
+        this.resSvc.getRegisters().subscribe(res => {
+          this.profile = res;
+          this.test3 = [];
+          
+      
+          for(let data3 of this.profile){
+            if(data3.iddd == this.testid3){
+             this.test3.push(data3);
+            }
+            
+           console.log(this.test3)
+          }
+        });
+      
+
+    }
+
+
   onLoading() {
     this.isLoading = true;
     this.loadingCtrl.create({keyboardClose: true, message: 'Loading in...'})

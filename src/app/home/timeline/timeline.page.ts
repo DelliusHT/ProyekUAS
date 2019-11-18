@@ -36,7 +36,17 @@ export class TimelinePage implements OnInit {
     this.dataSvc.getTodos().subscribe(res => {
       this.todos = res;
     });
+    console.log("masukk")
   
   }
+
+  async ionViewWillEnter(){
+    this.dataSvc.getTodos().subscribe(res => {
+      this.todos = res;
+    });
+    console.log("masukk")
+  }
+  
+
 
 }
