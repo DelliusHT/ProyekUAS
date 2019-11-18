@@ -15,14 +15,26 @@ import { environment } from '../environments/environment';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
+import { AngularFireStorageModule } from '@angular/fire/storage';
+
 
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { File } from '@ionic-native/file/ngx';
 
+export const firebaseConfig = {
+  apiKey: "AIzaSyB6WkozZBuIFZcVJXPrKpFI1bvFE-lGwLs",
+  authDomain: "proyekuas-3fb74.firebaseapp.com",
+  databaseURL: "https://proyekuas-3fb74.firebaseio.com",
+  projectId: "proyekuas-3fb74",
+  storageBucket: "proyekuas-3fb74.appspot.com",
+  messagingSenderId: "467545500271",
+  appId: "1:467545500271:web:e2264b798e9209a3903b9a" 
+};
+
 @NgModule({
   declarations: [AppComponent, IngredientPage],
   entryComponents: [IngredientPage],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, AngularFireModule.initializeApp(environment.firebase), AngularFirestoreModule, AngularFireAuthModule],
+  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, AngularFireModule.initializeApp(firebaseConfig), AngularFireStorageModule ,AngularFirestoreModule, AngularFireAuthModule],
   providers: [
     StatusBar,
     SplashScreen,
