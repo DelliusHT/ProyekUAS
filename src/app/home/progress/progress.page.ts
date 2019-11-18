@@ -70,6 +70,24 @@ export class ProgressPage implements OnInit {
       });
   }
 
+  async ionViewWillEnter(){
+
+    const Iduser = await Storage.get({ key : 'IdUser'});
+    console.log(Iduser);
+    this.testid = Iduser.value;
+        this.dataSvc.getTodos().subscribe(res => {
+          this.todos = res;
+          this.test2 = [];
+  
+          for(let data of this.todos){
+            if(data.idd == this.testid ){
+             this.test2.push(data);
+             
+            }
+          }
+        });
+  }
+
   remove(item){
     this.dataSvc.removeTodo(item.id);
   }

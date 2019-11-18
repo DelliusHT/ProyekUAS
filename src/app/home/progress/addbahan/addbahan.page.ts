@@ -68,7 +68,23 @@ export class AddbahanPage implements OnInit {
     });
 
   }
+  async ionViewWillEnter(){
+    const IdTl = await Storage.get({ key : 'IdTl'});
+    this.index = IdTl.value;
+    
+    this.dataSvc.getBahans().subscribe(res => {
+      this.bahans = res;
 
+      this.term = [];
+      
+      for(let data of this.bahans){
+        if(data.idb == this.index ){
+         this.term.push(data);
+        }
+      }
+
+    });
+  }
 
   async savebahan(){
       this.bahan.val = this.bahan.val +1

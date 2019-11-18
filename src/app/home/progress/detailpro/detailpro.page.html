@@ -35,8 +35,14 @@
         'progress',
         'addlangkah']">
           ADD Step
-          <ion-icon name="add-circle" slot="end">
-          </ion-icon>
+          <div >
+          <div *ngIf= "!test4">
+              <ion-icon name="add-circle" slot="end"></ion-icon>
+            </div>
+            <div *ngIf= "test4">
+                <ion-icon name="md-checkmark" slot="end"></ion-icon>
+              </div>
+            </div>
         </ion-button>
         </ion-buttons>
       </ion-col>
@@ -49,8 +55,14 @@
           'progress',
           'addbahan']">
             ADD Ingredients
-            <ion-icon name="add-circle" slot="end">
-            </ion-icon>
+            <div>
+                <div *ngIf= "!test3">
+                    <ion-icon name="add-circle" slot="end"></ion-icon>
+                  </div>
+                  <div *ngIf= "test3">
+                      <ion-icon name="md-checkmark" slot="end"></ion-icon>
+                    </div>
+                  </div>
           </ion-button>
           </ion-buttons>
         </ion-col>

@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HomeService, Langkah, Waktu } from '../../home.service';
 import { LoadingController, NavController } from '@ionic/angular';
 import { Plugins} from '@capacitor/core';
+import { NullAstVisitor } from '@angular/compiler';
 const{Storage} = Plugins;
 
 @Component({
@@ -34,6 +35,7 @@ export class AddlangkahPage implements OnInit {
     date: Date.now(),
   
   }
+  Idaj
 
   constructor(private dataSvc : HomeService, 
     private loading:LoadingController, 
@@ -56,6 +58,22 @@ export class AddlangkahPage implements OnInit {
       }
     });
 
+  }
+
+  async ionViewWillEnter(){
+    const IdTl = await Storage.get({ key : 'IdTl'});
+    this.index = IdTl.value;
+
+    this.dataSvc.getLangkahs().subscribe(res => {
+      this.langkahs = res;
+      this.term = [];
+      
+      for(let data of this.langkahs){
+        if(data.idl == this.index ){
+         this.term.push(data);
+        }
+      }
+    });
   }
 
   async savelangkah(){
@@ -87,11 +105,12 @@ export class AddlangkahPage implements OnInit {
       
      }
      else{
-       const Iduser = await Storage.get({ key : 'IdUser'});
+       const Iduser = await Storage.get({ key : 'IdTl'});
+       this.Idaj = Iduser.value;
        this.waktu.idw = Iduser.value;
        this.dataSvc.addWaktu(this.waktu).then(()=>{
          loading.dismiss();
-         this.router.navigateByUrl('/home/tabs/progress/');
+         this.router.navigateByUrl('/home/tabs/progress/'+this.Idaj);
        })
        //this.dataSvc.addTodo(this.todo);
      }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Todo, HomeService } from '../../home.service';
+import { Todo, HomeService, Waktu, Bahan } from '../../home.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LoadingController, NavController } from '@ionic/angular';
 import { Plugins} from '@capacitor/core';
@@ -31,6 +31,29 @@ export class DetailproPage implements OnInit {
     time: null,
     random:null
   }
+
+  waktus:Waktu[];
+  waktu: Waktu= {
+    idw:null,
+    takaransaji: null,
+    waktupersiapan:null,
+    totalwaktu: null,
+    val:null,
+    date: Date.now(),
+  
+  }
+
+  bahans:Bahan[];
+  bahan: Bahan= {
+    idb:null,
+    nmbahan: null,
+    takaran: null,
+    val: null,
+    date: Date.now(),
+  
+  }
+  test3 ;
+  test4;
   
   constructor(private dataSvc: HomeService, 
     private route: ActivatedRoute,
@@ -47,6 +70,66 @@ export class DetailproPage implements OnInit {
       key: 'IdTl',
       value: this.todoId
     });
+
+    this.dataSvc.getBahans().subscribe(res => {
+      this.bahans = res;
+      //this.test3 = [];
+
+      for(let data of this.bahans){
+        if(data.idb == this.todoId ){
+          this.test3 = true
+        }
+      }
+    });
+
+    this.dataSvc.getWaktus().subscribe(res => {
+      this.waktus = res;
+      //this.test4 = [];
+
+      for(let data of this.waktus){
+        if(data.idw == this.todoId ){
+          this.test4 = true
+        }
+      }
+    });
+
+   }
+
+
+   async ionViewWillEnter(){
+
+    this.todoId = this.route.snapshot.params['id'];
+    if (this.todoId){
+      this.loadTodo();
+    }
+    await Storage.set({
+      key: 'IdTl',
+      value: this.todoId
+    });
+
+    this.dataSvc.getBahans().subscribe(res => {
+      this.bahans = res;
+      //this.test3 = [];
+
+      for(let data of this.bahans){
+        if(data.idb == this.todoId ){
+          this.test3 = true
+        }
+      }
+    });
+
+    this.dataSvc.getWaktus().subscribe(res => {
+      this.waktus = res;
+      //this.test4 = [];
+
+      for(let data of this.waktus){
+        if(data.idw == this.todoId ){
+          this.test4 = true
+        }
+      }
+    });
+
+
    }
    async loadTodo(){
     const loading = await this.loading.create({
