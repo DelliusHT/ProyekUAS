@@ -28,7 +28,7 @@
       </ion-row>
     </ion-grid>
     <!-- 1bagian -->
-    <ion-grid style="font-size:15Px;text-align: center;">
+    <ion-grid style="font-size:15Px;text-align: center;" >
         <ion-row style="background-color:cornflowerblue;color: white;">
           <ion-col style=" border: solid darkgray">
             <div>
@@ -46,20 +46,20 @@
             </div>
           </ion-col>
         </ion-row>
-        <ion-row>
+        <ion-row *ngFor="let data3 of term2">
           <ion-col style="border: solid darkgray;">
             <div> 
-              {{todo.takasaji}}
+              {{data3.takaransaji}}
             </div>
           </ion-col>
           <ion-col style="border: solid darkgray;">
             <div>
-              {{todo.waktusiap}}
+              {{data3.waktupersiapan}}
             </div>
           </ion-col>
           <ion-col style="border: solid darkgray;">
             <div>
-              {{todo.totalmasak}}
+              {{data3.totalwaktu}}
             </div>
           </ion-col>
         </ion-row>
@@ -70,50 +70,20 @@
           <h2 style="text-align: center;">Langkah - Langkah</h2>
             <!-- Angular disini -->
           <ion-list>
-            <ion-item>
-              <p style="font-size:15Px;text-align: justify;">{{todo.langkah}}</p>
+            <ion-item *ngFor="let data of term">
+              <p style="font-size:15Px;text-align: justify;">{{data.langkah}}</p>
             </ion-item>
-            <!-- <ion-item>
-              <p style="font-size:15Px;text-align: justify;"><strong>2.</strong> Masukkan ayam kedalamnya bersama dengan daun salam, serai dan juga bumbu yang telah dihaluskan dan berikan sedikit garam. Aduk-aduk secara merata dan ungkep secara merata sampai ayam menjadi setengah matang.</p>
-            </ion-item>
-            <ion-item>
-              <p style="font-size:15Px;text-align: justify;"><strong>3.</strong> Berikan pula gula, penyedap dan aduk-aduk lalu masak kembali hingga ayam matah dan kuah menyusut secara merata.</p>
-            </ion-item>
-            <ion-item>
-              <p style="font-size:15Px;text-align: justify;"><strong>4.</strong> Selanjutnya angkat ayam, dan sisihkan sementara untuk selanjutnya akan kita goreng.</p>
-            </ion-item>
-            <ion-item>
-              <p style="font-size:15Px;text-align: justify;"><strong>5.</strong> Siapkan wajan diatas kompor dan berikan minyak goreng kedalamnya. Gunakan api sedang dan goreng ayam kedalamnya hingga matang dan berwarna kecoklatan.</p>
-            </ion-item> -->
           </ion-list>
         </ion-col>
     </ion-row>
     <ion-row style="text-align: center;">
         <ion-col size="12" size-sm="8" offset-sm="2" class="ion-text-center">
+            <h2 style="text-align: center;">Bahan Dan Takaran</h2>
           <ion-list>
-            <ion-item>
+            <ion-item *ngFor="let data1 of term1">
               <ion-label>
-                <h3 style="font-size:15Px;text-align: justify;">{{todo.nmbahan}}</h3>
-              </ion-label>   
-            </ion-item>
-            <ion-item>
-              <ion-label>
-                <h3 style="font-size:15Px;text-align: center;">Daun Jeruk</h3>
-              </ion-label>   
-            </ion-item>
-            <ion-item>
-              <ion-label>
-                <h3 style="font-size:15Px;text-align: center;">Minyak Goreng</h3>
-              </ion-label>   
-            </ion-item>
-            <ion-item>
-              <ion-label>
-                <h3 style="font-size:15Px;text-align: center;">Garam</h3>
-              </ion-label>   
-            </ion-item>
-            <ion-item>
-              <ion-label>
-                <h3 style="font-size:15Px;text-align: center;">Kunyit</h3>
+                <h3 style="font-size:15Px;text-align: justify;">{{data1.nmbahan}}</h3>
+                <p style="font-size:15Px;text-align: center;">{{data1.takaran}}</p>
               </ion-label>   
             </ion-item>
           </ion-list>

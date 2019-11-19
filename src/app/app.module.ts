@@ -28,8 +28,9 @@ export const firebaseConfig = {
   projectId: "proyekuas-25e57",
   storageBucket: "proyekuas-25e57.appspot.com",
   messagingSenderId: "881821814775",
-  appId: "1:881821814775:web:66c7c6236c6f70719228f2",
-  measurementId: "G-BMG6CE071S"
+  appId: "1:881821814775:web:933cefaebf91797b9228f2",
+  measurementId: "G-WF83BHYL16"
+
 };
 
 @NgModule({
