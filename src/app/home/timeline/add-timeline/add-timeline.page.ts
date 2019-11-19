@@ -143,7 +143,8 @@ async uploadFirebase() {
 	const loading = await this.loading.create({
 		duration: 2000
 	});
-	await loading.present();
+  await loading.present();
+  this.imagePath = new Date().getTime() + '.jpg';
 	this.upload = this.afSG.ref(this.imagePath).putString(this.imagess, 'data_url');
 	this.upload.then(async () => {
 		await loading.onDidDismiss();
