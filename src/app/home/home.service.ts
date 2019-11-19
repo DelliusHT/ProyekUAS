@@ -84,7 +84,7 @@ export class HomeService {
 
 // Langkah -Langkah
 
-  this.langkahCollection = db.collection<Langkah>('Langkah');
+this.langkahCollection = db.collection<Langkah>('Langkah', ref => ref.orderBy('val'));
   this.langkahs = this.langkahCollection.snapshotChanges().pipe(
     map(actions => {
         return actions.map(a => {
