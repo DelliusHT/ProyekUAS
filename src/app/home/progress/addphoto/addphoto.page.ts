@@ -67,9 +67,7 @@ export class AddphotoPage implements OnInit {
     this.index = IdTl.value;
     const image = this.imageURL 
     this.afstore.doc(`todos/${this.index}`).update({
-      posts: firestore.FieldValue.arrayUnion({
-        image
-      })
+      uid: image
     })
     this.router.navigateByUrl('/home/tabs/progress')
   }

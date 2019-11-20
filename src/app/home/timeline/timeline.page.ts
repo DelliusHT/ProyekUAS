@@ -45,12 +45,6 @@ export class TimelinePage implements OnInit {
     this.dataSvc.getTodos().subscribe(res => {
       this.todos = res;
     });
-    
-    const IdTl = await Storage.get({ key : 'IdTl'});
-    this.index = IdTl.value;
-    const posts = this.afs.doc(`todos/${this.index}`)
-    this.userPosts = posts.valueChanges()
-  
   }
 
   async ionViewWillEnter(){

@@ -15,8 +15,8 @@
       <ion-item lines="insert" button [routerLink]="['/home/tabs/progress', item.id]">
         <ion-thumbnail slot="start">
             <div id="images">
-                <div class="image" *ngFor="let todos of (userPosts | async)?.posts">
-                        <ion-img src="https://ucarecdn.com/{{ todos.image }}/-/crop/200x200/center">
+                <div class="image">
+                        <ion-img src="https://ucarecdn.com/{{ item.uid }}/-/crop/200x200/center">
                         </ion-img>
                 </div>
             </div>
