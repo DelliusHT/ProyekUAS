@@ -29,6 +29,8 @@ export class EditProfilePage implements OnInit {
     phone: null,
     time: null,
     random: null,
+    username: null,
+    uid: null
   }
 
   constructor(private dataSvc: HomeService, private route: ActivatedRoute,private loading:LoadingController, 

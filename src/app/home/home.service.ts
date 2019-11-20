@@ -21,6 +21,8 @@ export interface Todo {
   phone: number;
   time: number;
   random: number;
+  username: string;
+  uid: string;
 }
 
 export interface Langkah {
@@ -53,6 +55,8 @@ export interface Bahan {
 
 export class HomeService {
   
+  
+  private todo: Todo
   private todosCollection: AngularFirestoreCollection<Todo>;
   private todos: Observable<Todo[]>;
 
@@ -122,6 +126,14 @@ this.waktus = this.waktuCollection.snapshotChanges().pipe(
 );
 
 
+  }
+
+  setUser(todo: Todo){
+    this.todo = todo
+  }
+
+  getUID(){
+    return this.todo.idd
   }
 
   getTodos(){

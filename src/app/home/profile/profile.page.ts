@@ -44,6 +44,8 @@ export class ProfilePage implements OnInit {
     phone: null,
     time: null,
     random: null,
+    username: null,
+    uid: null
   }
 
   regis: Register= {

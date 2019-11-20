@@ -44,6 +44,8 @@ export class ProgressPage implements OnInit {
     phone: null,
     time: null,
     random: null,
+    username: null,
+    uid: null
   }
 
   constructor(private dataSvc : HomeService,

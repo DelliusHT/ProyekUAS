@@ -7,7 +7,10 @@ import { Route } from '@angular/compiler/src/core';
 import { Plugins} from '@capacitor/core';
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { File } from '@ionic-native/file/ngx';
-import { AngularFireStorage } from '@angular/fire/storage';
+  import { AngularFireStorage } from '@angular/fire/storage';  
+  import { Http } from '@angular/http'
+  import { AngularFirestore } from '@angular/fire/firestore';
+  import { firestore } from 'firebase/app';
 
 
 const{Storage} = Plugins;
@@ -18,6 +21,11 @@ const{Storage} = Plugins;
   styleUrls: ['./add-timeline.page.scss'],
 })
 export class AddTimelinePage implements OnInit {
+  imageURL: string;
+  desc: string;
+
+  poto;
+  imageSource;
   imagess = 'https://www.kasterencultuur.nl/editor/placeholder.jpg';
   imagePath: string;
   upload: any;
@@ -41,58 +49,81 @@ export class AddTimelinePage implements OnInit {
     alamat: null,
     phone: null,
     time: null,
-    random: null
+    random: null,
+    username: null,
+    uid: null
   }
 
 
   constructor(private dataSvc : HomeService, private loading:LoadingController, 
     private nav: NavController, private route: ActivatedRoute, private router : Router,
     private camera: Camera, public file: File,public afSG: AngularFireStorage,
-    public alertController: AlertController) { }
+    public alertController: AlertController, public http: Http, public afstore: AngularFirestore) { }
 
   ngOnInit() {
     this.dataSvc.getTodos().subscribe(res => {
       this.todos = res;
     });
+
+    // this.imageSource = 'a'
+    // this.getPoto();
+  }
+  createPost(){
+    const image = this.imageURL
+    const desc = this.desc
+    this.afstore.doc(`todos/${this.dataSvc.getUID()}`).update({
+      posts: firestore.FieldValue.arrayUnion({
+        image, desc
+      })
+    })
+
   }
  
-  async addPhoto(source: string) {
-    if (source === 'camera') {
-      console.log('camera');
-      const cameraPhoto = await this.openCamera();
-      this.imagess = 'data:image/jpg;base64,' + cameraPhoto;
-    } else {
-      console.log('library');
-      const libraryImage = await this.openLibrary();
-      this.imagess = 'data:image/jpg;base64,' + libraryImage;
-    }
-  }
+  // getPoto(){
+  //   firebase.storage().ref().child('images/'+ this.imageSource+'.jpg')
+  //   .getDownloadURL().then((url)=>{
+  //     this.poto = url;
+  //   })
+  // }
 
-  async openCamera() {
-    const options: CameraOptions = {
-      quality: 100,
-      destinationType: this.camera.DestinationType.DATA_URL,
-      encodingType: this.camera.EncodingType.JPEG,
-      mediaType: this.camera.MediaType.PICTURE,
-      targetWidth: 1000,
-      targetHeight: 1000,
-      sourceType: this.camera.PictureSourceType.CAMERA
-    };
-    return await this.camera.getPicture(options);
-  }
+  // async addPhoto(source: string) {
+  //   if (source === 'camera') {
+  //     console.log('camera');
+  //     const cameraPhoto = await this.openCamera();
+  //     this.imagess = 'data:image/jpg;base64,' + cameraPhoto;
+  //   } else {
+  //     console.log('library');
+  //     const libraryImage = await this.openLibrary();
+  //     this.imagess = 'data:image/jpg;base64,' + libraryImage;
+  //   }
+  // }
 
-async openLibrary() {
-  const options: CameraOptions = {
-    quality: 100,
-    destinationType: this.camera.DestinationType.DATA_URL,
-    encodingType: this.camera.EncodingType.JPEG,
-    mediaType: this.camera.MediaType.PICTURE,
-    targetWidth: 1000,
-    targetHeight: 1000,
-    sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
-  };
-  return await this.camera.getPicture(options);
-}
+  // async openCamera() {
+  //   const options: CameraOptions = {
+  //     quality: 100,
+  //     destinationType: this.camera.DestinationType.DATA_URL,
+  //     encodingType: this.camera.EncodingType.JPEG,
+  //     mediaType: this.camera.MediaType.PICTURE,
+  //     targetWidth: 1000,
+  //     targetHeight: 1000,
+  //     sourceType: this.camera.PictureSourceType.CAMERA
+  //   };
+  //   return await this.camera.getPicture(options);
+  // }
+
+// async openLibrary() {
+//   const options: CameraOptions = {
+//     quality: 100,
+//     destinationType: this.camera.DestinationType.DATA_URL,
+//     encodingType: this.camera.EncodingType.JPEG,
+//     mediaType: this.camera.MediaType.PICTURE,
+//     targetWidth: 1000,
+//     targetHeight: 1000,
+//     sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
+//   };
+//   return await this.camera.getPicture(options);
+// }
+
 
   remove(item){
     this.dataSvc.removeTodo(item.id);
@@ -139,23 +170,36 @@ async openLibrary() {
   //   })
   // }
 
-async uploadFirebase() {
-	const loading = await this.loading.create({
-		duration: 2000
-	});
-  await loading.present();
-  this.imagePath = new Date().getTime() + '.jpg';
-	this.upload = this.afSG.ref(this.imagePath).putString(this.imagess, 'data_url');
-	this.upload.then(async () => {
-		await loading.onDidDismiss();
-		this.imagess = 'https://www.kasterencultuur.nl/editor/placeholder.jpg';
-		const alert = await this.alertController.create({
-			header: 'Félicitation',
-			message: 'L\'envoi de la photo dans Firebase est terminé!',
-			buttons: ['OK']
-		});
-		await alert.present();
-	});
-}
+// async uploadFirebase() {
+// 	const loading = await this.loading.create({
+// 		duration: 2000
+// 	});
+//   await loading.present();
+//   this.imagePath = new Date().getTime() + '.jpg';
+// 	this.upload = this.afSG.ref(this.imagePath).putString(this.imagess, 'data_url');
+// 	this.upload.then(async () => {
+// 		await loading.onDidDismiss();
+// 		this.imagess = 'https://www.kasterencultuur.nl/editor/placeholder.jpg';
+// 		const alert = await this.alertController.create({
+// 			header: 'Félicitation',
+// 			message: 'L\'envoi de la photo dans Firebase est terminé!',
+// 			buttons: ['OK']
+// 		});
+// 		await alert.present();
+// 	});
+// }
 
+	fileChanged(event) {
+		const files = event.target.files
+    const data = new FormData()
+    data.append('file',files[0])
+		data.append('UPLOADCARE_STORE', '1')
+		data.append('UPLOADCARE_PUB_KEY', '070be25fc4d496f21df3')
+		  
+    this.http.post('https://upload.uploadcare.com/base/', data)
+    .subscribe(event =>{
+      console.log(event)
+      this.imageURL = event.json().file
+    })
+	}
 }

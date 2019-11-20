@@ -19,7 +19,8 @@ import { AngularFireStorageModule } from '@angular/fire/storage';
 
 
 import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
-import { File } from '@ionic-native/file/ngx';
+import { File } from '@ionic-native/file/ngx'; 
+import { HttpModule } from '@angular/http'
 
 export const firebaseConfig = {
   //edous
@@ -66,12 +67,12 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [AppComponent, IngredientPage],
   entryComponents: [IngredientPage],
-  imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, AngularFireModule.initializeApp(firebaseConfig), AngularFireStorageModule ,AngularFirestoreModule, AngularFireAuthModule],
+  imports: [BrowserModule, IonicModule.forRoot(),HttpModule, AppRoutingModule, AngularFireModule.initializeApp(firebaseConfig), AngularFireStorageModule ,AngularFirestoreModule, AngularFireAuthModule],
   providers: [
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    Camera,File 
+    Camera,File
   ],
   bootstrap: [AppComponent]
 })

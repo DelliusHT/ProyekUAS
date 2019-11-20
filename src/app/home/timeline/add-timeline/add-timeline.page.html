@@ -13,12 +13,12 @@
           <ion-grid>
               <ion-row>
                   <ion-col size="12" size-sm="8" offset-sm="2" text-center>
-                        <div class="flex">
+                        <!-- <div class="flex">
                                 <div class="img-box">
                                   <img [src]="imagess">
                                 </div>
-                        </div>
-
+                        </div> -->
+<!-- 
                       <ion-button (click)="addPhoto('library')" color="tertiary" expand="block">
                         <ion-icon name="image" slot="start"></ion-icon>
                         Ouvrir la biblio
@@ -27,21 +27,30 @@
                       <ion-button (click)="addPhoto('camera')" color="tertiary" expand="block">
                             <ion-icon name="camera" slot="start"></ion-icon>
                             Ouvrir la biblio
-                          </ion-button> 
-                  </ion-col>
+                          </ion-button>  -->
+
+                  </ion-col> 
               </ion-row>
-        <ion-list>
-            <ion-item>
-                <ion-label position="floating">Title</ion-label>
-                <ion-input inputMode="text"  [(ngModel)]="todo.title"></ion-input>
-            </ion-item>
-            <ion-item>
-                <ion-label  position="floating"  >Description</ion-label>
-                <ion-textarea  [(ngModel)]="todo.deskripsi"></ion-textarea>
-            </ion-item>
-        </ion-list>
+            <div class="camera"></div>
+
+            <input type="file" *ngIf="!imageURL"  (change)="fileChanged($event)"/> 
+            
+            <ion-card *ngIf="imageURL">
+                <img src="https://ucarecdn.com/{{ imageURL }}/"/> 
+                <ion-card-content>
+                    <ion-item>
+                        <ion-label position="floating">Title</ion-label>
+                        <ion-input inputMode="text"  [(ngModel)]="todo.title"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label  position="floating"  >Description</ion-label>
+                        <ion-textarea  [(ngModel)]="todo.deskripsi"></ion-textarea>
+                    </ion-item>
+
+                </ion-card-content>
+            </ion-card>
         <ion-buttons>
-                <ion-button color="primary" (click)="uploadFirebase()">Upload</ion-button>
+                <ion-button color="primary" (click)="createPost()">Upload</ion-button>
           </ion-buttons>
       </ion-grid>
 

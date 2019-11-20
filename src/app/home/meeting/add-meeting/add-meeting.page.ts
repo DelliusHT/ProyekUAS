@@ -31,7 +31,9 @@ export class AddMeetingPage implements OnInit {
     alamat: null,
     phone: null,
     time: null,
-    random: null
+    random: null,
+    username: null,
+    uid: null
   }
 
 
