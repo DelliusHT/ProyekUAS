@@ -7,25 +7,36 @@
     </ion-toolbar>
   </ion-header>
   
-  <ion-content>
-    <ion-list> 
-      <ion-item>
-          <ion-label position="floating">Nama</ion-label>
-          <ion-input type="text" [(ngModel)]="regis.nama"></ion-input>
-      </ion-item>
-      <ion-item>
-          <ion-label position="floating">Jenis Kelamin</ion-label>
-          <ion-input type="text" [(ngModel)]="regis.jenisKelamin"></ion-input>
-      </ion-item> 
-      <ion-item>
-          <ion-label position="floating">Alamat</ion-label>
-          <ion-input type="text" [(ngModel)]="regis.alamat"></ion-input>
-      </ion-item>
-      <ion-item>
-          <ion-label position="floating">No Hp</ion-label>
-          <ion-input type="number" [(ngModel)]="regis.noHp"></ion-input>
-      </ion-item> 
-    </ion-list>
-    <ion-button color="primary" (click)="saveTodo()">Save</ion-button> 
+  <ion-content> 
+        <div class="camera"></div>
+        <div class="flex" *ngIf="!imageURL">
+            <div class="img-box">
+              <img [src]="imagess">
+            </div>
+        </div>
+        <input type="file" *ngIf="!imageURL"  (change)="fileChanged($event)"/> 
+        
+        <ion-card *ngIf="imageURL">
+            <img src="https://ucarecdn.com/{{ imageURL }}/"/>  
+            <ion-card-content>
+              <ion-item>
+                  <ion-label position="floating">Nama</ion-label>
+                  <ion-input type="text" [(ngModel)]="regis.nama"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label position="floating">Jenis Kelamin</ion-label>
+                  <ion-input type="text" [(ngModel)]="regis.jenisKelamin"></ion-input>
+              </ion-item> 
+              <ion-item>
+                  <ion-label position="floating">Alamat</ion-label>
+                  <ion-input type="text" [(ngModel)]="regis.alamat"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label position="floating">No Hp</ion-label>
+                  <ion-input type="number" [(ngModel)]="regis.noHp"></ion-input>
+              </ion-item> 
+            </ion-card-content>
+        </ion-card> 
+    <ion-button color="primary" (click)="createPost()">Save</ion-button> 
   </ion-content>
   

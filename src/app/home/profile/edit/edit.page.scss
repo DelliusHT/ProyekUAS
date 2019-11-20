@@ -1,0 +1,20 @@
+.flex {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+  }
+  .img-box {
+    height: 200px;
+    overflow: hidden;
+  }
+  img {
+    height: 200px;
+  }
+
+  .camera {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    background: black;
+    display: none;
+  }

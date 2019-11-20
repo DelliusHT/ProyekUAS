@@ -20,7 +20,12 @@
             'tabs',
             'timeline',
             item.id]"> 
-                <ion-img src="https://selerasa.com/wp-content/uploads/2015/12/images_daging_ayam-goreng.jpg"></ion-img>
+                <div id="images">
+                    <div class="image" *ngFor="let todos of (userPosts | async)?.posts">
+                            <ion-img src="https://ucarecdn.com/{{ todos.image }}/-/crop/200x200/center">
+                            </ion-img>
+                    </div>
+                </div>
                 <ion-card-title>{{ item.title}}</ion-card-title>
                 <ion-card-content>
                     <p style="text-align: justify;"> {{ item.deskripsi }}</p>

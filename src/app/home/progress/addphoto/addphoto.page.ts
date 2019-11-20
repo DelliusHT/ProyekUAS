@@ -12,7 +12,7 @@ import { File } from '@ionic-native/file/ngx';
   import { AngularFirestore } from '@angular/fire/firestore';
   import { firestore } from 'firebase/app';
 
-
+  const{Storage} = Plugins;
 @Component({
   selector: 'app-addphoto',
   templateUrl: './addphoto.page.html',
@@ -22,6 +22,7 @@ export class AddphotoPage implements OnInit {
   imageURL: string;
   desc: string;
 
+  index:string;
   poto;
   imageSource;
   imagess = 'https://www.kasterencultuur.nl/editor/placeholder.jpg';
@@ -61,14 +62,34 @@ export class AddphotoPage implements OnInit {
   ngOnInit() {
   }
   
-  createPost(){
+  async createPost(){
+    const IdTl = await Storage.get({ key : 'IdTl'});
+    this.index = IdTl.value;
     const image = this.imageURL 
-    this.afstore.doc(`todos/${this.dataSvc.getUID()}`).update({
+    this.afstore.doc(`todos/${this.index}`).update({
       posts: firestore.FieldValue.arrayUnion({
         image
       })
     })
+    this.router.navigateByUrl('/home/tabs/progress')
   }
+  
+//   async uploadFirebase() {
+// 	const loading = await this.loading.create({
+// 		duration: 2000
+// 	});
+//   await loading.present(); 
+// 	this.upload.then(async () => {
+// 		await loading.onDidDismiss(); 
+// 		const alert = await this.alertController.create({
+// 			header: 'Upload',
+// 			message: 'Upload Succesfull',
+// 			buttons: ['OK']
+// 		});
+// 		await alert.present();
+// 	});
+// }
+
   fileChanged(event) {
 		const files = event.target.files
     const data = new FormData()

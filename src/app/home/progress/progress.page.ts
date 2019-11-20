@@ -5,6 +5,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { LoadingController } from '@ionic/angular';
 import { Plugins} from '@capacitor/core';
 
+import { AngularFirestore } from '@angular/fire/firestore';
 const{Storage} = Plugins;
 
 @Component({
@@ -15,6 +16,9 @@ const{Storage} = Plugins;
 export class ProgressPage implements OnInit {
   isLoading = false;
 
+  index:string;
+
+  userPosts
   todos : Todo[]; 
   todoId = null;
   
@@ -52,7 +56,7 @@ export class ProgressPage implements OnInit {
     private resSvc : RegisterService,
     private router: Router,
     private loadingCtrl: LoadingController, 
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,public afs: AngularFirestore) { }
 
  async ngOnInit() {
 
@@ -70,6 +74,11 @@ export class ProgressPage implements OnInit {
           }
         }
       });
+
+      const IdTl = await Storage.get({ key : 'IdTl'});
+      this.index = IdTl.value;
+      const posts = this.afs.doc(`todos/${this.index}`)
+      this.userPosts = posts.valueChanges()
   }
 
   async ionViewWillEnter(){

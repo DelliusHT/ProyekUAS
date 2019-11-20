@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService, Todo } from '../home.service';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Plugins} from '@capacitor/core';
 
+const{Storage} = Plugins;
 @Component({
   selector: 'app-timeline',
   templateUrl: './timeline.page.html',
@@ -31,14 +34,22 @@ export class TimelinePage implements OnInit {
     username: null,
     uid: null
   }
+  index:string;
 
-  constructor(private dataSvc : HomeService) { }
+  userPosts
 
-  ngOnInit() {
+  constructor(private dataSvc : HomeService,public afs: AngularFirestore) {  
+  }
+
+  async ngOnInit() {
     this.dataSvc.getTodos().subscribe(res => {
       this.todos = res;
     });
-    console.log("masukk")
+    
+    const IdTl = await Storage.get({ key : 'IdTl'});
+    this.index = IdTl.value;
+    const posts = this.afs.doc(`todos/${this.index}`)
+    this.userPosts = posts.valueChanges()
   
   }
 
