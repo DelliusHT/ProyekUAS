@@ -30,13 +30,8 @@
                           </ion-button>  -->
 
                   </ion-col> 
-              </ion-row>
-            <div class="camera"></div>
-
-            <input type="file" *ngIf="!imageURL"  (change)="fileChanged($event)"/> 
-            
-            <ion-card *ngIf="imageURL">
-                <img src="https://ucarecdn.com/{{ imageURL }}/"/> 
+              </ion-row>             
+            <ion-card>
                 <ion-card-content>
                     <ion-item>
                         <ion-label position="floating">Title</ion-label>
@@ -50,7 +45,7 @@
                 </ion-card-content>
             </ion-card>
         <ion-buttons>
-                <ion-button color="primary" (click)="createPost()">Upload</ion-button>
+                <ion-button color="primary" (click)="saveTodo()">Upload</ion-button>
           </ion-buttons>
       </ion-grid>
 

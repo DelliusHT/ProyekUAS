@@ -38,6 +38,10 @@ const routes: Routes = [
                     loadChildren: './progress/addlangkah/addlangkah.module#AddlangkahPageModule' 
                 },
                 { 
+                    path: 'addphoto', 
+                    loadChildren: './progress/addphoto/addphoto.module#AddphotoPageModule' 
+                 },
+                { 
                     path: ':id', 
                     loadChildren: './progress/detailpro/detailpro.module#DetailproPageModule' 
                 },
@@ -82,7 +86,8 @@ const routes: Routes = [
         path: '',
         redirectTo: '/home/tabs/timeline',
         pathMatch: 'full'
-    },
+    }, 
+
  
 
  

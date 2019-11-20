@@ -66,6 +66,27 @@
           </ion-button>
           </ion-buttons>
         </ion-col>
+        
+      <ion-col>
+          <ion-buttons>
+          <ion-button [routerLink]="[
+          '/',
+          'home',
+          'tabs',
+          'progress',
+          'addphoto']">
+            ADD Photo
+            <div>
+                <div *ngIf= "!test3">
+                    <ion-icon name="add-circle" slot="end"></ion-icon>
+                  </div>
+                  <div *ngIf= "test3">
+                      <ion-icon name="md-checkmark" slot="end"></ion-icon>
+                    </div>
+                  </div>
+          </ion-button>
+          </ion-buttons>
+        </ion-col>
     </ion-row>
   </ion-grid>
 </ion-content>

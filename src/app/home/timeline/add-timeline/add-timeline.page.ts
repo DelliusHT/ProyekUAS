@@ -69,14 +69,12 @@ export class AddTimelinePage implements OnInit {
     // this.getPoto();
   }
   createPost(){
-    const image = this.imageURL
-    const desc = this.desc
+    const image = this.imageURL 
     this.afstore.doc(`todos/${this.dataSvc.getUID()}`).update({
       posts: firestore.FieldValue.arrayUnion({
-        image, desc
+        image
       })
     })
-
   }
  
   // getPoto(){
