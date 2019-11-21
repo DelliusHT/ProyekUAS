@@ -9,6 +9,7 @@ export interface Register {
     jenisKelamin: string;
     alamat: string;
     noHp: string;
+    uid: string;
 }
 
 @Injectable({

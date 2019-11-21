@@ -54,6 +54,7 @@ export class ProfilePage implements OnInit {
     jenisKelamin: null,
     alamat: null,
     noHp: null,
+    uid: null
 }
 
 

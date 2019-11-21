@@ -4,9 +4,11 @@ import { ToastController } from '@ionic/angular';
 import { Register, RegisterService } from './register.service';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Plugins} from '@capacitor/core';
-
-const{Storage} = Plugins;
-
+import { AngularFireStorage } from '@angular/fire/storage';  
+import { Http } from '@angular/http'
+import { AngularFirestore } from '@angular/fire/firestore';
+import { firestore } from 'firebase/app';
+const{Storage} = Plugins; 
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
@@ -19,18 +21,23 @@ export class RegisterPage implements OnInit {
     nama: "",
     jenisKelamin: "", 
     alamat: "",
-    noHp: ""
+    noHp: "",
+    uid: ""
   }
 
+  index:string;
+  imageURL: string;
   username: string = "";
   password: string = "";
 
+  imagess = 'https://www.kasterencultuur.nl/editor/placeholder.jpg';
   constructor(
     private router: Router, 
     private route: ActivatedRoute,
     private toastController: ToastController, 
     private registerService: RegisterService,
-    private afAuth: AngularFireAuth) { }
+    private afAuth: AngularFireAuth,
+    public afSG: AngularFireStorage, public http: Http, public afstore: AngularFirestore) { }
 
   ngOnInit() {
   }
@@ -68,4 +75,27 @@ export class RegisterPage implements OnInit {
     this.router.navigateByUrl('/login');
   }
 
+  // fileChanged(event) {
+  //   const files = event.target.files
+  //   const data = new FormData()
+  //   data.append('file',files[0])
+  //   data.append('UPLOADCARE_STORE', '1')
+  //   data.append('UPLOADCARE_PUB_KEY', '070be25fc4d496f21df3')
+      
+  //   this.http.post('https://upload.uploadcare.com/base/', data)
+  //   .subscribe(event =>{
+  //     console.log(event)
+  //     this.imageURL = event.json().file
+  //   }) 
+  // }
+
+  // async createPost(){
+  //   const Iduser = await Storage.get({ key : 'IdUser'});
+  //   this.index = Iduser.value; 
+  //   const image = this.imageURL 
+  //   this.afstore.doc(`register/${this.index}`).update({
+  //     uid: image
+  //   })
+  //   this.router.navigateByUrl('/home/tabs/profile')
+  // }
 }

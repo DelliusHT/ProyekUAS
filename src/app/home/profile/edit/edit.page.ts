@@ -29,6 +29,7 @@ export class EditPage implements OnInit {
     jenisKelamin: null,
     alamat: null,
     noHp: null,
+    uid: null
 }
 
 
@@ -43,6 +44,10 @@ export class EditPage implements OnInit {
       if (this.regisId){
         this.loadTodo();
       } 
+    await Storage.set({
+      key: 'IdRes',
+      value: this.regisId
+    });
      } 
       
      ionViewWillEnter(){
@@ -89,14 +94,11 @@ export class EditPage implements OnInit {
     }
 
     async createPost(){
-      const Iduser = await Storage.get({ key : 'IdUser'});
-      this.index = Iduser.value;
-      console.log('msk' +this.index);
+      const Iduser = await Storage.get({ key : 'IdRes'});
+      this.index = Iduser.value; 
       const image = this.imageURL 
       this.afstore.doc(`register/${this.index}`).update({
-        posts: firestore.FieldValue.arrayUnion({
-          image
-        })
+        uid: image
       })
       this.router.navigateByUrl('/home/tabs/profile')
     }

@@ -12,12 +12,14 @@
 <ion-content fullscreen="true" slot="fixed" >
   
     <div class="card">
-        <div class="header">
-          <div class="avatar">
-            <img src="https://i0.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?fit=256%2C256&quality=100&ssl=1" alt="">
-          </div>
-        </div>
         <div class="user-meta ion-text-center" *ngFor="let item3 of test3"> 
+          
+        <div class="header">
+            <div class="avatar">
+                <ion-img src="https://ucarecdn.com/{{ item3.uid }}/-/crop/200x200/center"></ion-img>
+            </div>
+          </div>
+
             <div *ngIf= "item3.jenisKelamin == 'perempuan'">
               <ion-icon name="female"></ion-icon>
             </div>
@@ -41,7 +43,7 @@
               </ion-item-options> 
               <ion-item lines="insert" button [routerLink]="['/home/tabs/profile/edit-profile', item.id]">
                 <ion-thumbnail slot="start">
-                  <ion-img src="https://selerasa.com/wp-content/uploads/2015/12/images_daging_ayam-goreng.jpg"></ion-img>
+                    <ion-img src="https://ucarecdn.com/{{ item.uid }}/-/crop/200x200/center"></ion-img>
                 </ion-thumbnail>
                 <ion-label>
                   <h2>{{item.title}}</h2> 
