@@ -88,7 +88,7 @@ idedit: string;
       for(let data of this.langkahs){
         if(data.idl == this.todoId ){
          this.term.push(data);
-        
+         console.log(data)
         }
       }
     });
@@ -120,12 +120,20 @@ idedit: string;
          this.term2.push(data);
          this.idedit = data.id
          this.waktu = data;
-         console.log(this.waktu)
+         //console.log(this.waktu)
         }
       }
 
     });
   
+  }
+
+  remove(data){
+    console.log(data);
+    this.dataSvc.removeLangkah(data.id);
+  }
+  remove1(data1){
+    this.dataSvc.removeBahan(data1.id);
   }
 
   
@@ -175,5 +183,24 @@ idedit: string;
     }
     this.router.navigateByUrl('/home/tabs/profile'); 
   }
+
+ savebahan(){
+    this.bahan.val = this.bahan.val +1
+     this.bahan.idb = this.todoId;
+     this.dataSvc.addBahan(this.bahan).then(()=>{
+     })
+     //this.dataSvc.addTodo(this.todo);
+ }
+savelangkah(){
+ 
+  this.langkah.val = this.langkah.val +1000
+   this.langkah.idl = this.todoId;
+   this.dataSvc.addLangkah(this.langkah).then(()=>{
+   })
+   //this.dataSvc.addTodo(this.todo);
+}
+saveedit(data){
+  this.dataSvc.updateLangkah(data, data.id);
+}
   
 }
