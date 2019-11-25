@@ -66,6 +66,7 @@ export class DetaillinePage implements OnInit {
     waktupersiapan:null,
     totalwaktu: null,
     val:null,
+    id:null,
     date: Date.now(),
   
   }

@@ -38,6 +38,7 @@ export interface Waktu {
   waktupersiapan: string,
   totalwaktu:string,
   val:string,
+  id:string,
   date: number;
 }
 
@@ -76,57 +77,59 @@ export class HomeService {
 
 
     this.todosCollection = db.collection<Todo>('todos');
-    this.todos = this.todosCollection.snapshotChanges().pipe(
-      map(actions => {
-          return actions.map(a => {
-              const data = a.payload.doc.data();
-              const id = a.payload.doc.id;
-              return {id, ...data};
-          });
-      })
-  );
+  //   this.todos = this.todosCollection.snapshotChanges().pipe(
+  //     map(actions => {
+  //         return actions.map(a => {
+  //             const data = a.payload.doc.data();
+  //             const id = a.payload.doc.id;
+  //             return {id, ...data};
+  //         });
+  //     })
+  // );
 
 // Langkah -Langkah
 
 this.langkahCollection = db.collection<Langkah>('Langkah', ref => ref.orderBy('val'));
-  this.langkahs = this.langkahCollection.snapshotChanges().pipe(
-    map(actions => {
-        return actions.map(a => {
-            const data = a.payload.doc.data();
-            const id = a.payload.doc.id;
-            return {id, ...data};
-        });
-    })
-  );
+  // this.langkahs = this.langkahCollection.snapshotChanges().pipe(
+  //   map(actions => {
+  //       return actions.map(a => {
+  //           const data = a.payload.doc.data();
+  //           const id = a.payload.doc.id;
+  //           return {id, ...data};
+  //       });
+  //   })
+  // );
 
 
 //Bahan
   this.bahanCollection = db.collection<Bahan>('Bahan');
-  this.bahans = this.bahanCollection.snapshotChanges().pipe(
-    map(actions => {
-        return actions.map(a => {
-            const data = a.payload.doc.data();
-            const id = a.payload.doc.id;
-            return {id, ...data};
-        });
-    })
-  );
+  // this.bahans = this.bahanCollection.snapshotChanges().pipe(
+  //   map(actions => {
+  //       return actions.map(a => {
+  //           const data = a.payload.doc.data();
+  //           const id = a.payload.doc.id;
+  //           return {id, ...data};
+  //       });
+  //   })
+  // );
 
 //Waktu
 
 this.waktuCollection = db.collection<Waktu>('Waktu');
-this.waktus = this.waktuCollection.snapshotChanges().pipe(
-  map(actions => {
-      return actions.map(a => {
-          const data = a.payload.doc.data();
-          const id = a.payload.doc.id;
-          return {id, ...data};
-      });
-  })
-);
+// this.waktus = this.waktuCollection.snapshotChanges().pipe(
+//   map(actions => {
+//       return actions.map(a => {
+//           const data = a.payload.doc.data();
+//           const id = a.payload.doc.id;
+//           return {id, ...data};
+//       });
+//   })
+// );
 
 
   }
+
+
 
   setUser(todo: Todo){
     this.todo = todo
@@ -137,7 +140,16 @@ this.waktus = this.waktuCollection.snapshotChanges().pipe(
   }
 
   getTodos(){
-    return this.todos;
+    return this.todosCollection.snapshotChanges().pipe(
+      map(actions => {
+          return actions.map(a => {
+              const data = a.payload.doc.data();
+              const id = a.payload.doc.id;
+              return {id, ...data};
+          });
+      })
+  );
+    // return this.todos;
 }
 
 getTodo(id){
@@ -167,7 +179,16 @@ removeTodo(id){
 
 
 getLangkahs(){
-  return this.langkahs;
+  //return this.langkahs;
+  return this.langkahCollection.snapshotChanges().pipe(
+    map(actions => {
+        return actions.map(a => {
+            const data = a.payload.doc.data();
+            const id = a.payload.doc.id;
+            return {id, ...data};
+        });
+    })
+  );
 }
 
 getLangkah(id){
@@ -194,7 +215,16 @@ removeLangkah(id){
 
 
 getBahans(){
-  return this.bahans;
+  //return this.bahans;
+  return this.bahanCollection.snapshotChanges().pipe(
+    map(actions => {
+        return actions.map(a => {
+            const data = a.payload.doc.data();
+            const id = a.payload.doc.id;
+            return {id, ...data};
+        });
+    })
+  );
 }
 
 getBahan(id){
@@ -218,7 +248,16 @@ removeBahan(id){
 
 
 getWaktus(){
-  return this.waktus;
+  //return this.waktus;
+return this.waktuCollection.snapshotChanges().pipe(
+  map(actions => {
+      return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return {id, ...data};
+      });
+  })
+);
 }
 
 getWaktu(id){

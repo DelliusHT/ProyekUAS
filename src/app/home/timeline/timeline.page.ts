@@ -41,13 +41,13 @@ export class TimelinePage implements OnInit {
   constructor(private dataSvc : HomeService,public afs: AngularFirestore) {  
   }
 
-  async ngOnInit() {
+  ngOnInit() {
     this.dataSvc.getTodos().subscribe(res => {
       this.todos = res;
     });
   }
 
-  async ionViewWillEnter(){
+  ionViewWillEnter(){
     this.dataSvc.getTodos().subscribe(res => {
       this.todos = res;
     });

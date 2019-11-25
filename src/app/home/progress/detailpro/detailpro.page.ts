@@ -36,6 +36,7 @@ export class DetailproPage implements OnInit {
 
   waktus:Waktu[];
   waktu: Waktu= {
+    id:null,
     idw:null,
     takaransaji: null,
     waktupersiapan:null,
