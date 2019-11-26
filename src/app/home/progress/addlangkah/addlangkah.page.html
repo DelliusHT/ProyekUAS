@@ -1,46 +1,41 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Masukan Langkah-Langkah</ion-title>
+    <ion-buttons slot="start">
+        <ion-back-button color="primary"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <ion-grid>   
-        <ion-text>Langkah-Langkah Masak</ion-text>
-        <ion-card> 
-                <ion-item>
-                    <ion-label>
-                      <h3 style="font-size:15Px;text-align: center;">Daun Jeruk
-                          <ion-icon name="md-create"></ion-icon></h3>
-                      <p style="font-size:15Px;text-align: center;">2 Helai
-                          <ion-icon name="md-create"></ion-icon></p>
-                    </ion-label>   
-                  </ion-item>
+    <ion-grid>
+        <h3 style="text-align: center;"><strong>Langkah-Langkah Masak</strong></h3>
+        <ion-card>
                   <ion-item *ngFor="let item of term">
                     <ion-label>
-                      <ion-icon name="trash" (click)="remove(item)" slot="end"></ion-icon>
-                      <h3 style="font-size:15Px;text-align: center;"><ion-icon name="md-create"></ion-icon>{{item.langkah}}</h3>
+                      <ion-icon name="trash" (click)="remove(item)" style="float: right;"></ion-icon>
+                      <h3 style="font-size:15Px;text-align: center;">{{item.langkah}}</h3>
                     </ion-label>   
                   </ion-item>
                 </ion-card>
         <ion-item>
-            <ion-label position="fix">Langkah-Langkah</ion-label>
+            <ion-label position="floating">Langkah-Langkah</ion-label>
             <ion-input type="text" placeholder="Scope" [(ngModel)]="langkah.langkah"></ion-input>
         </ion-item>
-        <ion-button color="primary" (click)="savelangkah()">Tambah Langkah</ion-button>
+        <ion-button color="primary" (click)="savelangkah()" expand="block">Tambah Langkah</ion-button>
         <ion-item>
-            <ion-label position="fix">Takaran Saji</ion-label>
+            <ion-label position="floating">Takaran Saji</ion-label>
             <ion-input type="text" placeholder="Scope"  [(ngModel)]="waktu.takaransaji"></ion-input>
         </ion-item>
         <ion-item>
-            <ion-label position="fix">Waktu Persiapan</ion-label>
+            <ion-label position="floating">Waktu Persiapan</ion-label>
             <ion-input type="text" placeholder="Scope"  [(ngModel)]="waktu.waktupersiapan"></ion-input>
         </ion-item>
         <ion-item>
-            <ion-label position="fix">Total Waktu Untuk Memasak</ion-label>
+            <ion-label position="floating">Total Waktu Untuk Memasak</ion-label>
             <ion-input type="text" placeholder="Scope"  [(ngModel)]="waktu.totalwaktu" ></ion-input>
         </ion-item>
-            <ion-button color="primary" (click)="upload()">Upload</ion-button>
+            <ion-button color="primary" (click)="upload()" expand="block">Upload</ion-button>
       </ion-grid>
 
       <!-- [(ngModel)]="todo.totalmasak" -->

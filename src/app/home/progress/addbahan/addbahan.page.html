@@ -8,22 +8,14 @@
 </ion-header>
 
 <ion-content>
-  <ion-grid>   
-    <ion-text >Jenis Bahan</ion-text>
-<ion-card> 
-    <ion-item>
-        <ion-label>
-          <h3 style="font-size:15Px;text-align: center;">Daun Jeruk
-              <ion-icon name="md-create"></ion-icon></h3>
-          <p style="font-size:15Px;text-align: center;">2 Helai
-              <ion-icon name="md-create"></ion-icon></p>
-        </ion-label>   
-      </ion-item>
+  <ion-grid>
+    <h3 style="text-align: center;"><strong>Bahan</strong></h3>
+      <ion-card>
       <ion-item *ngFor="let item of term">
         <ion-label>
-          <ion-icon name="trash" (click)="remove(item)" slot="end"></ion-icon>
-          <h3 style="font-size:15Px;text-align: center;">{{item.nmbahan}}<ion-icon name="md-create"></ion-icon></h3>
-          <p style="font-size:15Px;text-align: center;">{{item.takaran}}<ion-icon name="md-create"></ion-icon></p>
+          <ion-icon name="trash" (click)="remove(item)" style="float: right;"></ion-icon>
+          <h3 style="font-size:15Px;text-align: center;">{{item.nmbahan}}</h3>
+          <p style="font-size:15Px;text-align: center;">{{item.takaran}}</p>
         </ion-label>   
       </ion-item>
     </ion-card>
@@ -37,7 +29,7 @@
         <ion-input inputMode="text"
         placeholder="Scope"  [(ngModel)]="bahan.takaran"></ion-input>
     </ion-item>
-        <ion-button color="primary" (click)="savebahan()" >Tambah Bahan</ion-button>
-        <ion-button color="primary" (click)="upload()" >Upload</ion-button>
+        <ion-button color="primary" (click)="savebahan()" expand="block">Tambah Bahan</ion-button>
+        <ion-button color="primary" (click)="upload()" expand="block">Upload</ion-button>
   </ion-grid>
 </ion-content>
