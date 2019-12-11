@@ -18,7 +18,12 @@
             </ion-card-header>
             <ion-img src="https://selerasa.com/wp-content/uploads/2015/12/images_daging_ayam-goreng.jpg"></ion-img>
             <ion-card-content>
-              <p style="font-size: 15px;text-align: right;">Nama Pembuat</p>
+              <p style="font-size: 15px;text-align: right;">
+                <ion-buttons slot="start">
+                  <ion-button  (click)="favorite()" >
+                      <ion-icon name="heart-empty"></ion-icon>
+                  </ion-button>
+              </ion-buttons>Nama Pembuat</p>
             </ion-card-content>
             <ion-card-content>
                 <p style="font-size: 15px;text-align: justify;"><br>{{todo.deskripsi}}</p>

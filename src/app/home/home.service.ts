@@ -50,6 +50,12 @@ export interface Bahan {
   date: number;
 }
 
+export interface Fav{
+  idf:string,
+  idz:string,
+  val:string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -70,6 +76,9 @@ export class HomeService {
   //--------------------
   private waktuCollection: AngularFirestoreCollection<Waktu>;
   private waktus: Observable<Waktu[]>;
+  //--------------------
+  private favCollection: AngularFirestoreCollection<Fav>;
+  private favs: Observable<Fav[]>;
   //--------------------
 
 
@@ -126,6 +135,18 @@ this.waktuCollection = db.collection<Waktu>('Waktu');
 //   })
 // );
 
+//fav
+
+this.favCollection = db.collection<Fav>('Fav');
+// this.favs = this.favCollection.snapshotChanges().pipe(
+//   map(actions => {
+//       return actions.map(a => {
+//           const data = a.payload.doc.data();
+//           const id = a.payload.doc.id;
+//           return {id, ...data};
+//       });
+//   })
+// );
 
   }
 
@@ -277,6 +298,36 @@ removeWaktu(id){
   return this.waktuCollection.doc(id).delete();
 }
 
+//fav
+getFavs(){
+  //return this.favs;
+return this.favCollection.snapshotChanges().pipe(
+  map(actions => {
+      return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return {id, ...data};
+      });
+  })
+);
+}
+
+getFav(id){
+  return this.favCollection.doc<Fav>(id).valueChanges();
+}
+
+
+updateFav(fav: Fav, id: string){
+  return this.favCollection.doc(id).update(fav);
+}
+
+addFav(fav: Fav){
+  return this.favCollection.add(fav);
+}
+
+removeFav(id){
+  return this.favCollection.doc(id).delete();
+}
 
 
 }

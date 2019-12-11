@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Todo, HomeService, Langkah, Bahan, Waktu } from '../../home.service';
+import { Todo, HomeService, Langkah, Bahan, Waktu, Fav } from '../../home.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NavController, LoadingController } from '@ionic/angular';
+import { NavController, LoadingController, ToastController } from '@ionic/angular';
 import { Plugins} from '@capacitor/core';
 const{Storage} = Plugins;
 
@@ -70,11 +70,21 @@ export class DetaillinePage implements OnInit {
     date: Date.now(),
   
   }
+
+  term3 = [];
+  favs:Fav[];
+  fav:Fav={
+    idf:null,
+    idz:null,
+    val:null,
+  }
+
   
   constructor(private dataSvc: HomeService, 
     private route: ActivatedRoute,
     private loading:LoadingController, 
-    private nav: NavController, 
+    private nav: NavController,
+    public toastController: ToastController, 
     private router : Router) { }
 
   ngOnInit() {
@@ -135,6 +145,24 @@ export class DetaillinePage implements OnInit {
     });
   console.log(this.todoId);
    }
+
+   async favorite(){
+    const IdUser = await Storage.get({ key : 'IdUser'});
+    this.index = IdUser.value;
+    console.log(this.index);
+    this.fav.idf = this.todoId;
+    this.fav.idz = this.index
+    this.dataSvc.addFav(this.fav)
+    console.log(this.fav)
+
+    const toast = await this.toastController.create({
+      message: 'You have added 1 item to your favorite',
+      duration: 2000
+    });
+    toast.present();
+    
+   }
+    
 
 
    
