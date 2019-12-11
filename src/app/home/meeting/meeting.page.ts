@@ -1,43 +1,31 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeService, Todo } from '../home.service';
 
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+
 @Component({
   selector: 'app-meeting',
   templateUrl: './meeting.page.html',
   styleUrls: ['./meeting.page.scss'],
 })
-export class MeetingPage implements OnInit {
-  todos : Todo[];
-  todoId = null;
+export class MeetingPage{
 
-  todo: Todo= {
-    idd:null,
-    title: null,
-    deskripsi: null,
-    nmbahan: null,
-    takaran: null,
-    langkah: null,
-    takasaji: null,
-    waktusiap: null,
-    totalmasak: null,
-    createdAt: new Date().getTime(),
-    name: null,
-    date: null,
-    alamat: null,
-    phone: null,
-    time: null,
-    random: null,
-    username: null,
-    uid: null
-  }
+  constructor(private socialSharing:SocialSharing, private geolocation:Geolocation) { }
 
-  constructor(private dataSvc : HomeService) { }
-
-  ngOnInit() {
-    this.dataSvc.getTodos().subscribe(res => {
-      this.todos = res;
-    });
-  
+  ShareLocation(){
+    this.geolocation.getCurrentPosition().then((position)=>{
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    var maplink = "http://www.google.com/maps/?q="+latitude+","+longitude;
+    this.socialSharing.share("i am here...","Location"," ",maplink).then((data)=>{
+       
+    },(err)=>{
+      alert(JSON.stringify(err));
+    })
+    },(err)=>{
+      alert(JSON.stringify(err));
+    })
   }
 
 }
