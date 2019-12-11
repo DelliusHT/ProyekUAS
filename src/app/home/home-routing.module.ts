@@ -76,6 +76,15 @@ const routes: Routes = [
                 ]
             },
             {
+                path: 'favorite',
+                children: [
+                    {
+                        path: '',
+                        loadChildren: './favorite/favorite.module#FavoritePageModule'
+                    },
+                ]
+            },
+            {
                 path: '',
                 redirectTo: '/home/tabs/timeline',
                 pathMatch: 'full'
@@ -86,12 +95,15 @@ const routes: Routes = [
         path: '',
         redirectTo: '/home/tabs/timeline',
         pathMatch: 'full'
-    }, 
+    },
+
+
+
 
  
 
  
-
+    // { path: 'favorite', loadChildren: './favorite/favorite.module#FavoritePageModule' },
     // { path: 'addbahan', loadChildren: './progress/addbahan/addbahan.module#AddbahanPageModule' },
     // { path: 'addlangkah', loadChildren: './progress/addlangkah/addlangkah.module#AddlangkahPageModule' },
 // { path: 'detailpro', loadChildren: './progress/detailpro/detailpro.module#DetailproPageModule' },
