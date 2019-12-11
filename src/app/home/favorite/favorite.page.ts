@@ -43,6 +43,7 @@ export class FavoritePage implements OnInit {
             if(data.idz == this.testid ){
              this.term3.push(data);
              this.dataSvc.getTodo(data.idf).subscribe(res => {
+              res.langkah = data.idf
               this.test23.push(res);
             });
              

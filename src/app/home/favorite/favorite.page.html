@@ -12,7 +12,12 @@
             <ion-icon color="danger" name="trash" slot="icon-only"></ion-icon>
           </ion-item-option>
         </ion-item-options> 
-        <ion-item lines="insert" button [routerLink]="['/home/tabs/timeline/', item.id]">
+        <ion-item lines="insert" button [routerLink]="[
+        '/',
+        'home',
+        'tabs',
+        'timeline',
+        item.langkah]">
           <ion-thumbnail slot="start">
               <div id="images">
                   <div class="image">
