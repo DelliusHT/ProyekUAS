@@ -56,6 +56,15 @@ export interface Fav{
   val:string;
 }
 
+export interface Meet {
+  judul:string,
+  idm:string,
+  waktu: string,
+  hari: string,
+  url:string,
+  date: number;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -80,6 +89,8 @@ export class HomeService {
   private favCollection: AngularFirestoreCollection<Fav>;
   private favs: Observable<Fav[]>;
   //--------------------
+  private meetCollection: AngularFirestoreCollection<Meet>;
+  private meets: Observable<Meet[]>;
 
 
   constructor(db : AngularFirestore ) { 
@@ -147,7 +158,13 @@ this.favCollection = db.collection<Fav>('Fav');
 //       });
 //   })
 // );
-
+this.meetCollection = db.collection<Meet>('Meet');
+// this.waktus = this.waktuCollection.snapshotChanges().pipe(
+//   map(actions => {
+//       return actions.map(a => {
+//           const data = a.payload.doc.data();
+//           const id = a.payload.doc.id;
+//           return {id, ...data};
   }
 
 
@@ -327,6 +344,37 @@ addFav(fav: Fav){
 
 removeFav(id){
   return this.favCollection.doc(id).delete();
+}
+
+//meeting
+getMeets(){
+  //return this.waktus;
+return this.meetCollection.snapshotChanges().pipe(
+  map(actions => {
+      return actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return {id, ...data};
+      });
+  })
+);
+}
+
+getMeet(id){
+  return this.meetCollection.doc<Meet>(id).valueChanges();
+}
+
+
+updateMeet(meet: Meet, id: string){
+  return this.meetCollection.doc(id).update(meet);
+}
+
+addMeet(meet: Meet){
+  return this.meetCollection.add(meet);
+}
+
+removeMeet(id){
+  return this.meetCollection.doc(id).delete();
 }
 
 

@@ -10,5 +10,40 @@
 </ion-header>
 
 <ion-content>
-<ion-button (click) = "ShareLocation()">Share Location</ion-button>
+    <ion-card>
+        <ion-card-content>
+            <ion-item>
+                <ion-label position="floating">Title</ion-label>
+                <ion-input inputMode="text"  [(ngModel)]="meet.judul"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Date</ion-label>
+                <ion-input inputMode="text"  [(ngModel)]="meet.hari"></ion-input>
+            </ion-item>
+            
+            <ion-item>
+                <ion-label position="floating">Time</ion-label>
+                <ion-input inputMode="text"  [(ngModel)]="meet.waktu"></ion-input>
+            </ion-item> 
+            <ion-button (click) = "ShareLocation()">Share Location</ion-button>
+        </ion-card-content>
+    </ion-card>
+
+<ion-row>
+    <ion-col size="12" size-sm="8" offset-sm="2" text-center > 
+        <ion-item *ngFor="let item of meets" > <ion-card>
+            <div id="images">
+                <div class="image" style="margin-left: auto;margin-right: auto;width: 50%; display: block;">
+                        <ion-img src="https://ucarecdn.com/{{ item.uid }}/-/crop/200x200/center">
+                        </ion-img>
+                </div>
+            </div>
+            <ion-card-title>{{ item.judul}}</ion-card-title> 
+            <ion-card-title>{{ item.hari}}</ion-card-title> 
+            <ion-card-title>{{ item.waktu}}</ion-card-title> 
+            <ion-card-title>{{ item.url}}</ion-card-title> 
+        </ion-card>
+    </ion-item>
+    </ion-col>
+</ion-row>
 </ion-content>
