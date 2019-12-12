@@ -6,7 +6,6 @@ import { AngularFirestore } from 'angularfire2/firestore';
 import { Plugins } from '@capacitor/core';
 import { Register, RegisterService } from 'src/app/register/register.service'; 
 import { Meet, HomeService } from '../home.service';
-
 const{Storage} = Plugins;
 
 @Component({
@@ -73,6 +72,20 @@ export class MeetingPage{
     // });
     // },(err)=>{
     //   alert(JSON.stringify(err));
+    })
+  }
+
+  async openUrl(){
+    var url;
+    const idmap2 = await Storage.get({ key : 'IdUser'});
+    this.index = idmap2.value
+    this.dataSvc.getMeets().subscribe(res=> {
+      for(let data of this.meets){
+        if(data.idm == this.index){
+          url=data.url;
+          window.open(url);
+        }
+      } 
     })
   }
 
