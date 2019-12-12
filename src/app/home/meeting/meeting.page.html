@@ -34,15 +34,14 @@
         <ion-item *ngFor="let item of meets" > <ion-card>
             <div id="images">
                 <div class="image" style="margin-left: auto;margin-right: auto;width: 50%; display: block;">
-                        <ion-img src="https://ucarecdn.com/{{ item.uid }}/-/crop/200x200/center">
-                        </ion-img>
+                  <img [src]="imagess">
                 </div>
             </div>
             <ion-card-title>{{ item.judul}}</ion-card-title> 
             <ion-card-title>{{ item.hari}}</ion-card-title> 
             <ion-card-title>{{ item.waktu}}</ion-card-title> 
             <ion-card-title>{{ item.url}}</ion-card-title> 
-            <ion-button (click)="openUrl()" >link</ion-button>
+            <ion-button (click)="openUrl(item.idm)" >link</ion-button>
         </ion-card>
     </ion-item>
     </ion-col>

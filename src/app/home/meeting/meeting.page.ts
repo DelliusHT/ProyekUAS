@@ -75,10 +75,9 @@ export class MeetingPage{
     })
   }
 
-  async openUrl(){
+  openUrl(idm){
     var url;
-    const idmap2 = await Storage.get({ key : 'IdUser'});
-    this.index = idmap2.value
+    this.index = idm
     this.dataSvc.getMeets().subscribe(res=> {
       for(let data of this.meets){
         if(data.idm == this.index){
