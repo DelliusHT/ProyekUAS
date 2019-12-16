@@ -15,7 +15,8 @@ export class TimelinePage implements OnInit {
   todos : Todo[];
   todoId = null;
 
-  searchv:String;
+  searchv = null; 
+ 
 
   todo: Todo= {
     idd:null,
