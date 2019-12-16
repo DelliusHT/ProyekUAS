@@ -75,14 +75,13 @@ export class MeetingPage{
     })
   }
 
-  openUrl(idm){
-    var url;
-    this.index = idm
+  async openUrl(item){
+    console.log(item);
+    this.index = item
     this.dataSvc.getMeets().subscribe(res=> {
       for(let data of this.meets){
-        if(data.idm == this.index){
-          url=data.url;
-          window.open(url);
+        if(data === item){
+          window.open(data.url);
         }
       } 
     })
