@@ -8,11 +8,15 @@
             <ion-icon name="search"></ion-icon> 
           </ion-button>
     </ion-buttons>
-
-
+    
         
       <ion-buttons slot="start">
-        <ion-button>
+        <ion-button  [routerLink]="[
+        '/',
+        'home',
+        'tabs',
+        'timeline',
+        'add-timeline']" >
             <ion-icon name="add"></ion-icon> 
           </ion-button>
     </ion-buttons>
@@ -68,7 +72,7 @@
                     </ion-card>
                 </ion-item>
                 </ion-col>
-                </div>
+            </div>
 </ion-row>
 </ion-grid>
 </ion-content>
