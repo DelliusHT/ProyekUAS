@@ -3,6 +3,7 @@ import { HomeService, Todo, Bahan } from '../../home.service';
 import { LoadingController, NavController } from '@ionic/angular';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Plugins} from '@capacitor/core';
+import { AngularFirestore } from 'angularfire2/firestore';
 const{Storage} = Plugins;
 @Component({
   selector: 'app-addbahan',
@@ -50,7 +51,8 @@ export class AddbahanPage implements OnInit {
     private loading:LoadingController, 
     private nav: NavController, 
     private route: ActivatedRoute, 
-    private router : Router ) { }
+    private router : Router,
+    public afstore: AngularFirestore ) { }
 
   async ngOnInit() {
     const IdTl = await Storage.get({ key : 'IdTl'});
@@ -103,9 +105,12 @@ export class AddbahanPage implements OnInit {
 
 
    async upload(){
-    const Iduser = await Storage.get({ key : 'IdTl'});
-    this.todoId = Iduser.value;
+    const IdTl = await Storage.get({ key : 'IdTl'});
+    this.todoId = IdTl.value;
 
+    this.afstore.doc(`todos/${this.todoId}`).update({
+      nmbahan : 1
+    })
 
     const loading = await this.loading.create({
       message: 'Add Bahan..'

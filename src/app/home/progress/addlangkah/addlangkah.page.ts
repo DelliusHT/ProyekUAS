@@ -4,6 +4,7 @@ import { HomeService, Langkah, Waktu } from '../../home.service';
 import { LoadingController, NavController } from '@ionic/angular';
 import { Plugins} from '@capacitor/core';
 import { NullAstVisitor } from '@angular/compiler';
+import { AngularFirestore } from 'angularfire2/firestore';
 const{Storage} = Plugins;
 
 @Component({
@@ -42,7 +43,8 @@ export class AddlangkahPage implements OnInit {
     private loading:LoadingController, 
     private nav: NavController, 
     private route: ActivatedRoute, 
-    private router : Router ) { }
+    private router : Router,
+    public afstore: AngularFirestore ) { }
 
   async ngOnInit() {
     const IdTl = await Storage.get({ key : 'IdTl'});
@@ -114,6 +116,9 @@ export class AddlangkahPage implements OnInit {
          this.router.navigateByUrl('/home/tabs/progress/'+this.Idaj);
        })
        //this.dataSvc.addTodo(this.todo);
+       this.afstore.doc(`todos/${this.Idaj}`).update({
+        langkah : 1
+      })
      }
    }
 

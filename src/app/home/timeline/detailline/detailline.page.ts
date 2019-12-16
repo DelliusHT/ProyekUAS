@@ -152,14 +152,42 @@ export class DetaillinePage implements OnInit {
     console.log(this.index);
     this.fav.idf = this.todoId;
     this.fav.idz = this.index
-    this.dataSvc.addFav(this.fav)
-    console.log(this.fav)
+    //this.dataSvc.addFav(this.fav)
+    //console.log(this.fav)
 
-    const toast = await this.toastController.create({
-      message: 'You have added 1 item to your favorite',
-      duration: 2000
+    this.dataSvc.getFavs().subscribe(res => {
+      this.favs = res;
+
+
+      if(!this.favs){
+        for(let dataf of this.favs){
+          console.log("masuk for")
+          console.log(dataf.idz)
+          if(dataf.idf == this.todoId && dataf.idz == this.index){
+            console.log("masuk if")
+            //this.dataSvc.addFav(this.fav)
+          }
+          else{
+          //  this.dataSvc.addFav(this.fav)
+            console.log("masuk else")
+          }
+        }
+      }
+      else{
+        this.dataSvc.addFav(this.fav)
+            console.log("masuk else2")
+      }
+
     });
-    toast.present();
+
+
+
+
+    // const toast = await this.toastController.create({
+    //   message: 'You have added 1 item to your favorite',
+    //   duration: 2000
+    // });
+    // toast.present();
     
    }
     

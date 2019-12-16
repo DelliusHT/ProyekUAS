@@ -67,8 +67,11 @@ export class AddphotoPage implements OnInit {
     this.index = IdTl.value;
     const image = this.imageURL 
     this.afstore.doc(`todos/${this.index}`).update({
-      uid: image
+      uid: image,
+      name : 1
     })
+ 
+
     this.router.navigateByUrl('/home/tabs/progress')
   }
   
