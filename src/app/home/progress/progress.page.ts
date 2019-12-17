@@ -35,14 +35,14 @@ export class ProgressPage implements OnInit {
     idd:null,
     title: null,
     deskripsi: null,
-    nmbahan: null,
+    nmbahan: null, //id bahan
     takaran: null,
-    langkah: null,
+    langkah: null, //id langkah
     takasaji: null,
     waktusiap: null,
     totalmasak: null,
     createdAt: new Date().getTime(),
-    name: null,
+    name: null, // id photo
     date: null,
     alamat: null,
     phone: null,
@@ -68,7 +68,7 @@ export class ProgressPage implements OnInit {
         this.test2 = [];
 
         for(let data of this.todos){
-          if(data.idd == this.testid || data.nmbahan != '1' || data.name != '1' || data.langkah != '1'){
+          if(data.idd == this.testid && data.nmbahan != '1' && data.name != '1' && data.langkah != '1'){
            this.test2.push(data);
            
           }
@@ -86,7 +86,7 @@ export class ProgressPage implements OnInit {
           this.test2 = [];
   
           for(let data of this.todos){
-            if(data.idd == this.testid || data.nmbahan != '1' || data.name != '1' || data.langkah != '1'){
+            if(data.idd == this.testid && data.nmbahan != '1' && data.name != '1' && data.langkah != '1'){
              this.test2.push(data);
              
             }

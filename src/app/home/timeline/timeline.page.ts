@@ -77,13 +77,13 @@ export class TimelinePage implements OnInit {
   search(){
 
       for(let data of this.term2){
-        console.log(data.title)
-        console.log(this.searchv)
+        // console.log(data.title)
+        // console.log(this.searchv)
         // this.term.push(data)
         if(data.title.toLowerCase() == this.searchv.toLowerCase()){
           this.term = [];
         this.term.push(data)
-        console.log("yess")
+        //console.log("yess")
         }
         else{
           console.log("no")
