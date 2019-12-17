@@ -31,7 +31,7 @@ export class LoginPage implements OnInit {
   async onLogin() {
     const { username, password } = this
     try{
-      const res = await this.afAuth.auth.signInWithEmailAndPassword(username + '@gmail.com', password)
+      const res = await this.afAuth.auth.signInWithEmailAndPassword(username, password)
       console.log(res.user.uid)
       console.log(res.user.email)
       await Storage.set({
