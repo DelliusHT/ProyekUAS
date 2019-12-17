@@ -161,8 +161,7 @@ export class DetaillinePage implements OnInit {
 
       if(!this.favs){
         for(let dataf of this.favs){
-          console.log("masuk for")
-          console.log(dataf.idz)
+          console.log("masuk for") 
           if(dataf.idf == this.todoId && dataf.idz == this.index){
             console.log("masuk if")
             //this.dataSvc.addFav(this.fav)
