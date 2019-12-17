@@ -148,7 +148,7 @@ export class DetaillinePage implements OnInit {
   console.log(this.todoId);
    }
 
-   async favorite(){
+    async favorite(){
     const IdUser = await Storage.get({ key : 'IdUser'});
     this.index = IdUser.value;
     console.log(this.index);
@@ -159,16 +159,17 @@ export class DetaillinePage implements OnInit {
 
     this.dataSvc.getFavs().subscribe(res => {
       this.favs = res;
-
-      if(this.favs != null){
+      console.log(this.favs);
+      if(!this.favs){
         
         console.log("masuk if")
         for(let dataf of this.favs){
           console.log("masuk for") 
           if(dataf.idf == this.todoId && dataf.idz == this.index){
             console.log("masuk if 1")
-            this.dataSvc.removeFav(dataf.id)
+            //this.dataSvc.removeFav(dataf.id)
             //this.dataSvc.addFav(this.fav)
+            break;
           }
           else{
             this.dataSvc.addFav(this.fav)
@@ -176,12 +177,13 @@ export class DetaillinePage implements OnInit {
               this.dataSvc.getFavs().subscribe(res => {
               this.favs = res;
             });
+            break;
           }
         }
       }
       else{
-            this.dataSvc.addFav(this.fav)
-            console.log("masuk else2")
+            this.dataSvc.addFav(this.fav);
+            console.log("masuk else2");
       }
 
     });
