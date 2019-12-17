@@ -26,15 +26,15 @@
 <ion-content>
 <ion-grid>
     <ion-row>
-        <div *ngIf="!searchv">
-        <ion-col size="12" size-sm="8" offset-sm="2" text-center > 
-            <ion-item *ngFor="let item of term2">
+        <!-- <div *ngIf="!searchv"> -->
+        <ion-col size="12" size-sm="8" offset-sm="2" text-center> 
+            <ion-item  *ngFor="let item of term2">
             <ion-card [routerLink]="[
             '/',
             'home',
             'tabs',
             'timeline',
-            item.id]" style="width:100%"> 
+            item.id]" style="width:100%; background-color: #e6ebe7;"> 
                 <div id="images">
                     <div class="image" style="margin-left: auto;margin-right: auto;width: 50%; display: block;">
                             <ion-img src="https://ucarecdn.com/{{ item.uid }}/-/crop/200x200/center">
@@ -48,9 +48,9 @@
             </ion-card>
         </ion-item>
         </ion-col>
-        </div>
+        <!-- </div> -->
         
-        <div *ngIf= "searchv != null">
+        <!-- <div *ngIf= "searchv != null">
                 <ion-col size="12" size-sm="8" offset-sm="2" text-center > 
                     <ion-item *ngFor="let item of term">
                     <ion-card [routerLink]="[
@@ -72,7 +72,7 @@
                     </ion-card>
                 </ion-item>
                 </ion-col>
-            </div>
+            </div> -->
 </ion-row>
 </ion-grid>
 </ion-content>
