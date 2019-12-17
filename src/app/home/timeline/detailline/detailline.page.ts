@@ -3,6 +3,7 @@ import { Todo, HomeService, Langkah, Bahan, Waktu, Fav } from '../../home.servic
 import { ActivatedRoute, Router } from '@angular/router';
 import { NavController, LoadingController, ToastController } from '@ionic/angular';
 import { Plugins} from '@capacitor/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 const{Storage} = Plugins;
 
 @Component({
@@ -85,7 +86,8 @@ export class DetaillinePage implements OnInit {
     private loading:LoadingController, 
     private nav: NavController,
     public toastController: ToastController, 
-    private router : Router) { }
+    private router : Router,
+    public afstore: AngularFirestore) { }
 
   ngOnInit() {
     this.todoId = this.route.snapshot.params['id'];
@@ -158,22 +160,27 @@ export class DetaillinePage implements OnInit {
     this.dataSvc.getFavs().subscribe(res => {
       this.favs = res;
 
-
-      if(!this.favs){
+      if(this.favs != null){
+        
+        console.log("masuk if")
         for(let dataf of this.favs){
           console.log("masuk for") 
           if(dataf.idf == this.todoId && dataf.idz == this.index){
-            console.log("masuk if")
+            console.log("masuk if 1")
+            this.dataSvc.removeFav(dataf.id)
             //this.dataSvc.addFav(this.fav)
           }
           else{
-          //  this.dataSvc.addFav(this.fav)
-            console.log("masuk else")
+            this.dataSvc.addFav(this.fav)
+            console.log("masuk else 1")
+              this.dataSvc.getFavs().subscribe(res => {
+              this.favs = res;
+            });
           }
         }
       }
       else{
-        this.dataSvc.addFav(this.fav)
+            this.dataSvc.addFav(this.fav)
             console.log("masuk else2")
       }
 
