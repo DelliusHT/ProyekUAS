@@ -3,7 +3,7 @@
         <ion-buttons slot="start">
           <ion-back-button color="primary" defaultHref="/home/tabs/profile"></ion-back-button>
       </ion-buttons>
-      <ion-title>Edit masakan</ion-title>
+      <ion-title>Sunting Masakan</ion-title>
     </ion-toolbar>
   </ion-header>
   
@@ -20,31 +20,27 @@
           </ion-row>
     <ion-list>
         <ion-item>
-            <ion-label position="fix">Title</ion-label>
+            <ion-label position="fix">Nama</ion-label>
             <ion-input type="text" placeholder="Title" [(ngModel)]="todo.title"></ion-input>
         </ion-item>
         <ion-item>
-            <ion-label position="fix">Description1</ion-label>
+            <ion-label position="fix">Deskripsi</ion-label>
             <ion-textarea placeholder="Deskripsi" [(ngModel)]="todo.deskripsi"></ion-textarea>
         </ion-item>
     </ion-list>
-    <ion-buttons>
+    <div class="wrapper">
+    <ion-buttons style="background-color: #e6ebe7;">
+        <div class="wrapper">
         <ion-button color="primary">Swipe >></ion-button>
+        </div>
       </ion-buttons>
+    </div>
   </ion-grid>
   </ion-slide>
     <ion-slide>
-      <ion-grid>   
-        <ion-text >Jenis Bahan</ion-text>
-    <ion-card> 
-        <ion-item>
-            <ion-label>
-              <h3 style="font-size:15Px;text-align: center;">Daun Jeruk
-                  <ion-icon name="md-create"></ion-icon></h3>
-              <p style="font-size:15Px;text-align: center;">2 Helai
-                  <ion-icon name="md-create"></ion-icon></p>
-            </ion-label>   
-          </ion-item>
+      <ion-grid  style="background-color: #e6ebe7;">   
+        <ion-text>Jenis Bahan</ion-text>
+    <ion-card>
           <ion-item *ngFor="let data1 of term1">
             <ion-label>
                 <h3 style="font-size:15Px;text-align: center;">{{data1.nmbahan}}<ion-icon name="md-create"></ion-icon></h3>
@@ -55,13 +51,12 @@
         </ion-card>
         <ion-item>
             <ion-label position="floating">Nama Bahan</ion-label>
-            <ion-input inputMode="text" 
-            placeholder="Name ingredients"  [(ngModel)]="bahan.nmbahan" ></ion-input>
+            <ion-input inputMode="text"  [(ngModel)]="bahan.nmbahan" ></ion-input>
         </ion-item>
         <ion-item>
             <ion-label position="floating">Takaran</ion-label>
             <ion-input inputMode="text"
-            placeholder="Scope"  [(ngModel)]="bahan.takaran"></ion-input>
+              [(ngModel)]="bahan.takaran"></ion-input>
         </ion-item>
             <ion-button color="primary"  (click)="savebahan()">Tambah Bahan</ion-button>
           <ion-buttons>
@@ -70,35 +65,42 @@
       </ion-grid>
     </ion-slide>
     <ion-slide>
-        <ion-grid>   
+        <ion-grid style="background-color: #e6ebe7;">   
             <ion-text>Langkah-Langkah Masak</ion-text>
+            <br>
             <ion-item *ngFor="let data of term">
                 <!-- <p style="font-size:15Px;text-align: justify;">{{data.langkah}}</p> -->
-                <ion-input type="text" placeholder="Scope" [(ngModel)]="data.langkah"></ion-input>
+                <ion-input type="text" [(ngModel)]="data.langkah"></ion-input>
                 <ion-icon name="md-refresh" (click)="saveedit(data)" slot="end"></ion-icon>
                 <ion-icon name="trash" (click)="remove(data)" slot="end"></ion-icon>
               </ion-item>
+              <br>
                       <ion-item>
             <ion-label position="fix">Langkah-Langkah</ion-label>
-            <ion-input type="text" placeholder="Scope" [(ngModel)]="langkah.langkah"></ion-input>
+            <ion-input type="text" [(ngModel)]="langkah.langkah"></ion-input>
         </ion-item>
+        <br>
         <ion-button color="primary" (click)="savelangkah()">Tambah Langkah</ion-button>
+        <br>
+        <br>
               <div>
             <ion-item>
                 <ion-label position="fix">Takaran Saji</ion-label>
-                <ion-input type="text" placeholder="Scope" [(ngModel)]="waktu.takaransaji"></ion-input>
+                <ion-input type="text" [(ngModel)]="waktu.takaransaji"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label position="fix">Waktu Persiapan</ion-label>
-                <ion-input type="text" placeholder="Scope" [(ngModel)]="waktu.waktupersiapan"></ion-input>
+                <ion-input type="text" [(ngModel)]="waktu.waktupersiapan"></ion-input>
             </ion-item>
             <ion-item>
                 <ion-label position="fix">Total Waktu Untuk Memasak</ion-label>
-                <ion-input type="text" placeholder="Scope" [(ngModel)]="waktu.totalwaktu"></ion-input>
+                <ion-input type="text" [(ngModel)]="waktu.totalwaktu"></ion-input>
             </ion-item>
         </div>
-        <ion-button color="primary" (click)="test()">Save</ion-button>
-                <ion-button color="primary" (click)="saveTodo()">Save</ion-button>
+        <br>
+        <br>
+        <ion-button color="primary" (click)="test()">Simpan</ion-button>
+                <ion-button color="primary" (click)="saveTodo()">Simpan</ion-button>
           </ion-grid>
       </ion-slide>
   </ion-slides>
