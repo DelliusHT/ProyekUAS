@@ -23,7 +23,7 @@
         
         <ion-card *ngIf="regis.uid == null">
             <img src="https://ucarecdn.com/{{ imageURL }}/"/>  
-            <ion-button color="primary" (click)="saveTodo()">Save</ion-button> 
+            <ion-button color="primary" (click)="createPost()">Save</ion-button> 
             <ion-card-content> 
               <ion-item>
                   <ion-label position="floating">Nama</ion-label>
@@ -42,12 +42,12 @@
                   <ion-input type="number" [(ngModel)]="regis.noHp"></ion-input>
               </ion-item> 
             </ion-card-content>
-            <ion-button color="primary" (click)="createPost()">Save</ion-button> 
+            <ion-button color="primary" (click)="saveTodo()">Save</ion-button> 
         </ion-card> 
 
         <ion-card *ngIf="regis.uid != null && imageURL">
             <img src="https://ucarecdn.com/{{ imageURL }}/"/>  
-            <ion-button color="primary" (click)="saveTodo()">Save</ion-button> 
+            <ion-button color="primary" (click)="createPost()">Save</ion-button> 
             <ion-card-content> 
               <ion-item>
                   <ion-label position="floating">Nama</ion-label>
@@ -66,7 +66,7 @@
                   <ion-input type="number" [(ngModel)]="regis.noHp"></ion-input>
               </ion-item> 
             </ion-card-content>
-            <ion-button color="primary" (click)="createPost()">Save</ion-button> 
+            <ion-button color="primary" (click)="saveTodo()">Save</ion-button> 
         </ion-card> 
 
         <ion-card *ngIf="regis.uid != null"> 
@@ -88,7 +88,7 @@
                   <ion-input type="number" [(ngModel)]="regis.noHp"></ion-input>
               </ion-item> 
             </ion-card-content>
-            <ion-button color="primary" (click)="createPost()">Save</ion-button> 
+            <ion-button color="primary" (click)="saveTodo()">Save</ion-button> 
         </ion-card> 
   </ion-content>
   

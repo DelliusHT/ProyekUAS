@@ -79,6 +79,7 @@ export class EditPage implements OnInit {
         this.resSvc.updateRegister(this.regis, this.regisId);
         this.createPost();
        } 
+       this.router.navigateByUrl('/home/tabs/profile'); 
       }
 
     fileChanged(event) {
@@ -100,8 +101,6 @@ export class EditPage implements OnInit {
       const image = this.imageURL 
       this.afstore.doc(`register/${this.index}`).update({
         uid: image
-      })  
-      this.router.navigateByUrl('/home/tabs/profile'); 
-    
+      })      
     }
 }
