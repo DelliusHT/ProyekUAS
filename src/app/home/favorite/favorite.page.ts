@@ -22,6 +22,7 @@ export class FavoritePage implements OnInit {
     idf:null,
     idz:null,
     val:null,
+    id:null
   }
  
   constructor(private dataSvc : HomeService,

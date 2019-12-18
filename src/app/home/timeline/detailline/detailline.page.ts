@@ -78,6 +78,7 @@ export class DetaillinePage implements OnInit {
     idf:null,
     idz:null,
     val:null,
+    id:null
   }
 
   

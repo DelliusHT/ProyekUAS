@@ -53,7 +53,8 @@ export interface Bahan {
 export interface Fav{
   idf:string,
   idz:string,
-  val:string;
+  val:string,
+  id:string;
 }
 
 export interface Meet {
