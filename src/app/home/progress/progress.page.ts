@@ -68,8 +68,8 @@ export class ProgressPage implements OnInit {
         this.test2 = [];
 
         for(let data of this.todos){
-          if(data.idd == this.testid && data.nmbahan != '1' && data.langkah != '1'){
-            if(data.nmbahan != '1'&& data.langkah != '1'){
+          if(data.idd == this.testid){
+            if(data.nmbahan != '1'|| data.langkah != '1'){
               this.test2.push(data);
  
                }
@@ -89,7 +89,7 @@ export class ProgressPage implements OnInit {
   
           for(let data of this.todos){
             if(data.idd == this.testid){
-              if(data.nmbahan != '1'&& data.langkah != '1'){
+              if(data.nmbahan != '1'|| data.langkah != '1'){
              this.test2.push(data);
 
               }
