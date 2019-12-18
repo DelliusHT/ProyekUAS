@@ -38,7 +38,8 @@ export class AddlangkahPage implements OnInit {
   
   }
   Idaj
-  datakos: number =0;
+  datakos;
+
   constructor(private dataSvc : HomeService, 
     private loading:LoadingController, 
     private nav: NavController, 
@@ -49,7 +50,6 @@ export class AddlangkahPage implements OnInit {
   async ngOnInit() {
     const IdTl = await Storage.get({ key : 'IdTl'});
     this.index = IdTl.value;
-   // console.log(this.datakos)
     this.dataSvc.getLangkahs().subscribe(res => {
       this.langkahs = res;
       this.term = [];
@@ -57,7 +57,6 @@ export class AddlangkahPage implements OnInit {
       for(let data of this.langkahs){
         if(data.idl == this.index ){
          this.term.push(data);
-         this.datakos = this.datakos + 1
          console.log(this.datakos)
         }
       }
@@ -68,7 +67,6 @@ export class AddlangkahPage implements OnInit {
   async ionViewWillEnter(){
     const IdTl = await Storage.get({ key : 'IdTl'});
     this.index = IdTl.value;
-    //console.log(this.datakos)
     this.dataSvc.getLangkahs().subscribe(res => {
       this.langkahs = res;
       this.term = [];
@@ -76,26 +74,25 @@ export class AddlangkahPage implements OnInit {
       for(let data of this.langkahs){
         if(data.idl == this.index ){
          this.term.push(data);
-         //this.datakos = this.datakos + 1
-         //console.log(this.datakos)
+
         }
       }
     });
   }
 
   async savelangkah(){
- 
-      this.langkah.val = this.langkah.val + this.datakos
+      this.datakos = Date.now()
+      this.langkah.val = this.datakos
        const IdTl = await Storage.get({ key : 'IdTl'});
        this.langkah.idl = IdTl.value;
        this.dataSvc.addLangkah(this.langkah).then(()=>{
        })
-       //this.dataSvc.addTodo(this.todo);
        console.log(this.datakos)
    }
 
    remove(item){
     this.dataSvc.removeLangkah(item.id);
+    
   }
 
   async upload(){

@@ -28,7 +28,7 @@ export interface Todo {
 export interface Langkah {
   idl:string,
   langkah: string,
-  val:string,
+  val:number,
   date: number;
 }
 
@@ -123,7 +123,7 @@ this.langkahCollection = db.collection<Langkah>('Langkah', ref => ref.orderBy('v
 
 
 //Bahan
-  this.bahanCollection = db.collection<Bahan>('Bahan');
+  this.bahanCollection = db.collection<Bahan>('Bahan', ref => ref.orderBy('val'));
   // this.bahans = this.bahanCollection.snapshotChanges().pipe(
   //   map(actions => {
   //       return actions.map(a => {
