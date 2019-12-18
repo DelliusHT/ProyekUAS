@@ -13,6 +13,7 @@ const{Storage} = Plugins;
 export class DetailproPage implements OnInit {
   todoId = null;
 
+  imagess = 'https://image.shutterstock.com/z/stock-vector-photo-coming-soon-image-eps-86220151.jpg';
   todo: Todo= {
     idd:null,
     title: null,

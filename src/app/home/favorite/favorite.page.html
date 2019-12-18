@@ -19,11 +19,16 @@
         'timeline',
         item.langkah]">
           <ion-thumbnail slot="start">
-              <div id="images">
-                  <div class="image">
-                          <ion-img src="https://ucarecdn.com/{{ item.uid }}/-/resize/200x200/center">
+              <div id="images" *ngIf= "item.uid != null">
+                  <div class="image" style="margin-left: auto;margin-right: auto;width: 50%; display: block;">
+                          <ion-img src="https://ucarecdn.com/{{ item.uid }}/-/crop/200x200/center">
                           </ion-img>
                   </div>
+              </div>
+              <div id="images" *ngIf= "item.uid == null">
+                      <div class="image" style="margin-left: auto;margin-right: auto;width: 50%; display: block;">
+                              <img [src]="imagess">
+                      </div>
               </div>
           </ion-thumbnail>
           <ion-label>

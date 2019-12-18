@@ -14,10 +14,15 @@
       </ion-item-options> 
       <ion-item lines="insert" button [routerLink]="['/home/tabs/progress', item.id]">
         <ion-thumbnail slot="start">
-            <div id="images">
+            <div id="images" *ngIf= "item.uid != null">
                 <div class="image">
                         <ion-img src="https://ucarecdn.com/{{ item.uid }}/-/resize/200x200/center">
                         </ion-img>
+                </div>
+            </div>
+            <div id="images" *ngIf= "item.uid == null">
+                <div class="image">
+                    <img [src]="imagess">
                 </div>
             </div>
         </ion-thumbnail>

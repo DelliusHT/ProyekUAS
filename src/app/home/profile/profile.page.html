@@ -4,7 +4,7 @@
       <ion-back-button color="primary" defaultHref="/home"></ion-back-button>
   </ion-buttons>
   <ion-buttons slot="end" large>
-      <ion-button color="primary" (click)="exit()">Register</ion-button>
+      <ion-button color="primary" (click)="exit()">EXIT</ion-button>
 </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -14,11 +14,16 @@
     <div class="card">
         <div class="user-meta ion-text-center" *ngFor="let item3 of test3"> 
           
-        <div class="header">
+        <div class="header" *ngIf= "item3.uid != null">
             <div class="avatar">
                 <ion-img src="https://ucarecdn.com/{{ item3.uid }}/-/resize/200x200/center"></ion-img>
             </div>
-          </div>
+        </div>
+        <div class="header" *ngIf= "item3.uid == null">
+            <div class="avatar">
+                <img [src]="imagess">
+            </div>
+        </div>
 
             <div *ngIf= "item3.jenisKelamin == 'perempuan'">
               <ion-icon name="female"></ion-icon>
@@ -43,7 +48,17 @@
               </ion-item-options> 
               <ion-item lines="insert" button [routerLink]="['/home/tabs/profile/edit-profile', item.id]">
                 <ion-thumbnail slot="start">
-                    <ion-img src="https://ucarecdn.com/{{ item.uid }}/-/resize/200x200/center"></ion-img>
+                    <div id="images" *ngIf= "item.uid != null">
+                        <div class="image" style="margin-left: auto;margin-right: auto;width: 50%; display: block;">
+                                <ion-img src="https://ucarecdn.com/{{ item.uid }}/-/crop/200x200/center">
+                                </ion-img>
+                        </div>
+                    </div>
+                    <div id="images" *ngIf= "item.uid == null">
+                        <div class="image" style="margin-left: auto;margin-right: auto;width: 50%; display: block;">
+                                <img [src]="imagess">
+                        </div>
+                  </div> 
                 </ion-thumbnail>
                 <ion-label>
                   <h2>{{item.title}}</h2> 

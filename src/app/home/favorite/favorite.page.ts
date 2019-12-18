@@ -25,6 +25,7 @@ export class FavoritePage implements OnInit {
     id:null
   }
  
+  imagess = 'https://image.shutterstock.com/z/stock-vector-photo-coming-soon-image-eps-86220151.jpg';
   constructor(private dataSvc : HomeService,
     private resSvc : RegisterService,
     private router: Router,

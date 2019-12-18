@@ -17,7 +17,7 @@ export class ProfilePage implements OnInit {
   todos : Todo[]; 
   todoId = null;
   profile : Register[]; 
-  
+  imagess = 'https://image.shutterstock.com/z/stock-vector-photo-coming-soon-image-eps-86220151.jpg';
   test2 = [];
   testdata = "";
   testid = "";

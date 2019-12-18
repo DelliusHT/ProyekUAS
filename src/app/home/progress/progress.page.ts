@@ -17,7 +17,7 @@ export class ProgressPage implements OnInit {
   isLoading = false;
 
   index:string;
-
+  imagess = 'https://image.shutterstock.com/z/stock-vector-photo-coming-soon-image-eps-86220151.jpg';
   userPosts
   todos : Todo[]; 
   todoId = null;
