@@ -65,12 +65,13 @@ export class EditProfilePage implements OnInit {
     waktupersiapan:null,
     totalwaktu: null,
     val:null,
-    id:null,
+    // id:null,
     date: Date.now(),
   
   }
 idedit: string;
   testtid: null;
+konci
 
   constructor(private dataSvc: HomeService, private route: ActivatedRoute,private loading:LoadingController, 
     private nav: NavController, private router : Router) { }
@@ -113,15 +114,21 @@ idedit: string;
     this.dataSvc.getWaktus().subscribe(res => {
       this.waktus = res;
 
-      this.term2 = [];
+      //this.term2 = [];
       
       for(let data of this.waktus){
+        console.log("data idw "+data.idw);
+        console.log("todoid " + this.todoId);
+        console.log("data " + this.waktus);
+        console.log(data)
         if(data.idw == this.todoId ){
+          console.log("masuk")
          this.term2.push(data);
-         this.idedit = data.id
+         //this.idedit = data.id
+         console.log("idedit " + this.idedit)
          this.waktu = data;
-         //console.log(this.waktu)
         }
+        
       }
 
     });
@@ -148,52 +155,37 @@ idedit: string;
     });
   console.log(this.todoId);
    }
-
-   test(){
-     console.log(this.waktu)
-    //  for(let bahanx of this.bahans){
-
-    //   if(bahanx.id == this.todoId){
-    //   this.testtid = bahanx.id
-    //   this.dataSvc.updateBahan(this.bahan, this.testtid);
-    //   }
-    // }
-
-
-    //udah bisa updatewaktu
-    this.dataSvc.updateWaktu(this.waktu, this.idedit);
-   }
    
-   saveTodo(){
+   async saveTodo(idd){
+    const loading = await this.loading.create({
+      message: 'Loading...'
+    });
+    await loading.present();
     if(this.todoId){
       this.dataSvc.updateTodo(this.todo, this.todoId);
-      // for(let bahanx of this.bahans){
-
-      //   if(bahanx.id == this.todoId){
-      //   this.testtid = bahanx.id
-      //   this.dataSvc.updateBahan(this.bahan, this.testtid);
-      //   }
-      // }
       this.dataSvc.updateWaktu(this.waktu, this.todoId);
       this.dataSvc.updateLangkah(this.langkah, this.todoId);
       this.dataSvc.updateBahan(this.bahan, this.todoId);
+      this.dataSvc.updateWaktu(this.waktu, idd);
+     
     }
     else{
       this.dataSvc.addTodo(this.todo);
     }
     this.router.navigateByUrl('/home/tabs/profile'); 
+    loading.dismiss();
   }
 
  savebahan(){
-    this.bahan.val = this.bahan.val +1
+   this.konci = Date.now()
+    this.bahan.val = this.konci
      this.bahan.idb = this.todoId;
      this.dataSvc.addBahan(this.bahan).then(()=>{
      })
-     //this.dataSvc.addTodo(this.todo);
  }
 savelangkah(){
- 
-  this.langkah.val = this.langkah.val +1000
+  this.konci = Date.now()
+  this.langkah.val =  this.konci
    this.langkah.idl = this.todoId;
    this.dataSvc.addLangkah(this.langkah).then(()=>{
    })

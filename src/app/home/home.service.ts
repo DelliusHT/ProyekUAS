@@ -39,7 +39,7 @@ export interface Waktu {
   waktupersiapan: string,
   totalwaktu:string,
   val:string,
-  id:string,
+  // id:string,
   date: number;
 }
  
