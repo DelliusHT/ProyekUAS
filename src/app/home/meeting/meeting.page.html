@@ -30,24 +30,29 @@
         </div> 
         </ion-card-content>
     </ion-card>
-
-<ion-row style="background-color: transparent !important;">
-    <ion-col size="12" size-sm="8" offset-sm="2" text-center style="background-color: transparent !important;"> 
-        <ion-item *ngFor="let item of meets" style="background-color: transparent !important;"> 
-            <ion-card style="background-color: transparent !important;">
-            <div id="images">
-                <div class="image" style="margin-left: auto;margin-right: auto;width: 50%; display: block;">
-                  <img [src]="imagess">
+    <ion-grid>
+        <ion-row style="background-color:cornflowerblue;color: white;">
+          <ion-col class="ion-text-center" style=" border: solid darkgray">
+            <h2 style="text-align: center;">KetemuanKuy</h2>
+              <!-- Angular disini -->
+            <ion-list>
+                <ion-item *ngFor="let item of meets" style="background-color: transparent !important;"> 
+                    <ion-card style="background-color: transparent !important;">
+                    <div id="images">
+                        <div class="image" style="margin-left: auto;margin-right: auto;width: 50%; display: block;">
+                          <img [src]="imagess">
+                        </div>
+                    </div>
+                    <h2 style="text-align: center;color:black">{{ item.judul}}</h2> 
+                    <ion-text style="color: black;">Pada tanggal : {{ item.hari}}</ion-text> <br>
+                    <ion-text style="color: black;">Pukul &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: {{ item.waktu}}</ion-text> 
+                <div class="wrapper">
+                    <ion-button (click)="openUrl(item)" >Hubungkan</ion-button>
                 </div>
-            </div>
-            <h2 style="text-align: center;color:black">{{ item.judul}}</h2> 
-            <h4 style="color: black;">{{ item.hari}}</h4> 
-            <h4 style="color: black;">{{ item.waktu}}</h4> 
-        <div class="wrapper">
-            <ion-button (click)="openUrl(item)" >link</ion-button>
-        </div>
-        </ion-card>
-    </ion-item>
-    </ion-col>
-</ion-row>
+                </ion-card>
+            </ion-item>
+            </ion-list>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
 </ion-content>
