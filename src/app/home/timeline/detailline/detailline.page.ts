@@ -78,7 +78,7 @@ export class DetaillinePage implements OnInit {
     idf:null,
     idz:null,
     val:null,
-    idi:null
+    id:null
   }
   ToastController: any;
  
@@ -157,7 +157,7 @@ export class DetaillinePage implements OnInit {
     this.index = IdUser.value;
     console.log(this.index);
     this.fav.idf = this.todoId;
-    this.fav.idi = this.todoId;
+    this.fav.id = this.todoId;
     this.fav.val = this.todoId;
     this.fav.idz = this.index;
     var iterasi = 0;
@@ -174,11 +174,7 @@ export class DetaillinePage implements OnInit {
           if(dataf.idf == this.todoId && dataf.idz == this.index){
             console.log("masuk if 1");
             // console.log(dataf.id);
-<<<<<<< HEAD
-           // this.dataSvc.removeFav(dataf.idi);
-=======
              this.dataSvc.Sdahfav();
->>>>>>> 2eea2d950a35d1a288aa4d69dc09b13357b6f4b7
             iterasi=1;
             //this.dataSvc.addFav(this.fav)
             break;
