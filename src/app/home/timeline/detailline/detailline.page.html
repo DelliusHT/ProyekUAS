@@ -20,7 +20,7 @@
                 <ion-img src="https://ucarecdn.com/{{ todo.uid }}/-/resize/640x400/center">
                 </ion-img>
             </div>
-            <div id="img" *ngIf= "todo.uid == null">
+            <div id="img" *ngIf= "todo.uid == null || !todo.uid">
                 <img [src]="imagess">
             </div> 
             <ion-card-content>
