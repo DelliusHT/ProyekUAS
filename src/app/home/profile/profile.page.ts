@@ -155,6 +155,7 @@ export class ProfilePage implements OnInit {
   }
 
   remove(item){
+    console.log(item.id)
     this.dataSvc.removeTodo(item.id);
   }
 

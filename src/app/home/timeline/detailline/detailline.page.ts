@@ -107,7 +107,7 @@ export class DetaillinePage implements OnInit {
         }
       });
  
-
+ 
  
       this.dataSvc.getBahans().subscribe(res => {
         this.bahans = res;
@@ -138,7 +138,7 @@ export class DetaillinePage implements OnInit {
     }
    
    }
-
+ 
    async loadTodo(){
     const loading = await this.loading.create({
       message: 'Loading...'
@@ -173,8 +173,7 @@ export class DetaillinePage implements OnInit {
           console.log("masuk for");
           if(dataf.idf == this.todoId && dataf.idz == this.index){
             console.log("masuk if 1");
-            // console.log(dataf.id);
-             this.dataSvc.Sdahfav();
+            // console.log(dataf.id); 
             iterasi=1;
             //this.dataSvc.addFav(this.fav)
             break;
@@ -186,7 +185,7 @@ export class DetaillinePage implements OnInit {
           this.dataSvc.fav();
         }
       }
-      
+     
       else{
         c=1;
         console.log('ccccc');

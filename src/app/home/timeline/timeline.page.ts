@@ -58,15 +58,15 @@ export class TimelinePage implements OnInit {
     });
   }
 
-  ionViewWillEnter(){
-    this.dataSvc.getTodos().subscribe(res => {
-      this.todos = res;
-      for(let data of this.todos){
-        this.term2.push(data)
-      }
-    });
-    console.log("masukk")
-  }
+  // ionViewWillEnter(){
+  //   this.dataSvc.getTodos().subscribe(res => {
+  //     this.todos = res;
+  //     for(let data of this.todos){
+  //       this.term2.push(data)
+  //     }
+  //   });
+  //   console.log("masukk")
+  // }
 
   async alert(){
     const toast = await this.toastController.create({
