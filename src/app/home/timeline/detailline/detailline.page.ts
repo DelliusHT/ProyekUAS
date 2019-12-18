@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NavController, LoadingController, ToastController } from '@ionic/angular';
 import { Plugins} from '@capacitor/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Register, RegisterService } from 'src/app/register/register.service';
 const{Storage} = Plugins;
  
 @Component({
@@ -81,6 +82,19 @@ export class DetaillinePage implements OnInit {
     id:null
   }
   ToastController: any;
+
+  registers:Register[];
+  regis: Register= {
+    iddd: null,
+    nama: null,
+    jenisKelamin: null,
+    alamat: null,
+    noHp: null,
+    uid: null
+}
+
+testid
+term6 = [];
  
  
   constructor(private dataSvc: HomeService,
@@ -89,9 +103,13 @@ export class DetaillinePage implements OnInit {
     private nav: NavController,
     public toastController: ToastController,
     private router : Router,
-    public afstore: AngularFirestore) { }
+    public afstore: AngularFirestore,
+    private regisSVC: RegisterService) { }
  
-  ngOnInit() {
+  async ngOnInit() {
+    const Iduser = await Storage.get({ key : 'IdUser'});
+    console.log(Iduser);
+    this.testid = Iduser.value;
     this.todoId = this.route.snapshot.params['id'];
     if (this.todoId){
       this.loadTodo();
@@ -103,6 +121,18 @@ export class DetaillinePage implements OnInit {
         for(let data of this.langkahs){
           if(data.idl == this.todoId ){
            this.term.push(data);
+          }
+        }
+      });
+
+      this.regisSVC. getRegisters().subscribe(res => {
+        this.registers = res;
+        //this.term = [];
+       
+        for(let data of this.registers){
+          if(data.iddd == this.testid ){
+           this.term6.push(data);
+           this.regis = data;
           }
         }
       });

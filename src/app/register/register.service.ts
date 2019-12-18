@@ -22,7 +22,19 @@ export class RegisterService{
     constructor(db: AngularFirestore){
         this.registerCollection = db.collection<Register>('register');
 
-        this.registers = this.registerCollection.snapshotChanges().pipe(
+        // this.registers = this.registerCollection.snapshotChanges().pipe(
+        //     map(actions => {
+        //         return actions.map(a => {
+        //             const data = a.payload.doc.data();
+        //             const id = a.payload.doc.id;
+        //             return {id, ...data};
+        //         });
+        //     })
+        // );
+    }
+
+    getRegisters(){
+        return this.registerCollection.snapshotChanges().pipe(
             map(actions => {
                 return actions.map(a => {
                     const data = a.payload.doc.data();
@@ -31,10 +43,6 @@ export class RegisterService{
                 });
             })
         );
-    }
-
-    getRegisters(){
-        return this.registers;
     }
     getRegister(id){
         return this.registerCollection.doc<Register>(id).valueChanges();

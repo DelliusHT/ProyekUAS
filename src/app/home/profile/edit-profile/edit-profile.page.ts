@@ -89,7 +89,6 @@ konci
       for(let data of this.langkahs){
         if(data.idl == this.todoId ){
          this.term.push(data);
-         console.log(data)
         }
       }
     });
@@ -104,7 +103,6 @@ konci
       for(let data of this.bahans){
         if(data.idb == this.todoId ){
          this.term1.push(data);
-         //console.log(data.id)
         }
       }
 
@@ -115,17 +113,9 @@ konci
       this.waktus = res;
 
       //this.term2 = [];
-      
       for(let data of this.waktus){
-        console.log("data idw "+data.idw);
-        console.log("todoid " + this.todoId);
-        console.log("data " + this.waktus);
-        console.log(data)
         if(data.idw == this.todoId ){
-          console.log("masuk")
          this.term2.push(data);
-         //this.idedit = data.id
-         console.log("idedit " + this.idedit)
          this.waktu = data;
         }
         
@@ -136,7 +126,6 @@ konci
   }
 
   remove(data){
-    console.log(data);
     this.dataSvc.removeLangkah(data.id);
   }
   remove1(data1){
@@ -153,7 +142,6 @@ konci
       loading.dismiss();
       this.todo = res;
     });
-  console.log(this.todoId);
    }
    
    async saveTodo(idd){
