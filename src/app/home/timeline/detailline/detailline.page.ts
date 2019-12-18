@@ -167,7 +167,7 @@ export class DetaillinePage implements OnInit {
           console.log("masuk for") 
           if(dataf.idf == this.todoId && dataf.idz == this.index){
             console.log("masuk if 1")
-            this.dataSvc.removeFav(dataf.id)
+            this.dataSvc.removeFav(dataf.idf)
             //this.dataSvc.addFav(this.fav) 
           } 
         }

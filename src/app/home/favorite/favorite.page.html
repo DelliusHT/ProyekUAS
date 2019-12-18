@@ -5,8 +5,8 @@
 </ion-header>
 
 <ion-content>
-    <ion-list class="isi" *ngFor="let item of test23">
-      <ion-item-sliding>
+    <ion-list class="isi" *ngFor="let item of test23" style="background-color: transparent !important;">
+      <ion-item-sliding >
         <ion-item-options side="end">
           <ion-item-option (click)="remove(item)">
             <ion-icon color="danger" name="trash" slot="icon-only"></ion-icon>
@@ -21,7 +21,7 @@
           <ion-thumbnail slot="start">
               <div id="images">
                   <div class="image">
-                          <ion-img src="https://ucarecdn.com/{{ item.uid }}/-/crop/200x200/center">
+                          <ion-img src="https://ucarecdn.com/{{ item.uid }}/-/resize/200x200/center">
                           </ion-img>
                   </div>
               </div>

@@ -13,35 +13,39 @@
     <ion-card>
         <ion-card-content>
             <ion-item>
-                <ion-label position="floating">Title</ion-label>
+                <ion-label position="floating">Nama Acara</ion-label>
                 <ion-input inputMode="text"  [(ngModel)]="meet.judul"></ion-input>
             </ion-item>
             <ion-item>
-                <ion-label position="floating">Date</ion-label>
+                <ion-label position="floating">Tanggal</ion-label>
                 <ion-input inputMode="text"  [(ngModel)]="meet.hari"></ion-input>
             </ion-item>
             
             <ion-item>
-                <ion-label position="floating">Time</ion-label>
+                <ion-label position="floating">Jam Acara</ion-label>
                 <ion-input inputMode="text"  [(ngModel)]="meet.waktu"></ion-input>
-            </ion-item> 
+            </ion-item>
+        <div class="wrapper">
             <ion-button (click) = "ShareLocation()">Share Location</ion-button>
+        </div> 
         </ion-card-content>
     </ion-card>
 
-<ion-row>
-    <ion-col size="12" size-sm="8" offset-sm="2" text-center > 
-        <ion-item *ngFor="let item of meets" > <ion-card>
+<ion-row style="background-color: transparent !important;">
+    <ion-col size="12" size-sm="8" offset-sm="2" text-center style="background-color: transparent !important;"> 
+        <ion-item *ngFor="let item of meets" style="background-color: transparent !important;"> 
+            <ion-card style="background-color: transparent !important;">
             <div id="images">
                 <div class="image" style="margin-left: auto;margin-right: auto;width: 50%; display: block;">
                   <img [src]="imagess">
                 </div>
             </div>
-            <ion-card-title>{{ item.judul}}</ion-card-title> 
-            <ion-card-title>{{ item.hari}}</ion-card-title> 
-            <ion-card-title>{{ item.waktu}}</ion-card-title> 
-            <ion-card-title>{{ item.url}}</ion-card-title> 
+            <h2 style="text-align: center;color:black">{{ item.judul}}</h2> 
+            <h4 style="color: black;">{{ item.hari}}</h4> 
+            <h4 style="color: black;">{{ item.waktu}}</h4> 
+        <div class="wrapper">
             <ion-button (click)="openUrl(item)" >link</ion-button>
+        </div>
         </ion-card>
     </ion-item>
     </ion-col>
