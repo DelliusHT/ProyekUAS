@@ -53,8 +53,8 @@ export class EditPage implements OnInit {
     });
      } 
       
-     ionViewWillEnter(){
-      
+    ionViewWillEnter(){
+    
       this.regisId = this.route.snapshot.params['id'];
       if (this.regisId){
         this.loadTodo();

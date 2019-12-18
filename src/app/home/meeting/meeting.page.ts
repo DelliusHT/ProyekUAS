@@ -14,15 +14,7 @@ const{Storage} = Plugins;
   styleUrls: ['./meeting.page.scss'],
 })
 export class MeetingPage{ 
-  index:string;
-  register: Register = {
-    iddd: "",
-    nama: "",
-    jenisKelamin: "", 
-    alamat: "",
-    noHp: "",
-    uid: "",
-  }
+  index:string; 
 
   meets:Meet[];
   meet: Meet= {
@@ -32,6 +24,15 @@ export class MeetingPage{
     hari: null,
     url: null,
     date: null
+  }
+
+  register: Register = {
+    iddd: null,
+    nama: null,
+    jenisKelamin: null, 
+    alamat: null,
+    noHp: null,
+    uid: null
   }
 
   profile : Register[]; 
@@ -45,6 +46,9 @@ export class MeetingPage{
     ngOnInit() {
       this.dataSvc.getMeets().subscribe(res => {
         this.meets = res;
+      });
+      this.registerService.getRegisters().subscribe(res => {
+        this.profile = res;
       });
     }
 

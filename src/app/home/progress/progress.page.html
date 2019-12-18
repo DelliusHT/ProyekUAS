@@ -20,7 +20,7 @@
                         </ion-img>
                 </div>
             </div>
-            <div id="images" *ngIf= "item.uid == null">
+            <div id="images" *ngIf= "item.uid == null || !item.uid">
                 <div class="image">
                     <img [src]="imagess">
                 </div>
