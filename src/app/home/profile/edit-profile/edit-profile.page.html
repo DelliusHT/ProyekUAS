@@ -18,23 +18,29 @@
                   </ion-card>
               </ion-col>
           </ion-row>
-    <ion-list>
-        <ion-item>
-            <ion-label position="fix">Nama</ion-label>
-            <ion-input type="text" placeholder="Title" [(ngModel)]="todo.title"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label position="fix">Deskripsi</ion-label>
-            <ion-textarea placeholder="Deskripsi" [(ngModel)]="todo.deskripsi"></ion-textarea>
-        </ion-item>
-    </ion-list>
-    <div class="wrapper">
-    <ion-buttons style="background-color: #e6ebe7;">
-        <div class="wrapper">
-        <ion-button color="primary">Swipe >></ion-button>
-        </div>
-      </ion-buttons>
-    </div>
+          <ion-grid>
+            <ion-row style="background-color:cornflowerblue;color: white;">
+              <ion-col class="ion-text-center" style=" border: solid darkgray">
+                <h2 style="text-align: center;">Detail Masakan</h2>
+                  <!-- Angular disini -->
+                <ion-list>
+                  <ion-item style="text-align: center;">
+                      <ion-input type="text" placeholder="Title" [(ngModel)]="todo.title"></ion-input>
+                  </ion-item>
+                  <ion-item style="font-size: 12Px;">
+                      <ion-textarea placeholder="Deskripsi" [(ngModel)]="todo.deskripsi"></ion-textarea>
+                  </ion-item>
+                </ion-list>
+              </ion-col>
+            </ion-row>
+            <div class="wrapper">
+            <ion-buttons style="background-color: #e6ebe7;">
+                <div class="wrapper">
+                <ion-button color="primary">Swipe >></ion-button>
+                </div>
+              </ion-buttons>
+            </div>
+          </ion-grid>
   </ion-grid>
   </ion-slide>
     <ion-slide>
