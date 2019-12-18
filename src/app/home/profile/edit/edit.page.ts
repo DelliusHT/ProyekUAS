@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { LoadingController } from '@ionic/angular'; 
+import { LoadingController, ToastController } from '@ionic/angular'; 
 import { Plugins} from '@capacitor/core';
 import { RegisterService, Register } from 'src/app/register/register.service';
 import { AngularFireStorage } from '@angular/fire/storage';  
 import { Http } from '@angular/http'
 import { AngularFirestore } from '@angular/fire/firestore';
 import { firestore } from 'firebase/app';
+import { HomeService } from '../../home.service';
 const{Storage} = Plugins;
 
 @Component({
@@ -34,7 +35,9 @@ export class EditPage implements OnInit {
 
 
   constructor(private resSvc : RegisterService,
+    private dataSvc : HomeService,
     private router: Router,
+    public toastController: ToastController,
     private loadingCtrl: LoadingController, private route: ActivatedRoute,private loading:LoadingController,
     public afSG: AngularFireStorage, public http: Http, public afstore: AngularFirestore) { }
 
@@ -67,17 +70,16 @@ export class EditPage implements OnInit {
       this.resSvc.getRegister(this.regisId).subscribe(res => {
         loading.dismiss();
         this.regis = res;
-      });
-    console.log(this.regis);
+      }); 
+ 
      }
 
-     saveTodo(){
+      saveTodo(){
       if(this.regisId){
         this.resSvc.updateRegister(this.regis, this.regisId);
         this.createPost();
-      } 
-      this.router.navigateByUrl('/home/tabs/profile'); 
-    }
+       } 
+      }
 
     fileChanged(event) {
       const files = event.target.files
@@ -87,8 +89,7 @@ export class EditPage implements OnInit {
       data.append('UPLOADCARE_PUB_KEY', '070be25fc4d496f21df3')
         
       this.http.post('https://upload.uploadcare.com/base/', data)
-      .subscribe(event =>{
-        console.log(event)
+      .subscribe(event =>{ 
         this.imageURL = event.json().file
       }) 
     }
@@ -99,7 +100,8 @@ export class EditPage implements OnInit {
       const image = this.imageURL 
       this.afstore.doc(`register/${this.index}`).update({
         uid: image
-      })
-      this.router.navigateByUrl('/home/tabs/profile')
+      })  
+      this.router.navigateByUrl('/home/tabs/profile'); 
+    
     }
 }
