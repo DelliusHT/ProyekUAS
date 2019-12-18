@@ -32,6 +32,21 @@
           <ion-card-content>
               <p style="font-size: 15px;text-align: justify;"><br>{{todo.deskripsi}}</p>
             </ion-card-content>
+            <ion-buttons>
+              <ion-button [routerLink]="[
+              '/',
+              'home',
+              'tabs',
+              'progress',
+              'addphoto']">
+                Tambahkan Foto
+                <div>
+                    <div>
+                        <ion-icon name="camera" slot="end"></ion-icon>
+                      </div>
+                      </div>
+              </ion-button>
+              </ion-buttons>
         </ion-card>
       </ion-col>
     </ion-row>
@@ -78,24 +93,7 @@
         </ion-col>
         
       <ion-col>
-          <ion-buttons>
-          <ion-button [routerLink]="[
-          '/',
-          'home',
-          'tabs',
-          'progress',
-          'addphoto']">
-            Tambahkan Foto
-            <div>
-                <div *ngIf= "!test3">
-                    <ion-icon name="add-circle" slot="end"></ion-icon>
-                  </div>
-                  <div *ngIf= "test3">
-                      <ion-icon name="md-checkmark" slot="end"></ion-icon>
-                    </div>
-                  </div>
-          </ion-button>
-          </ion-buttons>
+
         </ion-col>
     </ion-row>
   </ion-grid>

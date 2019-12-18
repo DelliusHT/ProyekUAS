@@ -122,5 +122,29 @@ export class AddlangkahPage implements OnInit {
      }
    }
 
+   async cancel(){
+    const Iduser = await Storage.get({ key : 'IdTl'});
+    this.Idaj = Iduser.value;
+    const loading = await this.loading.create({
+      message: 'Cancel'
+    });
+    await loading.present();
+    
+    this.dataSvc.getLangkahs().subscribe(res => {
+      this.langkahs = res;
+     // this.term = [];
+     console.log("test 1")
+      for(let data of this.langkahs){
+        if(data.idl == this.index ){
+          console.log("test 2")
+         this.dataSvc.removeLangkah(data.id);
+        }
+      }
+    });
+
+     loading.dismiss();
+     this.router.navigateByUrl('/home/tabs/progress/'+this.Idaj);
+   }
+
 
 }

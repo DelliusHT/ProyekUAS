@@ -1,9 +1,6 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>Masukan Langkah-Langkah</ion-title>
-    <ion-buttons slot="start">
-        <ion-back-button color="primary"></ion-back-button>
-    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -36,6 +33,7 @@
             <ion-input type="text" placeholder="Scope"  [(ngModel)]="waktu.totalwaktu" ></ion-input>
         </ion-item>
             <ion-button color="primary" (click)="upload()" expand="block">Upload</ion-button>
+            <ion-button color="primary" (click)="cancel()" expand="block">Cancel</ion-button>
       </ion-grid>
 
       <!-- [(ngModel)]="todo.totalmasak" -->
