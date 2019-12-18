@@ -25,15 +25,15 @@
         <ion-button color="primary" (click)="savelangkah()" expand="block">Tambah Langkah</ion-button>
         <ion-item>
             <ion-label position="floating">Takaran Saji</ion-label>
-            <ion-input type="text" placeholder="Scope"  [(ngModel)]="waktu.takaransaji"></ion-input>
+            <ion-input type="number" placeholder="Scope"  [(ngModel)]="waktu.takaransaji"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label position="floating">Waktu Persiapan</ion-label>
-            <ion-input type="text" placeholder="Scope"  [(ngModel)]="waktu.waktupersiapan"></ion-input>
+            <ion-input type="number" placeholder="Scope"  [(ngModel)]="waktu.waktupersiapan"></ion-input>
         </ion-item>
         <ion-item>
             <ion-label position="floating">Total Waktu Untuk Memasak</ion-label>
-            <ion-input type="text" placeholder="Scope"  [(ngModel)]="waktu.totalwaktu" ></ion-input>
+            <ion-input type="number" placeholder="Scope"  [(ngModel)]="waktu.totalwaktu" ></ion-input>
         </ion-item>
             <ion-button color="primary" (click)="upload()" expand="block">Masukan Data</ion-button>
       </ion-grid>

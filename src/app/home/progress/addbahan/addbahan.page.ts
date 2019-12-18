@@ -46,6 +46,7 @@ export class AddbahanPage implements OnInit {
     date: Date.now(),
   
   }
+  datakos: number =0;
 
   constructor(private dataSvc : HomeService, 
     private loading:LoadingController, 
@@ -66,6 +67,7 @@ export class AddbahanPage implements OnInit {
       for(let data of this.bahans){
         if(data.idb == this.index ){
          this.term.push(data);
+         this.datakos = this.datakos + 1
         }
       }
 
@@ -84,6 +86,7 @@ export class AddbahanPage implements OnInit {
       for(let data of this.bahans){
         if(data.idb == this.index ){
          this.term.push(data);
+         this.datakos = this.datakos + 1
         }
       }
 
@@ -91,12 +94,13 @@ export class AddbahanPage implements OnInit {
   }
 
   async savebahan(){
-      this.bahan.val = this.bahan.val +1
+      this.bahan.val = this.bahan.val +this.datakos
        const IdTl = await Storage.get({ key : 'IdTl'});
        this.bahan.idb = IdTl.value;
        this.dataSvc.addBahan(this.bahan).then(()=>{
        })
        //this.dataSvc.addTodo(this.todo);
+       console.log(this.datakos)
    }
 
    remove(item){
