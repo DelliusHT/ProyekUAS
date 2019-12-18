@@ -1,0 +1,18 @@
+ion-content {
+    --background: url('https://scontent.fcgk3-1.fna.fbcdn.net/v/t1.0-9/s960x960/80794737_2595538007193561_3432969537241219072_o.jpg?_nc_cat=109&_nc_eui2=AeG7UlLZrdII10ak1r6JhT3gxX8vK2XXjO7v4LF4KXFQRYOSQmWSf4FLrSPwC8x9VlCZR5f3aR2HkfXw_D25FH9U58Mo5P_6-2lp7--Bom2bNw&_nc_ohc=BZJzWKg4h44AQlpyc53F3CBeCxZAIXz5C_WVN8ShT--N7UQUo6TB6zkRg&_nc_ht=scontent.fcgk3-1.fna&oh=6f91790c6ca638b4684cf63d1afbaa22&oe=5E812B76') no-repeat top center/cover fixed, #fff;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+ion-toolbar {
+    --background: transparent;
+}
+
+.wrapper {
+    text-align: center;
+  }
+  
+  .button {
+    top: 50%;
+  }

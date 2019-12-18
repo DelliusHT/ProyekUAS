@@ -1,10 +1,16 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>register</ion-title>
+    <ion-title style="text-align: center;">Daftar</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content> 
+<ion-content>
+  <ion-grid>
+    <ion-row style="background-color:cornflowerblue;color: white;">
+      <ion-col class="ion-text-center" style=" border: solid darkgray">
+        <h2 style="text-align: center;">Daftar</h2>
+          <!-- Angular disini -->
+        <ion-list>
         <!-- <div class="camera"></div>
         <div class="flex" *ngIf="!imageURL">
             <div class="img-box">
@@ -37,11 +43,18 @@
                   <ion-input type="email" type="email" [(ngModel)]="username"></ion-input>
               </ion-item>
               <ion-item>
-                  <ion-label position="floating">Password</ion-label>
+                  <ion-label position="floating">Kata Sandi</ion-label>
                   <ion-input type="password" [(ngModel)]="password"></ion-input>
               </ion-item>  
             </ion-card-content>
-        </ion-card>  
-  <ion-button color="primary" (click)="register1()">Register</ion-button>
+        </ion-card>
+        
+      </ion-list>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+<div class="wrapper">  
   <ion-button color="danger" (click)="cancel()">Cancel</ion-button>
+  <ion-button color="primary" (click)="register1()">Register</ion-button>
+</div>
 </ion-content>
