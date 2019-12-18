@@ -11,7 +11,11 @@
   <br><br><br>
   <ion-grid style="background-color: whitesmoke;">
     <div class="camera"></div>
-
+    <div class="flex" *ngIf="!imageURL">
+        <div class="img-box">
+          <img [src]="imagess">
+        </div>
+    </div>
     <input type="file" *ngIf="!imageURL"  (change)="fileChanged($event)"/> 
     
     <ion-card *ngIf="imageURL">

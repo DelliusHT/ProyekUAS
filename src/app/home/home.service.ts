@@ -4,7 +4,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ToastController } from '@ionic/angular';
-
+ 
 export interface Todo {
   idd:string,
   title: string;
@@ -25,14 +25,14 @@ export interface Todo {
   username: string;
   uid: string;
 }
-
+ 
 export interface Langkah {
   idl:string,
   langkah: string,
   val:number,
   date: number;
 }
-
+ 
 export interface Waktu {
   idw:string,
   takaransaji: string,
@@ -42,7 +42,7 @@ export interface Waktu {
   id:string,
   date: number;
 }
-
+ 
 export interface Bahan {
   idb:string,
   nmbahan: string,
@@ -50,14 +50,14 @@ export interface Bahan {
   val:string,
   date: number;
 }
-
+ 
 export interface Fav{
   idf:string,
   idz:string,
   val:string,
   id:string;
 }
-
+ 
 export interface Meet {
   judul:string,
   idm:string,
@@ -66,18 +66,18 @@ export interface Meet {
   url:string,
   date: number;
 }
-
+ 
 @Injectable({
   providedIn: 'root'
 })
-
+ 
 export class HomeService {
-  
-  
+ 
+ 
   private todo: Todo
   private todosCollection: AngularFirestoreCollection<Todo>;
   private todos: Observable<Todo[]>;
-
+ 
   //---------------------
   private langkahCollection: AngularFirestoreCollection<Langkah>;
   private langkahs: Observable<Langkah[]>;
@@ -93,12 +93,12 @@ export class HomeService {
   //--------------------
   private meetCollection: AngularFirestoreCollection<Meet>;
   private meets: Observable<Meet[]>;
-
-
+ 
+ 
   constructor(db : AngularFirestore,
-    public toastController: ToastController ) { 
-
-
+    public toastController: ToastController ) {
+ 
+ 
     this.todosCollection = db.collection<Todo>('todos');
   //   this.todos = this.todosCollection.snapshotChanges().pipe(
   //     map(actions => {
@@ -109,9 +109,9 @@ export class HomeService {
   //         });
   //     })
   // );
-
+ 
 // Langkah -Langkah
-
+ 
 this.langkahCollection = db.collection<Langkah>('Langkah', ref => ref.orderBy('val'));
   // this.langkahs = this.langkahCollection.snapshotChanges().pipe(
   //   map(actions => {
@@ -122,8 +122,8 @@ this.langkahCollection = db.collection<Langkah>('Langkah', ref => ref.orderBy('v
   //       });
   //   })
   // );
-
-
+ 
+ 
 //Bahan
   this.bahanCollection = db.collection<Bahan>('Bahan', ref => ref.orderBy('val'));
   // this.bahans = this.bahanCollection.snapshotChanges().pipe(
@@ -135,9 +135,9 @@ this.langkahCollection = db.collection<Langkah>('Langkah', ref => ref.orderBy('v
   //       });
   //   })
   // );
-
+ 
 //Waktu
-
+ 
 this.waktuCollection = db.collection<Waktu>('Waktu');
 // this.waktus = this.waktuCollection.snapshotChanges().pipe(
 //   map(actions => {
@@ -148,9 +148,9 @@ this.waktuCollection = db.collection<Waktu>('Waktu');
 //       });
 //   })
 // );
-
+ 
 //fav
-
+ 
 this.favCollection = db.collection<Fav>('Fav');
 // this.favs = this.favCollection.snapshotChanges().pipe(
 //   map(actions => {
@@ -169,17 +169,17 @@ this.meetCollection = db.collection<Meet>('Meet');
 //           const id = a.payload.doc.id;
 //           return {id, ...data};
   }
-
-
-
+ 
+ 
+ 
   setUser(todo: Todo){
     this.todo = todo
   }
-
+ 
   getUID(){
     return this.todo.idd
   }
-
+ 
   getTodos(){
     return this.todosCollection.snapshotChanges().pipe(
       map(actions => {
@@ -192,33 +192,33 @@ this.meetCollection = db.collection<Meet>('Meet');
   );
     // return this.todos;
 }
-
+ 
 getTodo(id){
     return this.todosCollection.doc<Todo>(id).valueChanges();
 }
-
-
+ 
+ 
 updateTodo(todo: Todo, id: string){
     return this.todosCollection.doc(id).update(todo);
 }
-
+ 
 addTodo(todo: Todo){
     return this.todosCollection.add(todo);
 }
-
+ 
 removeTodo(id){
     return this.todosCollection.doc(id).delete();
 }
-
-
-
-
-
+ 
+ 
+ 
+ 
+ 
 //Langkah - langkah
-
-
-
-
+ 
+ 
+ 
+ 
 getLangkahs(){
   //return this.langkahs;
   return this.langkahCollection.snapshotChanges().pipe(
@@ -231,30 +231,30 @@ getLangkahs(){
     })
   );
 }
-
+ 
 getLangkah(id){
   return this.langkahCollection.doc<Langkah>(id).valueChanges();
 }
-
-
+ 
+ 
 updateLangkah(langkah: Langkah, id: string){
   return this.langkahCollection.doc(id).update(langkah);
 }
-
+ 
 addLangkah(langkah: Langkah){
   return this.langkahCollection.add(langkah);
 }
-
+ 
 removeLangkah(id){
   return this.langkahCollection.doc(id).delete();
 }
-
-
-
-
+ 
+ 
+ 
+ 
 //Bahan
-
-
+ 
+ 
 getBahans(){
   //return this.bahans;
   return this.bahanCollection.snapshotChanges().pipe(
@@ -267,27 +267,27 @@ getBahans(){
     })
   );
 }
-
+ 
 getBahan(id){
   return this.bahanCollection.doc<Bahan>(id).valueChanges();
 }
-
-
+ 
+ 
 updateBahan(bahan: Bahan, id: string){
   return this.bahanCollection.doc(id).update(bahan);
 }
-
+ 
 addBahan(bahan: Bahan){
   return this.bahanCollection.add(bahan);
 }
-
+ 
 removeBahan(id){
   return this.bahanCollection.doc(id).delete();
 }
-
+ 
 //waktu
-
-
+ 
+ 
 getWaktus(){
   //return this.waktus;
 return this.waktuCollection.snapshotChanges().pipe(
@@ -300,24 +300,24 @@ return this.waktuCollection.snapshotChanges().pipe(
   })
 );
 }
-
+ 
 getWaktu(id){
   return this.waktuCollection.doc<Waktu>(id).valueChanges();
 }
-
-
+ 
+ 
 updateWaktu(waktu: Waktu, id: string){
   return this.waktuCollection.doc(id).update(waktu);
 }
-
+ 
 addWaktu(waktu: Waktu){
   return this.waktuCollection.add(waktu);
 }
-
+ 
 removeWaktu(id){
   return this.waktuCollection.doc(id).delete();
 }
-
+ 
 //fav
 getFavs(){
   //return this.favs;
@@ -331,24 +331,24 @@ return this.favCollection.snapshotChanges().pipe(
   })
 );
 }
-
+ 
 getFav(id){
   return this.favCollection.doc<Fav>(id).valueChanges();
 }
-
-
+ 
+ 
 updateFav(fav: Fav, id: string){
   return this.favCollection.doc(id).update(fav);
 }
-
+ 
 addFav(fav: Fav){
   return this.favCollection.add(fav);
 }
-
+ 
 removeFav(id){
   return this.favCollection.doc(id).delete();
 }
-
+ 
 //meeting
 getMeets(){
   //return this.waktus;
@@ -362,24 +362,24 @@ return this.meetCollection.snapshotChanges().pipe(
   })
 );
 }
-
+ 
 getMeet(id){
   return this.meetCollection.doc<Meet>(id).valueChanges();
 }
-
-
+ 
+ 
 updateMeet(meet: Meet, id: string){
   return this.meetCollection.doc(id).update(meet);
 }
-
+ 
 addMeet(meet: Meet){
   return this.meetCollection.add(meet);
 }
-
+ 
 removeMeet(id){
   return this.meetCollection.doc(id).delete();
 }
-
+ 
 async fav(){
   const toast = await this.toastController.create({
     message: 'Item sudah ditambahkan ke favorit',
@@ -387,7 +387,7 @@ async fav(){
   });
   toast.present();
 }
-
+ 
 async Sdahfav(){
 const toast = await this.toastController.create({
   message: 'Item sudah ada di favorit',
@@ -395,7 +395,7 @@ const toast = await this.toastController.create({
 });
 toast.present();
 }
-
+ 
 async save(){
 const toast = await this.toastController.create({
   message: 'Perubahan telah disimpan',
@@ -403,5 +403,5 @@ const toast = await this.toastController.create({
 });
 toast.present();
 }
-
+ 
 }

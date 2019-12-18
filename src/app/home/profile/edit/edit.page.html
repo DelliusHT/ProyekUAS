@@ -9,26 +9,24 @@
   
   <ion-content> 
         <div class="camera"></div>
-        <div class="flex" *ngIf="!imageURL && !regis.uid">
+        <div class="flex" *ngIf="regis.uid == null">
             <div class="img-box">
               <img [src]="imagess">
             </div>
         </div>
-        <div class="flex" *ngIf="regis.uid != null && regis.uid">
+        <div class="flex" *ngIf="regis.uid != null">
             <div class="img-box">
                 <ion-img src="https://ucarecdn.com/{{ regis.uid }}/-/resize/200x200/center"></ion-img>
             </div>
         </div>
-        <input type="file" *ngIf="!imageURL" (change)="fileChanged($event)"/> 
+        <input type="file" (change)="fileChanged($event)"/> 
         
-        <ion-card *ngIf="regis.uid == null || !regis.uid">
-          <div *ngIf="imageURL">
+        <ion-card *ngIf="regis.uid == null">
             <img src="https://ucarecdn.com/{{ imageURL }}/"/>  
             <ion-button color="primary" (click)="createPost()">Save</ion-button> 
-          </div>
             <ion-card-content> 
               <ion-item>
-                  <ion-label position="floating">Nama1</ion-label>
+                  <ion-label position="floating">Nama</ion-label>
                   <ion-input type="text" [(ngModel)]="regis.nama"></ion-input>
               </ion-item>
               <ion-item>
@@ -47,12 +45,12 @@
             <ion-button color="primary" (click)="saveTodo()">Save</ion-button> 
         </ion-card> 
 
-        <ion-card *ngIf="regis.uid  && imageURL">
+        <ion-card *ngIf="regis.uid != null && imageURL">
             <img src="https://ucarecdn.com/{{ imageURL }}/"/>  
             <ion-button color="primary" (click)="createPost()">Save</ion-button> 
             <ion-card-content> 
               <ion-item>
-                  <ion-label position="floating">Nama2</ion-label>
+                  <ion-label position="floating">Nama</ion-label>
                   <ion-input type="text" [(ngModel)]="regis.nama"></ion-input>
               </ion-item>
               <ion-item>
@@ -71,10 +69,10 @@
             <ion-button color="primary" (click)="saveTodo()">Save</ion-button> 
         </ion-card> 
 
-        <ion-card *ngIf="regis.uid != null && !imageURL"> 
+        <ion-card *ngIf="regis.uid != null"> 
             <ion-card-content> 
               <ion-item>
-                  <ion-label position="floating">Nama3</ion-label>
+                  <ion-label position="floating">Nama</ion-label>
                   <ion-input type="text" [(ngModel)]="regis.nama"></ion-input>
               </ion-item>
               <ion-item>

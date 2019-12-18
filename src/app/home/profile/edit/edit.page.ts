@@ -53,8 +53,8 @@ export class EditPage implements OnInit {
     });
      } 
       
-     ionViewWillEnter(){
-      
+    ionViewWillEnter(){
+    
       this.regisId = this.route.snapshot.params['id'];
       if (this.regisId){
         this.loadTodo();
@@ -78,7 +78,6 @@ export class EditPage implements OnInit {
       if(this.regisId){
         this.resSvc.updateRegister(this.regis, this.regisId);
         this.createPost();
-        this.dataSvc.save();
        } 
        this.router.navigateByUrl('/home/tabs/profile'); 
       }
@@ -103,6 +102,5 @@ export class EditPage implements OnInit {
       this.afstore.doc(`register/${this.index}`).update({
         uid: image
       })      
-      this.dataSvc.save();
     }
 }

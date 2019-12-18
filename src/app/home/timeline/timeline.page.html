@@ -41,7 +41,7 @@
                             </ion-img>
                     </div>
                 </div>
-                <div id="images" *ngIf= "item.uid == null">
+                <div id="images" *ngIf= "item.uid == null || !item.uid">
                         <div class="image" style="margin-left: auto;margin-right: auto;width: 50%; display: block;">
                                 <img [src]="imagess">
                         </div>
