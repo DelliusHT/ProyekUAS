@@ -39,7 +39,7 @@ export interface Waktu {
   waktupersiapan: string,
   totalwaktu:string,
   val:string,
-  // id:string,
+  id:string,
   date: number;
 }
  
@@ -59,12 +59,13 @@ export interface Fav{
 }
  
 export interface Meet {
+  namas:string,
   judul:string,
   idm:string,
   waktu: string,
   hari: string,
   url:string,
-  date: number;
+  date: number,
 }
  
 @Injectable({

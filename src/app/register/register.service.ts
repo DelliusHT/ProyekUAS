@@ -4,11 +4,11 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 export interface Register {
-    iddd: string
-    nama: string
-    jenisKelamin: string;
-    alamat: string;
-    noHp: string;
+    iddd: string,
+    nama: string,
+    jenisKelamin: string,
+    alamat: string,
+    noHp: string,
     uid: string;
 }
 
