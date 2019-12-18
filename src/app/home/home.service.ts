@@ -54,7 +54,7 @@ export interface Fav{
   idf:string,
   idz:string,
   val:string,
-  id:string;
+  idi:string;
 }
 
 export interface Meet {
