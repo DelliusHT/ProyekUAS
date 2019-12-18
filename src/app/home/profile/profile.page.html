@@ -14,12 +14,12 @@
     <div class="card">
         <div class="user-meta ion-text-center" *ngFor="let item3 of test3"> 
           
-        <div class="header" *ngIf= "item3.uid != null">
+        <div class="header" *ngIf= "item3.uid != null && item3.uid">
             <div class="avatar">
                 <ion-img src="https://ucarecdn.com/{{ item3.uid }}/-/resize/200x200/center"></ion-img>
             </div>
         </div>
-        <div class="header" *ngIf= "item3.uid == null">
+        <div class="header" *ngIf= "item3.uid == null || !item3.uid">
             <div class="avatar">
                 <img [src]="imagess">
             </div>

@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/fires
 import { AppRoutingModule } from '../app-routing.module';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ToastController } from '@ionic/angular';
 
 export interface Todo {
   idd:string,
@@ -94,7 +95,8 @@ export class HomeService {
   private meets: Observable<Meet[]>;
 
 
-  constructor(db : AngularFirestore ) { 
+  constructor(db : AngularFirestore,
+    public toastController: ToastController ) { 
 
 
     this.todosCollection = db.collection<Todo>('todos');
@@ -378,5 +380,28 @@ removeMeet(id){
   return this.meetCollection.doc(id).delete();
 }
 
+async fav(){
+  const toast = await this.toastController.create({
+    message: 'Item sudah ditambahkan ke favorit',
+    duration: 2000
+  });
+  toast.present();
+}
+
+async Sdahfav(){
+const toast = await this.toastController.create({
+  message: 'Item sudah ada di favorit',
+  duration: 2000
+});
+toast.present();
+}
+
+async save(){
+const toast = await this.toastController.create({
+  message: 'Perubahan telah disimpan',
+  duration: 2000
+});
+toast.present();
+}
 
 }

@@ -174,7 +174,7 @@ export class DetaillinePage implements OnInit {
           if(dataf.idf == this.todoId && dataf.idz == this.index){
             console.log("masuk if 1");
             // console.log(dataf.id);
-            this.dataSvc.removeFav(dataf.id);
+             this.dataSvc.Sdahfav();
             iterasi=1;
             //this.dataSvc.addFav(this.fav)
             break;
@@ -183,14 +183,17 @@ export class DetaillinePage implements OnInit {
         if(iterasi == 0){
           console.log("iterasi nya masuk 0")
           this.dataSvc.addFav(this.fav);
+          this.dataSvc.fav();
         }
       }
+      
       else{
         c=1;
         console.log('ccccc');
         console.log(c);
         if(c == 1){
           this.dataSvc.addFav(this.fav);
+          this.dataSvc.fav();
           console.log("sukk");
         }
       }
