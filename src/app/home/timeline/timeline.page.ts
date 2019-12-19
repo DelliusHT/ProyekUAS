@@ -50,8 +50,9 @@ export class TimelinePage implements OnInit {
   }
 
   ngOnInit() {
+    this.term2=[];
     this.dataSvc.getTodos().subscribe(res => {
-      this.todos = res;
+      this.todos = res; 
       for(let data of this.todos){
         this.term2.push(data)
       }

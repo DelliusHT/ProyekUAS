@@ -57,30 +57,30 @@ export class FavoritePage implements OnInit {
         });
     }
  
-    async ionViewWillEnter() {
+    // async ionViewWillEnter() {
  
-      const Iduser = await Storage.get({ key : 'IdUser'});
-      console.log(Iduser);
-      this.testid = Iduser.value;
-          this.dataSvc.getFavs().subscribe(res => {
-            this.favs = res;
-            this.term3 = [];
-            this.test23 = [];
-            for(let data of this.favs){
-              if(data.idz == this.testid ){
-               this.term3.push(data);
-               this.dataSvc.getTodo(data.idf).subscribe(res => {
-                res.langkah = data.idf
-                this.test23.push(res);
-              });
+    //   const Iduser = await Storage.get({ key : 'IdUser'});
+    //   console.log(Iduser);
+    //   this.testid = Iduser.value;
+    //       this.dataSvc.getFavs().subscribe(res => {
+    //         this.favs = res;
+    //         this.term3 = [];
+    //         this.test23 = [];
+    //         for(let data of this.favs){
+    //           if(data.idz == this.testid ){
+    //            this.term3.push(data);
+    //            this.dataSvc.getTodo(data.idf).subscribe(res => {
+    //             res.langkah = data.idf
+    //             this.test23.push(res);
+    //           });
                
-              }
-            }
-          });
-      }
+    //           }
+    //         }
+    //       });
+    //   }
  
       remove(item){       
-        console.log(item.uid)
+        console.log(item.id)
         // this.dataSvc.getFavs().subscribe(res => {
         // this.favse = res;
         // console.log(this.favse)

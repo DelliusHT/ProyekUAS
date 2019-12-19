@@ -65,11 +65,9 @@ export class ProfilePage implements OnInit {
     private route: ActivatedRoute) { }
     
    async ngOnInit() {
-    const Iduser = await Storage.get({ key : 'IdUser'});
-    console.log(Iduser);
+    const Iduser = await Storage.get({ key : 'IdUser'}); 
     this.testid = Iduser.value;
-    this.testid3 = Iduser.value;
-    console.log(this.testid)
+    this.testid3 = Iduser.value; 
 
       this.dataSvc.getTodos().subscribe(res => {
         this.todos = res;
@@ -97,17 +95,14 @@ export class ProfilePage implements OnInit {
          console.log(this.test3)
         }
       });
-    
     }
 
 
     async ionViewWillEnter(){
 
-      const Iduser = await Storage.get({ key : 'IdUser'});
-      console.log(Iduser);
+      const Iduser = await Storage.get({ key : 'IdUser'}); 
       this.testid = Iduser.value;
-      this.testid3 = Iduser.value;
-      console.log(this.testid)
+      this.testid3 = Iduser.value; 
   
         this.dataSvc.getTodos().subscribe(res => {
           this.todos = res;
@@ -131,8 +126,7 @@ export class ProfilePage implements OnInit {
             if(data3.iddd == this.testid3){
              this.test3.push(data3);
             }
-            
-           console.log(this.test3)
+             
           }
         });
       
@@ -154,8 +148,7 @@ export class ProfilePage implements OnInit {
         })
   }
 
-  remove(item){
-    console.log(item.id)
+  remove(item){ 
     this.dataSvc.removeTodo(item.id);
   }
 
