@@ -124,18 +124,6 @@ term6 = [];
           }
         }
       });
-
-      this.regisSVC. getRegisters().subscribe(res => {
-        this.registers = res;
-        //this.term = [];
-       
-        for(let data of this.registers){
-          if(data.iddd == this.testid ){
-           this.term6.push(data);
-           this.regis = data;
-          }
-        }
-      });
  
  
  

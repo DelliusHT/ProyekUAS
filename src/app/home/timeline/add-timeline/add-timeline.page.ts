@@ -11,6 +11,7 @@ import { File } from '@ionic-native/file/ngx';
   import { Http } from '@angular/http'
   import { AngularFirestore } from '@angular/fire/firestore';
   import { firestore } from 'firebase/app';
+import { Register, RegisterService } from 'src/app/register/register.service';
 
 
 const{Storage} = Plugins;
@@ -54,74 +55,35 @@ export class AddTimelinePage implements OnInit {
     uid: null
   }
 
+  
+  registers:Register[];
+  regis: Register= {
+    iddd: null,
+    nama: null,
+    jenisKelamin: null,
+    alamat: null,
+    noHp: null,
+    uid: null
+}
+
+testid
+term6 = [];
+nama
+
 
   constructor(private dataSvc : HomeService, private loading:LoadingController, 
     private nav: NavController, private route: ActivatedRoute, private router : Router,
     private camera: Camera, public file: File,public afSG: AngularFireStorage,
-    public alertController: AlertController, public http: Http, public afstore: AngularFirestore) { }
+    public alertController: AlertController, public http: Http, public afstore: AngularFirestore, private regisSVC:RegisterService) { }
 
   ngOnInit() {
+ 
     this.dataSvc.getTodos().subscribe(res => {
       this.todos = res;
     });
 
-    // this.imageSource = 'a'
-    // this.getPoto();
   }
 
-  // createPost(){
-  //   const image = this.imageURL 
-  //   this.afstore.doc(`todos/${this.dataSvc.getUID()}`).update({
-  //     posts: firestore.FieldValue.arrayUnion({
-  //       image
-  //     })
-  //   })
-  // }
- 
-  // getPoto(){
-  //   firebase.storage().ref().child('images/'+ this.imageSource+'.jpg')
-  //   .getDownloadURL().then((url)=>{
-  //     this.poto = url;
-  //   })
-  // }
-
-  // async addPhoto(source: string) {
-  //   if (source === 'camera') {
-  //     console.log('camera');
-  //     const cameraPhoto = await this.openCamera();
-  //     this.imagess = 'data:image/jpg;base64,' + cameraPhoto;
-  //   } else {
-  //     console.log('library');
-  //     const libraryImage = await this.openLibrary();
-  //     this.imagess = 'data:image/jpg;base64,' + libraryImage;
-  //   }
-  // }
-
-  // async openCamera() {
-  //   const options: CameraOptions = {
-  //     quality: 100,
-  //     destinationType: this.camera.DestinationType.DATA_URL,
-  //     encodingType: this.camera.EncodingType.JPEG,
-  //     mediaType: this.camera.MediaType.PICTURE,
-  //     targetWidth: 1000,
-  //     targetHeight: 1000,
-  //     sourceType: this.camera.PictureSourceType.CAMERA
-  //   };
-  //   return await this.camera.getPicture(options);
-  // }
-
-// async openLibrary() {
-//   const options: CameraOptions = {
-//     quality: 100,
-//     destinationType: this.camera.DestinationType.DATA_URL,
-//     encodingType: this.camera.EncodingType.JPEG,
-//     mediaType: this.camera.MediaType.PICTURE,
-//     targetWidth: 1000,
-//     targetHeight: 1000,
-//     sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
-//   };
-//   return await this.camera.getPicture(options);
-// }
 
 
   remove(item){
@@ -145,10 +107,34 @@ export class AddTimelinePage implements OnInit {
     else{
       const Iduser = await Storage.get({ key : 'IdUser'});
       this.todo.idd = Iduser.value;
-      this.dataSvc.addTodo(this.todo).then(()=>{
-        loading.dismiss();
-        this.router.navigateByUrl('/home/tabs/progress');
-      })
+      this.testid = Iduser.value;
+      this.regisSVC.getRegisters().subscribe(res => {
+        this.registers = res;
+  
+        for(let data of this.registers){
+          if(data.iddd == this.testid){
+            this.term6.push(data)
+            this.nama = data.nama;
+            this.todo.name = data.nama;
+           console.log(this.todo.name)
+           this.dataSvc.addTodo(this.todo).then(()=>{
+            loading.dismiss();
+            console.log("asdasd"+ this.term6)
+            console.log(this.nama)
+            this.router.navigateByUrl('/home/tabs/progress');
+          })
+
+          }
+  
+        }
+      });
+      console.log(this.todo.name)
+      // this.dataSvc.addTodo(this.todo).then(()=>{
+      //   loading.dismiss();
+      //   console.log("asdasd"+ this.term6)
+      //   console.log(this.nama)
+      //   this.router.navigateByUrl('/home/tabs/progress');
+      // })
       //this.dataSvc.addTodo(this.todo);
     }
   }
